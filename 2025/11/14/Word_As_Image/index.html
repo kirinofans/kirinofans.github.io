@@ -1,0 +1,596 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>[论文阅读]Word-As-Image for Semantic Typography | Kirinofans的博客</title><meta name="author" content="Kirinofans"><meta name="copyright" content="Kirinofans"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="[论文笔记] 文字秒变插画：语义排版自动魔法 paper:Word-As-Image for Semantic Typography Comments: this page Subjects:	Computer Vision and Pattern Recognition (cs.CV); Artificial Intelligence (cs.AI); Graphics (cs.GR) 摘要">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[论文阅读]Word-As-Image for Semantic Typography">
+<meta property="og:url" content="http://example.com/2025/11/14/Word_As_Image/index.html">
+<meta property="og:site_name" content="Kirinofans的博客">
+<meta property="og:description" content="[论文笔记] 文字秒变插画：语义排版自动魔法 paper:Word-As-Image for Semantic Typography Comments: this page Subjects:	Computer Vision and Pattern Recognition (cs.CV); Artificial Intelligence (cs.AI); Graphics (cs.GR) 摘要">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://image.baidu.com/search/down?url=https://tvax4.sinaimg.cn/large/009frmRQly1iblkevaqgij30go08c3yq.jpg%20-%20paper">
+<meta property="article:published_time" content="2025-11-14T02:02:00.000Z">
+<meta property="article:modified_time" content="2026-03-27T09:14:05.142Z">
+<meta property="article:author" content="Kirinofans">
+<meta property="article:tag" content="论文阅读">
+<meta property="article:tag" content="Diffusion Model">
+<meta property="article:tag" content="Vector Graphics">
+<meta property="article:tag" content="Semantic Typography">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://image.baidu.com/search/down?url=https://tvax4.sinaimg.cn/large/009frmRQly1iblkevaqgij30go08c3yq.jpg%20-%20paper"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2025/11/14/Word_As_Image/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: {"defaultEncoding":1,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Error',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: 'days',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '[论文阅读]Word-As-Image for Semantic Typography',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2026-03-27 17:14:05'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/transpancy.css"><meta name="generator" content="Hexo 7.3.0"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">Loading...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load',() => { preloader.endLoading() })
+
+  if (true) {
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+  }
+})()</script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/profile.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">25</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">39</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/chat/"><i class="fa-fw fas fa-comments"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://image.baidu.com/search/down?url=https://tvax4.sinaimg.cn/large/009frmRQly1iblkevaqgij30go08c3yq.jpg - paper')"><nav id="nav"><span id="blog-info"><a href="/" title="Kirinofans的博客"><img class="site-icon" src="https://image.baidu.com/search/down?url=https://tvax3.sinaimg.cn/large/009frmRQly1ibks87f20wj306c06cjry.jpg"/><span class="site-name">Kirinofans的博客</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/chat/"><i class="fa-fw fas fa-comments"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">[论文阅读]Word-As-Image for Semantic Typography</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2025-11-14T02:02:00.000Z" title="Created 2025-11-14 10:02:00">2025-11-14</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2026-03-27T09:14:05.142Z" title="Updated 2026-03-27 17:14:05">2026-03-27</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word Count:</span><span class="word-count">3.3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading Time:</span><span>10mins</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="[论文阅读]Word-As-Image for Semantic Typography"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="论文笔记-文字秒变插画：语义排版自动魔法">[论文笔记] 文字秒变插画：语义排版自动魔法</h1>
+<p>paper:<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2303.01818">Word-As-Image for Semantic Typography</a><br>
+Comments: <a target="_blank" rel="noopener" href="https://wordasimage.github.io/Word-As-Image-Page/">this page</a><br>
+Subjects:	<strong>Computer Vision and Pattern Recognition (<a target="_blank" rel="noopener" href="http://cs.CV">cs.CV</a>); Artificial Intelligence (<a target="_blank" rel="noopener" href="http://cs.AI">cs.AI</a>); Graphics (<a target="_blank" rel="noopener" href="http://cs.GR">cs.GR</a>)</strong></p>
+<h2 id="摘要">摘要</h2>
+<p><img src="https://image.baidu.com/search/down?url=https://tvax4.sinaimg.cn/large/009frmRQly1iblkiq616sj30hj037mxs.jpg" alt="image"><br>
+“文字图像化”是一种极具吸引力的语义排版技术，旨在通过字母的图形元素可视化呈现单词语义，同时保持单词的可读性。然而，这一过程长期依赖设计师手工创作，门槛极高。现有自动方法存在诸多缺陷：输出光栅位图难以编辑、依赖预定义图标导致概念受限、或过度变形牺牲可读性。</p>
+<p>本文提出了一套无需人工干预的全自动算法，能够在向量域中生成“文字图像化”插画。该方法结合了可微分矢量图形渲染技术与预训练大型语言-视觉模型，通过设计包含语义损失、可读性约束与风格保真的损失函数，首次同时满足了“语义精准传达、文字可读性保留、字体风格保真”三大关键条件，填补了语义排版自动化的技术空白。</p>
+<hr>
+<h2 id="1-背景与目标">1. 背景与目标</h2>
+<h3 id="1-1-文字图像化的定义与价值">1.1 文字图像化的定义与价值</h3>
+<p>“文字图像化”是语义排版中一种复杂且具吸引力的技术。</p>
+<ul>
+<li><strong>语义排版</strong>：利用排版元素（字体、字号、样式等）视觉强化文本含义。</li>
+<li><strong>文字图像化</strong>：仅通过字母的图形元素来呈现单词语义，同时保持单词整体的可读性。</li>
+</ul>
+<h3 id="1-2-现有技术的困境">1.2 现有技术的困境</h3>
+<p><strong>手动创作门槛高</strong>：<br>
+需理解并呈现概念的视觉特征，以简洁美观的方式传达语义且不损害可读性，将视觉概念融入字母形状，这需要大量的创造力与设计能力。</p>
+<p><strong>现有自动方法缺陷</strong>：</p>
+<ol>
+<li><strong>输出光栅位图</strong>：放大失真、难以二次编辑。</li>
+<li><strong>依赖预定义图标</strong>：概念受限、灵活性差。</li>
+<li><strong>牺牲可读性</strong>：过度变形为艺术字，丢失文字功能。</li>
+</ol>
+<p>这些方法无法同时满足“语义清晰、可读、可编辑”三大需求。</p>
+<h3 id="1-3-研究目标与应用价值">1.3 研究目标与应用价值</h3>
+<p><strong>核心技术目标</strong>：<br>
+提出一套无需人工干预的算法，自动生成“文字图像化”插画，必须同时满足三个此前难以兼得的关键条件：</p>
+<ol>
+<li><strong>语义精准传达</strong>。</li>
+<li><strong>文字可读性保留</strong>。</li>
+<li><strong>字体风格保真</strong>。</li>
+</ol>
+<p><strong>应用价值</strong>：</p>
+<ul>
+<li><strong>降低设计门槛</strong>：非专业用户可快速生成。</li>
+<li><strong>适配多场景需求</strong>：生成的向量图可用于Logo、海报、贺卡、品牌标识等。</li>
+<li><strong>推动自动化</strong>：为“文字即插画”提供可行方案，后续可扩展至多语言、多风格。</li>
+</ul>
+<hr>
+<h2 id="2-与相关工作的区别及其瓶颈">2. 与相关工作的区别及其瓶颈</h2>
+<h3 id="2-1-现有方法分类与局限">2.1 现有方法分类与局限</h3>
+<p><img src="https://image.baidu.com/search/down?url=https://tvax1.sinaimg.cn/large/009frmRQly1iblkkpn895j30kk0b4whc.jpg" alt="image"></p>
+<ul>
+<li><strong>A类 - 光栅纹理与形状匹配</strong>：
+<ul>
+<li>依赖光栅纹理、手动创建样式放置于笔划分割之上，或将文本变形为预定义目标形状。</li>
+<li><strong>局限</strong>：非向量，依赖预设形状。需人工定义风格或模板，缺乏自动化能力，且无法根据单词语义动态调整；</li>
+</ul>
+</li>
+<li><strong>B类 - 字母风格化</strong>：
+<ul>
+<li>依赖模板、用户引导或自动笔画分割。</li>
+<li><strong>局限</strong>：需依赖人工定义的风格，缺乏自动化能力。</li>
+</ul>
+</li>
+<li><strong>D类 - 书法生成</strong>：
+<ul>
+<li>在书法生成任务中 [Xu and Kaplan 2007; Zou et al. 2016]，整个单词会被变形为预设的目标形状。</li>
+<li><strong>局限</strong>：优先“形状匹配”而非“单词可读性”，与本文本质不同。</li>
+</ul>
+</li>
+<li><strong>C, E类 - 文本语义风格化（最相关）</strong>：
+<ul>
+<li>将字母或笔画替换为剪贴画图标。</li>
+<li><strong>局限</strong>：在光栅域操作，依赖现有图标库，概念局限于数据集、无法扩展到新词汇，且在光栅域操作，灵活性差。</li>
+</ul>
+</li>
+</ul>
+<p>这些方法均在光栅域操作，且依赖 “现有图标替换”，这使得它们的应用局限于数据集内预定义的类别。<br>
+<strong>PS:关于可读性的解释：部分工作既没有针对 “字母” 这一特殊载体添加 “可读性约束”，也没有针对 “字体风格” 添加 “保真机制”，导致生成结果要么是抽象图形，要么丢失字体特征。</strong></p>
+<h3 id="2-2-本文方法的突破">2.2 本文方法的突破</h3>
+<p><img src="https://image.baidu.com/search/down?url=https://tvax3.sinaimg.cn/large/009frmRQly1iblkogyi1ej30ll0eutcp.jpg" alt="image"><br>
+本文方法在<strong>向量域</strong>操作，借助预训练大型语言-视觉模型的表达能力，实现了：</p>
+<ul>
+<li><strong>向量域、自动化、语义驱动、兼顾可读性</strong>。</li>
+<li>可生成全新的、能传达目标语义的插画，不受预定义类别限制。</li>
+<li>克服了光栅纹理不可编辑、预定义图标概念受限、以及传统变形牺牲可读性的问题。</li>
+</ul>
+<hr>
+<h2 id="3-方法设计">3. 方法设计</h2>
+<h3 id="3-1-预处理与初始化">3.1 预处理与初始化</h3>
+<p><img src="https://image.baidu.com/search/down?url=https://tvax4.sinaimg.cn/large/009frmRQly1iblkpa2xhfj30ns07bjth.jpg" alt="image"></p>
+<ul>
+<li><strong>输入</strong>：目标单词和选定的字体。</li>
+<li><strong>解析字体</strong>：提取单词中每个字母的原始向量轮廓，表示为三次贝塞尔曲线集合（二次及以下弯曲自由度不足，控制点集合 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo>=</mo><mo stretchy="false">{</mo><msub><mi>p</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>p</mi><mn>2</mn></msub><mo separator="true">,</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mo separator="true">,</mo><msub><mi>p</mi><mi>k</mi></msub><mo stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">P=\{p_1, p_2, ..., p_k\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord"><span class="mord mathdefault">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">.</span><span class="mord">.</span><span class="mord">.</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">}</span></span></span></span>）。</li>
+<li><strong>控制点细分</strong>：对控制点过少的字母进行“控制点细分”，增加后续变形的灵活性。橙色点是初始端点，蓝点是细分后的控制点。<br>
+<img src="https://image.baidu.com/search/down?url=https://tvax4.sinaimg.cn/large/009frmRQly1iblkpgqifsj30jr04y76i.jpg" alt="image"></li>
+</ul>
+<h3 id="3-2-核心组件：可微分渲染与低通滤波">3.2 核心组件：可微分渲染与低通滤波</h3>
+<p><strong>低通滤波器（LPF）</strong>：</p>
+<ul>
+<li><strong>输入</strong>：原始字母光栅图 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mo stretchy="false">(</mo><mi>P</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">R(P)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mclose">)</span></span></span></span>、变形后字母光栅图 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mo stretchy="false">(</mo><mover accent="true"><mi>P</mi><mo>^</mo></mover><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">R(\hat{P})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.19677em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="mopen">(</span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9467699999999999em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">P</span></span></span><span style="top:-3.25233em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.16666em;"><span class="mord">^</span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>。</li>
+<li><strong>原理</strong>：提取低频信号（整体轮廓形状、笔画粗细宏观分布），过滤高频细节（边缘锯齿、微小纹理）。</li>
+<li><strong>目的</strong>：聚焦字体整体风格，而非像素级边缘细节。</li>
+</ul>
+<p><strong>高频分量主要是对图像边缘和轮廓的度量，边缘、细节、纹理？关于这个问题，笔者认为本文的应用场景中，我们需要的是“风格层面的轮廓 / 结构”（低频），而非 “像素层面的边缘细节”（高频）</strong><br>
+<img src="https://image.baidu.com/search/down?url=https://tvax4.sinaimg.cn/large/009frmRQly1iblkpa2xhfj30ns07bjth.jpg" alt="image"><br>
+<strong>可微分矢量图形光栅化</strong>：</p>
+<ul>
+<li>
+<p><strong>背景</strong>：传统矢量图形渲染（如 SVG 渲染）是不可微分的：渲染过程是 “矢量→像素” 的单向映射，像素的变化无法反向推导到矢量参数的调整。DiffVG 是一个可微分的矢量图形渲染库，由 MIT 的 Bachi Li 团队于 2020 年提出（论文《Differentiable Vector Graphics Rasterization for Editing and Learning》）。它的核心价值是让矢量图形的渲染过程可微分—— 即能将像素图像的梯度反向传播到矢量图形的参数（如贝塞尔曲线的控制点、颜色、笔画宽度等），从而实现 “以图像损失为目标，优化矢量图形参数” 的端到端训练</p>
+</li>
+<li>
+<p><strong>工具</strong>：DiffVG（MIT Bachi Li团队，2020）。</p>
+</li>
+<li>
+<p><strong>作用</strong>：让渲染过程可微分，将像素图像梯度反向传播到矢量参数（控制点、颜色、宽度），实现端到端训练。</p>
+</li>
+<li>
+<p><strong>流程</strong>：输入：语义化变形后的字母矢量参数（贝塞尔曲线控制点）输出：字母的光栅化图像</p>
+</li>
+</ul>
+<p><strong>数据增强</strong>：<br>
+提升模型鲁棒性，对字母的 “视角、位置、缩放” 等变化更鲁棒，确保生成的语义化变形在不同场景下都有效</p>
+<h3 id="3-3-损失函数设计">3.3 损失函数设计</h3>
+<p>本文设计了三个损失函数协同工作：<br>
+<img src="https://image.baidu.com/search/down?url=https://tvax3.sinaimg.cn/large/009frmRQly1iblksy1ptgj30s008mdik.jpg" alt="image"><br>
+<strong>1. LSDS 损失（语义导向）</strong></p>
+<ul>
+<li><strong>输入</strong>：光栅图像、目标单词语义提示词。</li>
+<li><strong>机制</strong>：利用CLIP文本编码器将提示词转为嵌入向量。</li>
+<li><strong>作用</strong>：推动控制点向语义特征方向调整。</li>
+<li><strong>扩散模型角色</strong>：本文中扩散模型是“裁判”，不生成图像，而是通过噪声预测判断“当前字母图像是否符合语义”，并给出调整方向（梯度）。</li>
+</ul>
+<p><strong>2. ACAP 损失（可读性约束）</strong></p>
+<ul>
+<li><strong>输入</strong>：原始字母控制点 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi></mrow><annotation encoding="application/x-tex">P</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span></span></span></span>、当前变形控制点 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover accent="true"><mi>P</mi><mo>^</mo></mover></mrow><annotation encoding="application/x-tex">\hat{P}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9467699999999999em;vertical-align:0em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9467699999999999em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">P</span></span></span><span style="top:-3.25233em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.16666em;"><span class="mord">^</span></span></span></span></span></span></span></span></span></span>。</li>
+<li><strong>机制</strong>：计算变形前后三角形的角度变化。</li>
+<li><strong>作用</strong>：约束变形，避免过度变形导致字母不可读。</li>
+</ul>
+<p><strong>3. 色调保留损失（风格保真）</strong></p>
+<ul>
+<li><strong>输入</strong>：原始光栅图 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mo stretchy="false">(</mo><mi>P</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">R(P)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mclose">)</span></span></span></span>、生成变形光栅图 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mo stretchy="false">(</mo><mover accent="true"><mi>P</mi><mo>^</mo></mover><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">R(\hat{P})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.19677em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="mopen">(</span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9467699999999999em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">P</span></span></span><span style="top:-3.25233em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.16666em;"><span class="mord">^</span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>。</li>
+<li><strong>作用</strong>：约束变形字母的明暗分布、笔画粗细与原字体一致。</li>
+</ul>
+<h3 id="3-4-优化策略">3.4 优化策略</h3>
+<p>传统扩散模型（如文生图）：直接从噪声生成符合文本的全新图像<br>
+本文中的扩散模型：是 “裁判”，不生成图像，通过噪声预测判断 “当前字母图像是否符合语义”，<br>
+并给出调整方向（梯度），最终由字母自身的向量参数迭代 “画出” 符合语义的图像。<br>
+<img src="https://image.baidu.com/search/down?url=https://tvax2.sinaimg.cn/large/009frmRQly1iblkvape3aj30u008wq93.jpg" alt="image"></p>
+<ul>
+<li><strong>总结</strong>：LSDS抓语义，ACAP保可读性，色调损失保字体风格。</li>
+<li><strong>链式法则</strong>：损失 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> VAE编码器 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> DiffVG <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> 更新 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover accent="true"><mi>P</mi><mo>^</mo></mover></mrow><annotation encoding="application/x-tex">\hat{P}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9467699999999999em;vertical-align:0em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9467699999999999em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">P</span></span></span><span style="top:-3.25233em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.16666em;"><span class="mord">^</span></span></span></span></span></span></span></span></span></span>。</li>
+<li><strong>训练配置</strong>：使用Adam优化器（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>β</mi><mn>1</mn></msub><mo>=</mo><mn>0.9</mn><mo separator="true">,</mo><msub><mi>β</mi><mn>2</mn></msub><mo>=</mo><mn>0.9</mn><mo separator="true">,</mo><mi>ϵ</mi><mo>=</mo><mn>1</mn><msup><mn>0</mn><mrow><mo>−</mo><mn>6</mn></mrow></msup></mrow><annotation encoding="application/x-tex">\beta_1=0.9, \beta_2=0.9, \epsilon=10^{-6}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05278em;">β</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.05278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord">0</span><span class="mord">.</span><span class="mord">9</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05278em;">β</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.05278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="mord">0</span><span class="mord">.</span><span class="mord">9</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">ϵ</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">6</span></span></span></span></span></span></span></span></span></span></span></span>）。学习率在100次迭代内从0.1预热到0.8，剩余400次迭代从0.8指数衰减到0.4，共500次迭代。</li>
+<li><strong>资源消耗</strong>：至少需10GB内存，RTX 2080 GPU上生成单个字母插画约需5分钟。</li>
+</ul>
+<hr>
+<h2 id="4-实验评估">4. 实验评估</h2>
+<h3 id="4-1-与现有方法对比">4.1 与现有方法对比</h3>
+<p><img src="https://image.baidu.com/search/down?url=https://tvax2.sinaimg.cn/large/009frmRQly1iblkvpm21zj30z10bk46q.jpg" alt="image"><br>
+由于缺乏直接相关的基线，对比了主流文本-图像生成模型：</p>
+<ul>
+<li><strong>对比方法</strong>：(1) Stable Diffusion (SD)；(2) SDEdit；(3) DallE2（整个单词）；(4) DallE2+letter（单个字母）；(5) CLIPDraw。</li>
+<li><strong>测试用例</strong>：单词“bird”（鸟）、“dress”（连衣裙）、“tulip”（郁金香），字体分别为 Bell MT、Quicksand、Noteworthy-Bold。</li>
+</ul>
+<h3 id="4-2-消融实验">4.2 消融实验</h3>
+<p><img src="https://image.baidu.com/search/down?url=https://tvax1.sinaimg.cn/large/009frmRQly1iblkxfmkwxj30sf0em7gf.jpg" alt="image"><br>
+<strong>控制点数量影响</strong>：</p>
+<ul>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>P</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">P_0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>：原始控制点数量。</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi></mrow><annotation encoding="application/x-tex">P</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span></span></span></span>：本文选定超参数。</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mi>x</mi><mi>P</mi></mrow><annotation encoding="application/x-tex">2xP</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord">2</span><span class="mord mathdefault">x</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span></span></span></span>：控制点翻倍。<br>
+实验证明本文选择的控制点数量在灵活性与稳定性间取得了平衡。</li>
+</ul>
+<p><strong>损失函数影响</strong>：</p>
+<ul>
+<li><strong>仅使用 SDS 损失</strong>：显著提高了概念可识别性，但可读性和字体风格保留较低。</li>
+<li><strong>参数 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi></mrow><annotation encoding="application/x-tex">\alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.0037em;">α</span></span></span></span>（ACAP权重）</strong>：
+<ul>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi></mrow><annotation encoding="application/x-tex">\alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.0037em;">α</span></span></span></span> 过大（约束过强）：结果难以充分体现语义概念。</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi></mrow><annotation encoding="application/x-tex">\alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.0037em;">α</span></span></span></span> 过小或为0（约束过弱）：字母可读性受损。</li>
+</ul>
+</li>
+</ul>
+<p><strong>低通滤波器（LPF）参数 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>σ</mi></mrow><annotation encoding="application/x-tex">\sigma</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">σ</span></span></span></span></strong>：</p>
+<ul>
+<li>当 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>σ</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\sigma=1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">σ</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 时，几乎无模糊效果，导致形状约束过强，语义变形不足。</li>
+</ul>
+<hr>
+<h2 id="5-结论-局限与未来工作">5. 结论、局限与未来工作</h2>
+<h3 id="5-1-结论">5.1 结论</h3>
+<ol>
+<li><strong>技术突破</strong>：本文成功研发出一套全自动生成向量格式 “文字图像化” 插画的技术方案—— 无需人工设计干预，仅输入目标单词与字体，即可让字母轮廓在贴合单词语义的同时，保持文字可读性与原字体风格，填补了传统 “手动设计门槛高、现有自动化方案缺陷多” 的技术空白。<br>
+<strong>方法核心优势：兼顾 “泛化性、可读性、风格保真”</strong></li>
+<li><strong>核心优势</strong>：
+<ul>
+<li><strong>泛化能力强</strong>：可处理海量语义概念（如动物、运动、职业等多类别词汇），且适配任意字体（衬线、无衬线、粗体等），不局限于特定场景；</li>
+<li><strong>核心目标达成</strong>：生成的插画同时满足三大关键需求 —— 视觉上能清晰传达语义（如 “鸟” 的字母融入翅膀特征）、文字保持高可读性（变形后仍能识别字母）、严格保留原字体特征（如衬线结构、笔画粗细）</li>
+<li><strong>格式实用性高</strong>：输出向量格式（如 SVG），支持无限缩放不失真，且可后续手动编辑（如调整颜色、微调轮廓），适配 logo、贺卡、标识等多设计场景。</li>
+</ul>
+</li>
+</ol>
+<h3 id="5-2-应用价值">5.2 应用价值</h3>
+<ul>
+<li>
+<p><strong>降低成本</strong>：非专业用户无需掌握设计技能，即可快速生成语义化文字插画，替代传统 “设计师手工创作” 的高耗时模式；</p>
+</li>
+<li>
+<p><strong>提供灵感</strong>：生成结果既可直接作为最终设计，也可作为设计师二次优化的素材，提升设计效率；</p>
+</li>
+<li>
+<p><strong>技术落地</strong>：将预训练大语言 - 视觉模型（如 Stable Diffusion）的能力引入语义排版领域，为 “AI + 设计” 提供新的技术路径。</p>
+</li>
+</ul>
+<h3 id="5-3-现有局限">5.3 现有局限</h3>
+<p><img src="https://image.baidu.com/search/down?url=https://tvax3.sinaimg.cn/large/009frmRQly1iblkyvhowuj30ba0353ys.jpg" alt="image"></p>
+<ol>
+<li><strong>部分场景语义传达失效</strong>：如“belt”（腰带）、“judo”（柔道）等概念难以通过字母变形表达。</li>
+<li><strong>可读性与语义平衡失衡</strong>：部分字母（如“Coat”的“C”、“Gorilla”的“G”）虽传达了语义，但字母识别性严重下降。</li>
+<li><strong>仅支持单字母独立变形</strong>：方法对每个字母单独优化，未考虑单词整体结构，无法实现将整个单词变形为特定形状。</li>
+<li><strong>抽象概念处理局限</strong>：仅能处理“有明确视觉特征”的概念（如“鸟”对应翅膀），对“爱情”、“自由”等抽象概念无法生成合理变形。</li>
+</ol>
+<h3 id="5-4-未来方向">5.4 未来方向</h3>
+<ul>
+<li>优化语义捕捉与形状约束的平衡。</li>
+<li>拓展“单词级整体变形”能力，添加更多损失函数。</li>
+<li>增强抽象概念处理能力与排版能力。</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="http://example.com">Kirinofans</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a target="_blank" rel="noopener" href="https://kirinofans.github.io">https://kirinofans.github.io</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">本blog所有文章除特别声明外，均採用 CC BY-NC-SA 4.0 许可协议。转载请注明来自 Kirinofans！本文引用图表仅用于个人学习与学术总结，版权归原作者及出版机构所有，非商业使用。</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">论文阅读</a><a class="post-meta__tags" href="/tags/Diffusion-Model/">Diffusion Model</a><a class="post-meta__tags" href="/tags/Vector-Graphics/">Vector Graphics</a><a class="post-meta__tags" href="/tags/Semantic-Typography/">Semantic Typography</a></div><div class="post_share"><div class="social-share" data-image="https://image.baidu.com/search/down?url=https://tvax4.sinaimg.cn/large/009frmRQly1iblkevaqgij30go08c3yq.jpg - paper" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2025/11/17/SVGDreamer/" title="[论文阅读]SVGDreamer: Text Guided SVG Generation with Diffusion Model"><img class="cover" src="https://image.baidu.com/search/down?url=https://tvax4.sinaimg.cn/large/009frmRQly1ibljhfsdmgj30go0go7b9.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous</div><div class="prev_info">[论文阅读]SVGDreamer: Text Guided SVG Generation with Diffusion Model</div></div></a></div><div class="next-post pull-right"><a href="/2025/11/02/CAST/" title="[论文阅读]CAST: Component-Aligned 3D Scene Reconstruction from an RGB Image"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next</div><div class="next_info">[论文阅读]CAST: Component-Aligned 3D Scene Reconstruction from an RGB Image</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2025/11/17/SVGDreamer/" title="[论文阅读]SVGDreamer: Text Guided SVG Generation with Diffusion Model"><img class="cover" src="https://image.baidu.com/search/down?url=https://tvax4.sinaimg.cn/large/009frmRQly1ibljhfsdmgj30go0go7b9.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-11-17</div><div class="title">[论文阅读]SVGDreamer: Text Guided SVG Generation with Diffusion Model</div></div></a></div><div><a href="/2025/12/18/SwiftSketch/" title="[论文阅读]SwiftSketch: A Diffusion Model for Image-to-Vector Sketch Generation"><img class="cover" src="https://image.baidu.com/search/down?url=https://tvax2.sinaimg.cn/large/009frmRQly1iblnp63tacj30tt0akdjh.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-12-18</div><div class="title">[论文阅读]SwiftSketch: A Diffusion Model for Image-to-Vector Sketch Generation</div></div></a></div><div><a href="/2026/03/18/Chat2SVG/" title="[论文阅读]Chat2SVG:Vector Graphics Generation with Large Language Models and Image Diffusion Models"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-03-18</div><div class="title">[论文阅读]Chat2SVG:Vector Graphics Generation with Large Language Models and Image Diffusion Models</div></div></a></div><div><a href="/2025/12/14/IP-Composer/" title="[论文阅读]IP-Composer: Semantic Composition of Visual Concepts"><img class="cover" src="https://image.baidu.com/search/down?url=https://tvax2.sinaimg.cn/large/009frmRQly1iblnfhowiaj30ok0d1n75.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-12-14</div><div class="title">[论文阅读]IP-Composer: Semantic Composition of Visual Concepts</div></div></a></div><div><a href="/2025/11/23/SD_XL/" title="[论文阅读]SD-XL: Generating Low-Resolution Quantized Imagery via Score Distillation"><img class="cover" src="https://image.baidu.com/search/down?url=https://tvax4.sinaimg.cn/large/009frmRQly1iblih1oelbj342h0rshdu.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-11-23</div><div class="title">[论文阅读]SD-XL: Generating Low-Resolution Quantized Imagery via Score Distillation</div></div></a></div><div><a href="/2025/11/02/CAST/" title="[论文阅读]CAST: Component-Aligned 3D Scene Reconstruction from an RGB Image"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-11-02</div><div class="title">[论文阅读]CAST: Component-Aligned 3D Scene Reconstruction from an RGB Image</div></div></a></div></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> Comment</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/profile.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Kirinofans</div><div class="author-info__description">献给喜欢桐乃的朋友们</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">25</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">39</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/kirinofans"><i class="fab fa-github"></i><span>别点我！kimo</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/kirinofans" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:2867105717@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #000000;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">高坂桐乃天下第一可爱</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-%E6%96%87%E5%AD%97%E7%A7%92%E5%8F%98%E6%8F%92%E7%94%BB%EF%BC%9A%E8%AF%AD%E4%B9%89%E6%8E%92%E7%89%88%E8%87%AA%E5%8A%A8%E9%AD%94%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">[论文笔记] 文字秒变插画：语义排版自动魔法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%91%98%E8%A6%81"><span class="toc-number">1.1.</span> <span class="toc-text">摘要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E8%83%8C%E6%99%AF%E4%B8%8E%E7%9B%AE%E6%A0%87"><span class="toc-number">1.2.</span> <span class="toc-text">1. 背景与目标</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E6%96%87%E5%AD%97%E5%9B%BE%E5%83%8F%E5%8C%96%E7%9A%84%E5%AE%9A%E4%B9%89%E4%B8%8E%E4%BB%B7%E5%80%BC"><span class="toc-number">1.2.1.</span> <span class="toc-text">1.1 文字图像化的定义与价值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E7%8E%B0%E6%9C%89%E6%8A%80%E6%9C%AF%E7%9A%84%E5%9B%B0%E5%A2%83"><span class="toc-number">1.2.2.</span> <span class="toc-text">1.2 现有技术的困境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-%E7%A0%94%E7%A9%B6%E7%9B%AE%E6%A0%87%E4%B8%8E%E5%BA%94%E7%94%A8%E4%BB%B7%E5%80%BC"><span class="toc-number">1.2.3.</span> <span class="toc-text">1.3 研究目标与应用价值</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E4%B8%8E%E7%9B%B8%E5%85%B3%E5%B7%A5%E4%BD%9C%E7%9A%84%E5%8C%BA%E5%88%AB%E5%8F%8A%E5%85%B6%E7%93%B6%E9%A2%88"><span class="toc-number">1.3.</span> <span class="toc-text">2. 与相关工作的区别及其瓶颈</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E7%8E%B0%E6%9C%89%E6%96%B9%E6%B3%95%E5%88%86%E7%B1%BB%E4%B8%8E%E5%B1%80%E9%99%90"><span class="toc-number">1.3.1.</span> <span class="toc-text">2.1 现有方法分类与局限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E6%9C%AC%E6%96%87%E6%96%B9%E6%B3%95%E7%9A%84%E7%AA%81%E7%A0%B4"><span class="toc-number">1.3.2.</span> <span class="toc-text">2.2 本文方法的突破</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%96%B9%E6%B3%95%E8%AE%BE%E8%AE%A1"><span class="toc-number">1.4.</span> <span class="toc-text">3. 方法设计</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E9%A2%84%E5%A4%84%E7%90%86%E4%B8%8E%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-number">1.4.1.</span> <span class="toc-text">3.1 预处理与初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E6%A0%B8%E5%BF%83%E7%BB%84%E4%BB%B6%EF%BC%9A%E5%8F%AF%E5%BE%AE%E5%88%86%E6%B8%B2%E6%9F%93%E4%B8%8E%E4%BD%8E%E9%80%9A%E6%BB%A4%E6%B3%A2"><span class="toc-number">1.4.2.</span> <span class="toc-text">3.2 核心组件：可微分渲染与低通滤波</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E8%AE%BE%E8%AE%A1"><span class="toc-number">1.4.3.</span> <span class="toc-text">3.3 损失函数设计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-%E4%BC%98%E5%8C%96%E7%AD%96%E7%95%A5"><span class="toc-number">1.4.4.</span> <span class="toc-text">3.4 优化策略</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%AE%9E%E9%AA%8C%E8%AF%84%E4%BC%B0"><span class="toc-number">1.5.</span> <span class="toc-text">4. 实验评估</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-%E4%B8%8E%E7%8E%B0%E6%9C%89%E6%96%B9%E6%B3%95%E5%AF%B9%E6%AF%94"><span class="toc-number">1.5.1.</span> <span class="toc-text">4.1 与现有方法对比</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-%E6%B6%88%E8%9E%8D%E5%AE%9E%E9%AA%8C"><span class="toc-number">1.5.2.</span> <span class="toc-text">4.2 消融实验</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E7%BB%93%E8%AE%BA-%E5%B1%80%E9%99%90%E4%B8%8E%E6%9C%AA%E6%9D%A5%E5%B7%A5%E4%BD%9C"><span class="toc-number">1.6.</span> <span class="toc-text">5. 结论、局限与未来工作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-%E7%BB%93%E8%AE%BA"><span class="toc-number">1.6.1.</span> <span class="toc-text">5.1 结论</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-%E5%BA%94%E7%94%A8%E4%BB%B7%E5%80%BC"><span class="toc-number">1.6.2.</span> <span class="toc-text">5.2 应用价值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-%E7%8E%B0%E6%9C%89%E5%B1%80%E9%99%90"><span class="toc-number">1.6.3.</span> <span class="toc-text">5.3 现有局限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-4-%E6%9C%AA%E6%9D%A5%E6%96%B9%E5%90%91"><span class="toc-number">1.6.4.</span> <span class="toc-text">5.4 未来方向</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/03/27/SVG_Vector_Font_Generation/" title="[论文阅读]SVG Vector Font Generation for Chinese Characters with Transformer">[论文阅读]SVG Vector Font Generation for Chinese Characters with Transformer</a><time datetime="2026-03-27T02:09:54.000Z" title="Created 2026-03-27 10:09:54">2026-03-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/03/26/DiffSensei/" title="[论文阅读]DiffSensei:Bridging Multi-Modal LLMs and Diffusion Models for Customized Manga Generation">[论文阅读]DiffSensei:Bridging Multi-Modal LLMs and Diffusion Models for Customized Manga Generation</a><time datetime="2026-03-26T15:09:54.000Z" title="Created 2026-03-26 23:09:54">2026-03-26</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/03/18/Chat2SVG/" title="[论文阅读]Chat2SVG:Vector Graphics Generation with Large Language Models and Image Diffusion Models">[论文阅读]Chat2SVG:Vector Graphics Generation with Large Language Models and Image Diffusion Models</a><time datetime="2026-03-18T02:09:00.000Z" title="Created 2026-03-18 10:09:00">2026-03-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/01/09/W_Net/" title="[论文阅读]W-Net:One-Shot Arbitrary-Style Chinese Character Generation with Deep Neural Networks">[论文阅读]W-Net:One-Shot Arbitrary-Style Chinese Character Generation with Deep Neural Networks</a><time datetime="2026-01-09T02:09:54.000Z" title="Created 2026-01-09 10:09:54">2026-01-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/12/25/DCT_Net/" title="[论文阅读]DCT-Net: Domain-Calibrated Translation for Portrait Stylization"><img src="https://image.baidu.com/search/down?url=https://tvax4.sinaimg.cn/large/009frmRQly1ibllzxuka4j30yw0gq4lw.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="[论文阅读]DCT-Net: Domain-Calibrated Translation for Portrait Stylization"/></a><div class="content"><a class="title" href="/2025/12/25/DCT_Net/" title="[论文阅读]DCT-Net: Domain-Calibrated Translation for Portrait Stylization">[论文阅读]DCT-Net: Domain-Calibrated Translation for Portrait Stylization</a><time datetime="2025-12-25T02:09:54.000Z" title="Created 2025-12-25 10:09:54">2025-12-25</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://image.baidu.com/search/down?url=https://tvax4.sinaimg.cn/large/009frmRQly1iblkevaqgij30go08c3yq.jpg - paper')"><div id="footer-wrap"><div class="copyright">&copy;2024 - 2026 By Kirinofans</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="Toggle Between Traditional Chinese And Simplified Chinese">简</button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="Scroll To Comments"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="/js/tw_cn.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@5.2.0/instantpage.min.js" type="module"></script><div class="js-pjax"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/copy-tex.min.js"></script><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script><script>(() => {
+  const initValine = () => {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'ZL8DCahd3ViJJ9ZWHgge2XtW-gzGzoHsz',
+      appKey: '9gNuf0jHBKsRO9p11UZuNrGS',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  const loadValine = async () => {
+    if (typeof Valine === 'function') initValine()
+    else {
+      await getScript('https://cdn.jsdelivr.net/npm/valine@1.5.1/dist/Valine.min.js')
+      initValine()
+    }
+  }
+
+  if ('Valine' === 'Valine' || !true) {
+    if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+    else setTimeout(loadValine, 0)
+  } else {
+    window.loadOtherComment = loadValine
+  }
+})()</script></div><script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.19.0/js/md5.min.js"></script><script>window.addEventListener('load', () => {
+  const changeContent = (content) => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[image]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[link]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[code]') // replace code
+    content = content.replace(/<[^>]+>/g,"") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0,150) + '...'
+    }
+    return content
+  }
+
+  const getIcon = (icon, mail) => {
+    if (icon) return icon
+    let defaultIcon = '?d=monsterid'
+    let iconUrl = `https://gravatar.loli.net/avatar/${md5(mail.toLowerCase()) + defaultIcon}`
+    return iconUrl
+  }
+
+  const generateHtml = array => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class=\'aside-list-item\'>'
+
+        if (true) {
+          const name = 'src'
+          result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'></a>`
+        }
+
+        result += `<div class='content'>
+        <a class='comment' href='${array[i].url}' title='${array[i].content}'>${array[i].content}</a>
+        <div class='name'><span>${array[i].nick} / </span><time datetime="${array[i].date}">${btf.diffDate(array[i].date, true)}</time></div>
+        </div></div>`
+      }
+    } else {
+      result += 'No comments'
+    }
+
+    let $dom = document.querySelector('#card-newest-comments .aside-list')
+    $dom && ($dom.innerHTML= result)
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh($dom)
+  }
+
+  const getComment = () => {
+    const serverURL = 'https://ZL8DCahd.api.lncldglobal.com'
+
+    var settings = {
+      "method": "GET",
+      "headers": {
+        "X-LC-Id": 'ZL8DCahd3ViJJ9ZWHgge2XtW-gzGzoHsz',
+        "X-LC-Key": '9gNuf0jHBKsRO9p11UZuNrGS',
+        "Content-Type": "application/json"
+      },
+    }
+
+    fetch(`${serverURL}/1.1/classes/Comment?limit=6&order=-createdAt`,settings)
+      .then(response => response.json())
+      .then(data => {
+        const valineArray = data.results.map(function (e) {
+          return {
+            'avatar': getIcon(e.QQAvatar, e.mail),
+            'content': changeContent(e.comment),
+            'nick': e.nick,
+            'url': e.url + '#' + e.objectId,
+            'date': e.updatedAt,
+          }
+        })
+        saveToLocal.set('valine-newest-comments', JSON.stringify(valineArray), 10/(60*24))
+        generateHtml(valineArray)
+      }).catch(e => {
+        const $dom = document.querySelector('#card-newest-comments .aside-list')
+        $dom.textContent= "Unable to retrieve comments, please check the configuration"
+      }) 
+  }
+
+  const newestCommentInit = () => {
+    if (document.querySelector('#card-newest-comments .aside-list')) {
+      const data = saveToLocal.get('valine-newest-comments')
+      if (data) {
+        generateHtml(JSON.parse(data))
+      } else {
+        getComment()
+      }
+    }
+  }
+
+  newestCommentInit()
+  document.addEventListener('pjax:complete', newestCommentInit)
+})</script><script defer src="https://npm.elemecdn.com/jquery@latest/dist/jquery.min.js"></script><script data-pjax defer src="https://npm.elemecdn.com/tzy-blog/lib/js/theme/chocolate.js"></script><div class="aplayer no-destroy" data-id="60198" data-server="netease" data-type="playlist" data-fixed="true" data-autoplay="true"> </div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="false"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/canvas-fluttering-ribbon.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/click-show-text.min.js" data-mobile="false" data-text="桐乃,一抹多,Kirino" data-fontsize="15px" data-random="false" async="async"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener
+  btf.removeGlobalFnEvent('pjax')
+  btf.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"dialog":{"hitokoto":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/"});</script></body></html>
