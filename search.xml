@@ -4,7 +4,7 @@
     <title>Butterfly-安裝文檔-一-快速開始</title>
     <url>/2024/07/21/Butterfly01/</url>
     <content><![CDATA[
-    <div id="aplayer-TvlmPgoN" class="aplayer aplayer-tag-marker meting-tag-marker"
+    <div id="aplayer-PIxsgyzf" class="aplayer aplayer-tag-marker meting-tag-marker"
          data-id="000PeZCQ1i4XVs" data-server="tencent" data-type="artist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#3F51B5"
     ></div>
 <div class="note green icon-padding flat"><i class="note-icon fas fa-rocket"></i><p>📚  文檔目錄<br>
@@ -81,7 +81,7 @@
     <title>Butterfly 安裝文檔(二) 主題頁面</title>
     <url>/2024/07/21/Butterfly02/</url>
     <content><![CDATA[
-    <div id="aplayer-KwxFHQMw" class="aplayer aplayer-tag-marker meting-tag-marker"
+    <div id="aplayer-ZKWtwYqi" class="aplayer aplayer-tag-marker meting-tag-marker"
          data-id="000PeZCQ1i4XVs" data-server="tencent" data-type="artist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#3F51B5"
     ></div>
 <div class="note green icon-padding flat"><i class="note-icon fas fa-rocket"></i><p>📚  文檔目錄<br>
@@ -427,111 +427,10 @@
       </tags>
   </entry>
   <entry>
-    <title>Butterfly 安裝文檔(五) 主題問答</title>
-    <url>/2024/07/21/Butterfly05/</url>
-    <content><![CDATA[
-    <div id="aplayer-KRKZIMjG" class="aplayer aplayer-tag-marker meting-tag-marker"
-         data-id="000PeZCQ1i4XVs" data-server="tencent" data-type="artist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#3F51B5"
-    ></div>
-<div class="note green icon-padding flat"><i class="note-icon fas fa-rocket"></i><p>📚  文檔目錄<br>
-<a href="/2024/07/21/Butterfly01/" title="Butterfly-安裝文檔-一-快速開始">🚀 快速開始</a> - <a href="/2024/07/21/Butterfly02/" title="Butterfly 安裝文檔(二) 主題頁面">📑 主題頁面</a> - <a href="/2024/07/21/Butterfly03/" title="Butterfly 安裝文檔(三) 主題配置-1">📌 主題配置-1</a> - <a href="/2024/07/21/Butterfly04/" title="Butterfly 安裝文檔(四) 主題配置-2">⚔️ 主題配置-2</a> - <a href="/2024/07/21/Butterfly05/" title="Butterfly 安裝文檔(五) 主題問答">❓ 主題問答</a> - <a href="/2024/07/21/Butterfly06/" title="Butterfly 安裝文檔(六) 進階教程">⚡️ 進階教程</a></p>
-</div>
-<div class="note orange icon-padding flat"><i class="note-icon fas fa-magic"></i><p>你可以通過右下角的 <strong>簡</strong> 按鈕切換為簡體顯示</p>
-</div>
-<hr>
-<p>以下是一些網友在安裝的過程中出現的問題。在提問題之前，先看有沒有解決方法。</p>
-<h3 id="運行後網頁顯示代碼">運行後網頁顯示代碼</h3>
-<p>頁面只顯示 <code>extends includes/layout.pug block content #recent-posts.recent-posts include includes/recent-posts.pug include includes/pagination.pug #aside_content.aside_content include includes/aside.pug</code></p>
-<blockquote>
-<p>請下載安裝：<code>npm install hexo-renderer-pug hexo-renderer-stylus --save</code> or <code>yarn add hexo-renderer-pug hexo-renderer-stylus</code></p>
-</blockquote>
-<h3 id="配置友情鏈接報錯">配置友情鏈接報錯</h3>
-<p>配置友情鏈接頁面時出現報錯</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ERROR D:\Desktop\orxing-blog\themes\Butterfly\layout\flink.pug:2</span><br><span class="line">    1| .flink</span><br><span class="line">  &gt; 2|   each i in site.data.link</span><br><span class="line">    3|     p.comment-word= i.class_name</span><br><span class="line">    4|     .post-cards</span><br><span class="line">    5|       ul.md-links</span><br><span class="line"></span><br><span class="line">Cannot read property &amp;#39;length&amp;#39; of undefined</span><br><span class="line">TypeError: D:\Desktop\orxing-blog\themes\Butterfly\layout\flink.pug:2</span><br><span class="line">    1| .flink</span><br><span class="line">  &gt; 2|   each i in site.data.link</span><br><span class="line">    3|     p.comment-word= i.class_name</span><br><span class="line">    4|     .post-cards</span><br><span class="line">    5|       ul.md-links</span><br><span class="line"></span><br><span class="line">Cannot read property &amp;#39;length&amp;#39; of undefined</span><br><span class="line">    at eval (eval at wrap (D:\Desktop\orxing-blog\node_modules\pug-runtime\wrap.js:6:10), &lt;anonymous&gt;:1890:32)</span><br><span class="line">    at eval (eval at wrap (D:\Desktop\orxing-blog\node_modules\pug-runtime\wrap.js:6:10), &lt;anonymous&gt;:2017:4)</span><br><span class="line">    at template (eval at wrap (D:\Desktop\orxing-blog\node_modules\pug-runtime\wrap.js:6:10), &lt;anonymous&gt;:10152:72)</span><br><span class="line">    at Theme._View.View._compiled (D:\Desktop\orxing-blog\node_modules\hexo\lib\theme\view.js:123:48)</span><br><span class="line">    at Theme._View.View.View.render (D:\Desktop\orxing-blog\node_modules\hexo\lib\theme\view.js:29:15)</span><br><span class="line">    at D:\Desktop\orxing-blog\node_modules\hexo\lib\hexo\index.js:349:21</span><br><span class="line">    at tryCatcher (D:\Desktop\orxing-blog\node_modules\bluebird\js\release\util.js:16:23)</span><br><span class="line">    at D:\Desktop\orxing-blog\node_modules\bluebird\js\release\method.js:15:34</span><br><span class="line">    at RouteStream._read (D:\Desktop\orxing-blog\node_modules\hexo\lib\hexo\router.js:123:3)</span><br><span class="line">    at RouteStream.Readable.read (_stream_readable.js:457:10)</span><br><span class="line">    at resume_ (_stream_readable.js:936:12)</span><br><span class="line">    at processTicksAndRejections (internal/process/task_queues.js:84:9)</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>請檢查 <code>link.yml</code>文檔內代碼的空格</p>
-</blockquote>
-<h3 id="升級最新版後運行報錯">升級最新版後運行報錯</h3>
-<p>升級最新版本hexo g後報錯</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">INFO  Deleted database.</span><br><span class="line">INFO  Start processing</span><br><span class="line">FATAL Something&amp;#39;s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html</span><br><span class="line">TypeError: Cannot read property &amp;#39;enable&amp;#39; of undefined</span><br><span class="line">    at Hexo.&lt;anonymous&gt; (/Users/qinkangdeid/Nextcloud/work/codes/personal/github/personal/qinkangdeid.github.io/themes/Butterfly/scripts/post-lazyload.js:5:23)</span><br><span class="line">    at Hexo.tryCatcher (/Users/qinkangdeid/Nextcloud/work/codes/personal/github/personal/qinkangdeid.github.io/node_modules/bluebird/js/release/util.js:16:23)</span><br><span class="line">    at Hexo.&lt;anonymous&gt; (/Users/qinkangdeid/Nextcloud/work/codes/personal/github/personal/qinkangdeid.github.io/node_modules/bluebird/js/release/method.js:15:34)</span><br><span class="line">    at /Users/qinkangdeid/Nextcloud/work/codes/personal/github/personal/qinkangdeid.github.io/node_modules/hexo/lib/extend/filter.js:60:50</span><br><span class="line">    at tryCatcher (/Users/qinkangdeid/Nextcloud/work/codes/personal/github/personal/qinkangdeid.github.io/node_modules/bluebird/js/release/util.js:16:23)</span><br><span class="line">    at Object.gotValue (/Users/qinkangdeid/Nextcloud/work/codes/personal/github/personal/qinkangdeid.github.io/node_modules/bluebird/js/release/reduce.js:155:18)</span><br><span class="line">    at Object.gotAccum (/Users/qinkangdeid/Nextcloud/work/codes/personal/github/personal/qinkangdeid.github.io/node_modules/bluebird/js/release/reduce.js:144:25)</span><br><span class="line">    at Object.tryCatcher (/Users/qinkangdeid/Nextcloud/work/codes/personal/github/personal/qinkangdeid.github.io/node_modules/bluebird/js/release/util.js:16:23)</span><br><span class="line">    at Promise._settlePromiseFromHandler (/Users/qinkangdeid/Nextcloud/work/codes/personal/github/personal/qinkangdeid.github.io/node_modules/bluebird/js/release/promise.js:517:31)</span><br><span class="line">    at Promise._settlePromise (/Users/qinkangdeid/Nextcloud/work/codes/personal/github/personal/qinkangdeid.github.io/node_modules/bluebird/js/release/promise.js:574:18)</span><br><span class="line">    at Promise._settlePromiseCtx (/Users/qinkangdeid/Nextcloud/work/codes/personal/github/personal/qinkangdeid.github.io/node_modules/bluebird/js/release/promise.js:611:10)</span><br><span class="line">    at _drainQueueStep (/Users/qinkangdeid/Nextcloud/work/codes/personal/github/personal/qinkangdeid.github.io/node_modules/bluebird/js/release/async.js:142:12)</span><br><span class="line">    at _drainQueue (/Users/qinkangdeid/Nextcloud/work/codes/personal/github/personal/qinkangdeid.github.io/node_modules/bluebird/js/release/async.js:131:9)</span><br><span class="line">    at Async._drainQueues (/Users/qinkangdeid/Nextcloud/work/codes/personal/github/personal/qinkangdeid.github.io/node_modules/bluebird/js/release/async.js:147:5)</span><br><span class="line">    at Immediate.Async.drainQueues [as _onImmediate] (/Users/qinkangdeid/Nextcloud/work/codes/personal/github/personal/qinkangdeid.github.io/node_modules/bluebird/js/release/async.js:17:14)</span><br><span class="line">    at processImmediate (internal/timers.js:439:21)</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>請參照最新版的_config.yml, 比對後，把缺的配置複製到主題配置文件中去</p>
-</blockquote>
-<h3 id="wordcount-is-not-a-function-totalcount-is-not-a-function">wordcount is not a function / totalcount is not a function</h3>
-<p>報錯<code>wordcount is not a function</code></p>
-<blockquote>
-<p>請檢查是否安裝了wordcount插件 <code>npm i --save hexo-wordcount</code></p>
-</blockquote>
-<h3 id="升級2-0-0後運行報錯">升級2.0.0後運行報錯</h3>
-<p>舊版本升級到2.0.0後報錯</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">INFO Start processing</span><br><span class="line">FATAL Something’s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html</span><br><span class="line">Template render error: (unknown path)</span><br><span class="line">unexpected end of file</span><br><span class="line">at Object.prettifyError (F:\hexo\nodemodules\nunjucks\src\lib.js:36:11)</span><br><span class="line">at Template.render (F:\hexo\node_modules\nunjucks\src\environment.js:542:21)</span><br><span class="line">at Environment.renderString (F:\hexo\node_modules\nunjucks\src\environment.js:380:17)</span><br><span class="line">at Promise.fromCallback.cb (F:\hexo\node_modules\hexo\lib\extend\tag.js:123:48)</span><br><span class="line">at tryCatcher (F:\hexo\node_modules\bluebird\js\release\util.js:16:23)</span><br><span class="line">at Function.Promise.fromNode.Promise.fromCallback (F:\hexo\node_modules\bluebird\js\release\promise.js:185:30)</span><br><span class="line">at Tag.render (F:\hexo\node_modules\hexo\lib\extend\tag.js:123:18)</span><br><span class="line">at Object.onRenderEnd (F:\hexo\node_modules\hexo\lib\hexo\post.js:280:20)</span><br><span class="line">at Promise.then.then.result (F:\hexo\node_modules\hexo\lib\hexo\render.js:64:19)</span><br><span class="line">at tryCatcher (F:\hexo\node_modules\bluebird\js\release\util.js:16:23)</span><br><span class="line">at Promise.settlePromiseFromHandler (F:\hexo\nodemodules\bluebird\js\release\promise.js:517:31)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>2.0.0版本以上刪掉了gallery，而引入新的gallery。所以如果有使用舊版，需刪掉或者更改寫法。</p>
-</blockquote>
-<h3 id="代碼渲染與實際不同">代碼渲染與實際不同</h3>
-<p>2.1.0 以下版本會出現的問題</p>
-<p>代碼渲染與實際不同</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;div&gt;aaa&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-<p>渲染結果:</p>
-<p><img src="https://jsd.012700.xyz/gh/jerryc127/CDN/img/73515338-e6874d80-442f-11ea-9d07-725d37002985.png" alt=""></p>
-<blockquote>
-<p>cheerio版本錯誤，請安裝0.22.0版本</p>
-<p>npm install cheerio@0.22.0 --save</p>
-</blockquote>
-<h3 id="搜索欄在底部">搜索欄在底部</h3>
-<p>hexo deploy後搜索欄在頁面底部</p>
-<blockquote>
-<p>生成前先hexo clean</p>
-</blockquote>
-<h3 id="本地可以正常運行-但是push上去後出錯-缺失-無效">本地可以正常運行，但是push上去後出錯/缺失/無效</h3>
-<blockquote>
-<ol>
-<li>清理瀏覽器緩存</li>
-<li>如果1無效，請確認上傳時是否有運行 hexo clean</li>
-</ol>
-</blockquote>
-<h3 id="已在hexo的配置文件設置了語言-為什麼導航欄仍然是英文">已在Hexo的配置文件設置了語言，為什麼導航欄仍然是英文</h3>
-<blockquote>
-<p>請在導航的配置裏，自己修改成想要的中文</p>
-</blockquote>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">首頁:</span> <span class="string">/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-home</span></span><br><span class="line"><span class="string">時間軸:</span> <span class="string">/archives/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-archive</span></span><br><span class="line"><span class="string">標籤:</span> <span class="string">/tags/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-tags</span></span><br><span class="line"><span class="string">分類:</span> <span class="string">/categories/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-folder-open</span></span><br></pre></td></tr></table></figure>
-<h3 id="運行報錯-cannot-read-property-bind-of-undefined-full-url-for-is-not-function">運行報錯 Cannot read property ‘bind’ of undefined/full_url_for is not function</h3>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">TypeError: Cannot read property <span class="string">&#x27;bind&#x27;</span> of undefined</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>把Hexo升級到4.0以上版本</p>
-</blockquote>
-<h3 id="cannot-read-property-appid-of-undefined">Cannot read property ‘appId’ of undefined</h3>
-<p>報錯</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">  &gt; <span class="number">1</span>| -</span><br><span class="line">    <span class="number">2</span>|   var algolia = <span class="string">&#x27;undefined&#x27;</span>;</span><br><span class="line">    <span class="number">3</span>|   var env = process.env;</span><br><span class="line">    <span class="number">4</span>|   <span class="keyword">if</span> (theme.algolia_search.enable) &#123;</span><br><span class="line"></span><br><span class="line">Cannot read property <span class="string">&#x27;appId&#x27;</span> of undefined</span><br><span class="line">    at eval (eval at wrap (F:\github\Blog\blog\node_modules\pug<span class="literal">-runtime</span>\wrap.js:<span class="number">6</span>:<span class="number">10</span>), &lt;anonymous&gt;:<span class="number">8</span>:<span class="number">49</span>)</span><br><span class="line">    at template (eval at wrap (F:\github\Blog\blog\node_modules\pug<span class="literal">-runtime</span>\wrap.js:<span class="number">6</span>:<span class="number">10</span>), &lt;anonymous&gt;:<span class="number">329</span>:<span class="number">53</span>)</span><br><span class="line">    at _View._compiledSync (F:\github\Blog\blog\node_modules\hexo\lib\theme\view.js:<span class="number">132</span>:<span class="number">24</span>)</span><br><span class="line">    at _View.renderSync (F:\github\Blog\blog\node_modules\hexo\lib\theme\view.js:<span class="number">59</span>:<span class="number">25</span>)</span><br><span class="line">    at F:\github\Blog\blog\node_modules\hexo\lib\plugins\helper\partial.js:<span class="number">31</span>:<span class="number">52</span></span><br><span class="line">    at Cache.apply (F:\github\Blog\blog\node_modules\hexo\node_modules\hexo<span class="literal">-util</span>\lib\cache.js:<span class="number">27</span>:<span class="number">46</span>)</span><br><span class="line">    at Object.fragmentCache (F:\github\Blog\blog\node_modules\hexo\lib\plugins\helper\fragment_cache.js:<span class="number">11</span>:<span class="number">34</span>)</span><br><span class="line">    at Object.partial (F:\github\Blog\blog\node_modules\hexo\lib\plugins\helper\partial.js:<span class="number">31</span>:<span class="number">17</span>)</span><br><span class="line">    at eval (eval at wrap (F:\github\Blog\blog\node_modules\pug<span class="literal">-runtime</span>\wrap.js:<span class="number">6</span>:<span class="number">10</span>), &lt;anonymous&gt;:<span class="number">149</span>:<span class="number">46</span>)</span><br><span class="line">    at template (eval at wrap (F:\github\Blog\blog\node_modules\pug<span class="literal">-runtime</span>\wrap.js:<span class="number">6</span>:<span class="number">10</span>), &lt;anonymous&gt;:<span class="number">5213</span>:<span class="number">93</span>)</span><br><span class="line">    at _View._compiled (F:\github\Blog\blog\node_modules\hexo\lib\theme\view.js:<span class="number">136</span>:<span class="number">50</span>)</span><br><span class="line">    at _View.render (F:\github\Blog\blog\node_modules\hexo\lib\theme\view.js:<span class="number">39</span>:<span class="number">17</span>)</span><br><span class="line">    at F:\github\Blog\blog\node_modules\hexo\lib\hexo\index.js:<span class="number">64</span>:<span class="number">21</span></span><br><span class="line">    at tryCatcher (F:\github\Blog\blog\node_modules\hexo\node_modules\bluebird\js\release\util.js:<span class="number">16</span>:<span class="number">23</span>)</span><br><span class="line">    at F:\github\Blog\blog\node_modules\hexo\node_modules\bluebird\js\release\method.js:<span class="number">15</span>:<span class="number">34</span></span><br><span class="line">    at RouteStream._read (F:\github\Blog\blog\node_modules\hexo\lib\hexo\router.js:<span class="number">30</span>:<span class="number">5</span>)</span><br><span class="line">    at RouteStream.Readable.read (_stream_readable.js:<span class="number">490</span>:<span class="number">10</span>)</span><br><span class="line">    at resume_ (_stream_readable.js:<span class="number">975</span>:<span class="number">12</span>)</span><br><span class="line">    at processTicksAndRejections (internal/<span class="keyword">process</span>/task_queues.js:<span class="number">80</span>:<span class="number">21</span>) &#123;</span><br><span class="line">  path: <span class="string">&#x27;F:\\github\\Blog\\blog\\themes\\Butterfly\\layout\\includes\\head.pug&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>algolia 插件安裝後還需要配置<br>
-查看插件文檔配置</p>
-</blockquote>
-<h3 id="頂部出現-loading">頂部出現 Loading</h3>
-<blockquote>
-<p>生成前先 hexo clean</p>
-</blockquote>
-<h3 id="點擊中文目錄報錯的問題">點擊中文目錄報錯的問題</h3>
-<p>這種情況出現在主題為 <code>3.0.0</code>以下版本，升級主題就行</p>
-<h3 id="uncaught-referenceerror-regeneratorruntime-is-not-defined">Uncaught ReferenceError: regeneratorRuntime is not defined</h3>
-<p>這是因為使用 babel 壓縮代碼而出現的報錯，具體解決方法查看 <a href="https://github.com/babel/gulp-babel#runtime">babel/gulp-babel</a></p>
-<a class="btn-beautify block orange right larger" href="/posts/4073eda/" 
-  title="⚡️ Butterfly 安裝文檔(六) 進階教程"><i class="far fa-hand-point-right"></i><span>⚡️ Butterfly 安裝文檔(六) 進階教程</span></a>]]></content>
-      <categories>
-        <category>Docs</category>
-      </categories>
-      <tags>
-        <tag>tutorial</tag>
-        <tag>Hexo</tag>
-        <tag>theme</tag>
-        <tag>butterfly</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Butterfly 安裝文檔(三) 主題配置-1</title>
     <url>/2024/07/21/Butterfly03/</url>
     <content><![CDATA[
-    <div id="aplayer-dEcyOyzc" class="aplayer aplayer-tag-marker meting-tag-marker"
+    <div id="aplayer-EVCkXxrn" class="aplayer aplayer-tag-marker meting-tag-marker"
          data-id="000PeZCQ1i4XVs" data-server="tencent" data-type="artist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#3F51B5"
     ></div>
 <div class="note green icon-padding flat"><i class="note-icon fas fa-rocket"></i><p>📚  文檔目錄</p>
@@ -1903,10 +1802,10 @@ w:Rock-y did-nt like that</div>
       </tags>
   </entry>
   <entry>
-    <title>Butterfly 安裝文檔(六) 進階教程</title>
-    <url>/2024/07/21/Butterfly06/</url>
+    <title>Butterfly 安裝文檔(五) 主題問答</title>
+    <url>/2024/07/21/Butterfly05/</url>
     <content><![CDATA[
-    <div id="aplayer-pnsWfRMn" class="aplayer aplayer-tag-marker meting-tag-marker"
+    <div id="aplayer-nvTNmxYI" class="aplayer aplayer-tag-marker meting-tag-marker"
          data-id="000PeZCQ1i4XVs" data-server="tencent" data-type="artist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#3F51B5"
     ></div>
 <div class="note green icon-padding flat"><i class="note-icon fas fa-rocket"></i><p>📚  文檔目錄<br>
@@ -1915,129 +1814,84 @@ w:Rock-y did-nt like that</div>
 <div class="note orange icon-padding flat"><i class="note-icon fas fa-magic"></i><p>你可以通過右下角的 <strong>簡</strong> 按鈕切換為簡體顯示</p>
 </div>
 <hr>
-<h2 id="建議">建議</h2>
-<ol>
-<li>不要把個人需要的文件/圖片放在主題<code>source</code>文件夾裏，因為在升級主題的過程中，可能會把文件覆蓋刪除了。<br>
-在Hexo根目錄的<code>source</code>文件夾裏，創建一個文件夾來放置個人文件/圖片。<br>
-引用文件直接為<code>/文件夾名稱/文件名</code></li>
-</ol>
-<h2 id="音樂">音樂</h2>
-<p>音樂界面使用了插件 <code>hexo-tag-aplayer</code><br>
-使用方法請參考插件<a href="https://github.com/MoePlayer/hexo-tag-aplayer/blob/master/docs/README-zh_cn.md">文檔</a></p>
-<p>音樂頁面只是普通的page頁，按普通頁面操作生成就行。</p>
+<p>以下是一些網友在安裝的過程中出現的問題。在提問題之前，先看有沒有解決方法。</p>
+<h3 id="運行後網頁顯示代碼">運行後網頁顯示代碼</h3>
+<p>頁面只顯示 <code>extends includes/layout.pug block content #recent-posts.recent-posts include includes/recent-posts.pug include includes/pagination.pug #aside_content.aside_content include includes/aside.pug</code></p>
 <blockquote>
-<p>以下內容可供<strong>選擇</strong>配置</p>
-<p>注意： 仍需要安裝插件<a href="https://github.com/MoePlayer/hexo-tag-aplayer">hexo-tag-aplayer</a></p>
+<p>請下載安裝：<code>npm install hexo-renderer-pug hexo-renderer-stylus --save</code> or <code>yarn add hexo-renderer-pug hexo-renderer-stylus</code></p>
 </blockquote>
-<p>插件會在每一個文件都插入 js 和 css，為了避免這一情況，3.0 版本內置了 aplayer 需要的 css 和 js。</p>
-<p>首先在Hexo根目錄<code>_config</code>裏配置<code>asset_inject</code>為<code>false</code></p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">aplayer:</span></span><br><span class="line">  <span class="attr">asset_inject:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
-<p>然後在你需要使用aplayer的頁面Front-matter添加</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">aplayer: true</span><br></pre></td></tr></table></figure>
-<p>這樣只會在需要aplayer的頁面插入js和css。</p>
-<p>如何添加全局 Aplayer 播放，請參考 <a href="/posts/507c070f/">這篇文章</a></p>
-<h2 id="電影">電影</h2>
-<p>電影界面使用了插件 <code>hexo-butterfly-douban</code><br>
-使用方法請參考插件的<a href="https://github.com/jerryc127/butterfly-plugins/tree/main/hexo-butterfly-douban">文檔</a>。</p>
-<p><strong>注意：</strong></p>
+<h3 id="配置友情鏈接報錯">配置友情鏈接報錯</h3>
+<p>配置友情鏈接頁面時出現報錯</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ERROR D:\Desktop\orxing-blog\themes\Butterfly\layout\flink.pug:2</span><br><span class="line">    1| .flink</span><br><span class="line">  &gt; 2|   each i in site.data.link</span><br><span class="line">    3|     p.comment-word= i.class_name</span><br><span class="line">    4|     .post-cards</span><br><span class="line">    5|       ul.md-links</span><br><span class="line"></span><br><span class="line">Cannot read property &amp;#39;length&amp;#39; of undefined</span><br><span class="line">TypeError: D:\Desktop\orxing-blog\themes\Butterfly\layout\flink.pug:2</span><br><span class="line">    1| .flink</span><br><span class="line">  &gt; 2|   each i in site.data.link</span><br><span class="line">    3|     p.comment-word= i.class_name</span><br><span class="line">    4|     .post-cards</span><br><span class="line">    5|       ul.md-links</span><br><span class="line"></span><br><span class="line">Cannot read property &amp;#39;length&amp;#39; of undefined</span><br><span class="line">    at eval (eval at wrap (D:\Desktop\orxing-blog\node_modules\pug-runtime\wrap.js:6:10), &lt;anonymous&gt;:1890:32)</span><br><span class="line">    at eval (eval at wrap (D:\Desktop\orxing-blog\node_modules\pug-runtime\wrap.js:6:10), &lt;anonymous&gt;:2017:4)</span><br><span class="line">    at template (eval at wrap (D:\Desktop\orxing-blog\node_modules\pug-runtime\wrap.js:6:10), &lt;anonymous&gt;:10152:72)</span><br><span class="line">    at Theme._View.View._compiled (D:\Desktop\orxing-blog\node_modules\hexo\lib\theme\view.js:123:48)</span><br><span class="line">    at Theme._View.View.View.render (D:\Desktop\orxing-blog\node_modules\hexo\lib\theme\view.js:29:15)</span><br><span class="line">    at D:\Desktop\orxing-blog\node_modules\hexo\lib\hexo\index.js:349:21</span><br><span class="line">    at tryCatcher (D:\Desktop\orxing-blog\node_modules\bluebird\js\release\util.js:16:23)</span><br><span class="line">    at D:\Desktop\orxing-blog\node_modules\bluebird\js\release\method.js:15:34</span><br><span class="line">    at RouteStream._read (D:\Desktop\orxing-blog\node_modules\hexo\lib\hexo\router.js:123:3)</span><br><span class="line">    at RouteStream.Readable.read (_stream_readable.js:457:10)</span><br><span class="line">    at resume_ (_stream_readable.js:936:12)</span><br><span class="line">    at processTicksAndRejections (internal/process/task_queues.js:84:9)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>請檢查 <code>link.yml</code>文檔內代碼的空格</p>
+</blockquote>
+<h3 id="升級最新版後運行報錯">升級最新版後運行報錯</h3>
+<p>升級最新版本hexo g後報錯</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">INFO  Deleted database.</span><br><span class="line">INFO  Start processing</span><br><span class="line">FATAL Something&amp;#39;s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html</span><br><span class="line">TypeError: Cannot read property &amp;#39;enable&amp;#39; of undefined</span><br><span class="line">    at Hexo.&lt;anonymous&gt; (/Users/qinkangdeid/Nextcloud/work/codes/personal/github/personal/qinkangdeid.github.io/themes/Butterfly/scripts/post-lazyload.js:5:23)</span><br><span class="line">    at Hexo.tryCatcher (/Users/qinkangdeid/Nextcloud/work/codes/personal/github/personal/qinkangdeid.github.io/node_modules/bluebird/js/release/util.js:16:23)</span><br><span class="line">    at Hexo.&lt;anonymous&gt; (/Users/qinkangdeid/Nextcloud/work/codes/personal/github/personal/qinkangdeid.github.io/node_modules/bluebird/js/release/method.js:15:34)</span><br><span class="line">    at /Users/qinkangdeid/Nextcloud/work/codes/personal/github/personal/qinkangdeid.github.io/node_modules/hexo/lib/extend/filter.js:60:50</span><br><span class="line">    at tryCatcher (/Users/qinkangdeid/Nextcloud/work/codes/personal/github/personal/qinkangdeid.github.io/node_modules/bluebird/js/release/util.js:16:23)</span><br><span class="line">    at Object.gotValue (/Users/qinkangdeid/Nextcloud/work/codes/personal/github/personal/qinkangdeid.github.io/node_modules/bluebird/js/release/reduce.js:155:18)</span><br><span class="line">    at Object.gotAccum (/Users/qinkangdeid/Nextcloud/work/codes/personal/github/personal/qinkangdeid.github.io/node_modules/bluebird/js/release/reduce.js:144:25)</span><br><span class="line">    at Object.tryCatcher (/Users/qinkangdeid/Nextcloud/work/codes/personal/github/personal/qinkangdeid.github.io/node_modules/bluebird/js/release/util.js:16:23)</span><br><span class="line">    at Promise._settlePromiseFromHandler (/Users/qinkangdeid/Nextcloud/work/codes/personal/github/personal/qinkangdeid.github.io/node_modules/bluebird/js/release/promise.js:517:31)</span><br><span class="line">    at Promise._settlePromise (/Users/qinkangdeid/Nextcloud/work/codes/personal/github/personal/qinkangdeid.github.io/node_modules/bluebird/js/release/promise.js:574:18)</span><br><span class="line">    at Promise._settlePromiseCtx (/Users/qinkangdeid/Nextcloud/work/codes/personal/github/personal/qinkangdeid.github.io/node_modules/bluebird/js/release/promise.js:611:10)</span><br><span class="line">    at _drainQueueStep (/Users/qinkangdeid/Nextcloud/work/codes/personal/github/personal/qinkangdeid.github.io/node_modules/bluebird/js/release/async.js:142:12)</span><br><span class="line">    at _drainQueue (/Users/qinkangdeid/Nextcloud/work/codes/personal/github/personal/qinkangdeid.github.io/node_modules/bluebird/js/release/async.js:131:9)</span><br><span class="line">    at Async._drainQueues (/Users/qinkangdeid/Nextcloud/work/codes/personal/github/personal/qinkangdeid.github.io/node_modules/bluebird/js/release/async.js:147:5)</span><br><span class="line">    at Immediate.Async.drainQueues [as _onImmediate] (/Users/qinkangdeid/Nextcloud/work/codes/personal/github/personal/qinkangdeid.github.io/node_modules/bluebird/js/release/async.js:17:14)</span><br><span class="line">    at processImmediate (internal/timers.js:439:21)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>請參照最新版的_config.yml, 比對後，把缺的配置複製到主題配置文件中去</p>
+</blockquote>
+<h3 id="wordcount-is-not-a-function-totalcount-is-not-a-function">wordcount is not a function / totalcount is not a function</h3>
+<p>報錯<code>wordcount is not a function</code></p>
+<blockquote>
+<p>請檢查是否安裝了wordcount插件 <code>npm i --save hexo-wordcount</code></p>
+</blockquote>
+<h3 id="升級2-0-0後運行報錯">升級2.0.0後運行報錯</h3>
+<p>舊版本升級到2.0.0後報錯</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">INFO Start processing</span><br><span class="line">FATAL Something’s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html</span><br><span class="line">Template render error: (unknown path)</span><br><span class="line">unexpected end of file</span><br><span class="line">at Object.prettifyError (F:\hexo\nodemodules\nunjucks\src\lib.js:36:11)</span><br><span class="line">at Template.render (F:\hexo\node_modules\nunjucks\src\environment.js:542:21)</span><br><span class="line">at Environment.renderString (F:\hexo\node_modules\nunjucks\src\environment.js:380:17)</span><br><span class="line">at Promise.fromCallback.cb (F:\hexo\node_modules\hexo\lib\extend\tag.js:123:48)</span><br><span class="line">at tryCatcher (F:\hexo\node_modules\bluebird\js\release\util.js:16:23)</span><br><span class="line">at Function.Promise.fromNode.Promise.fromCallback (F:\hexo\node_modules\bluebird\js\release\promise.js:185:30)</span><br><span class="line">at Tag.render (F:\hexo\node_modules\hexo\lib\extend\tag.js:123:18)</span><br><span class="line">at Object.onRenderEnd (F:\hexo\node_modules\hexo\lib\hexo\post.js:280:20)</span><br><span class="line">at Promise.then.then.result (F:\hexo\node_modules\hexo\lib\hexo\render.js:64:19)</span><br><span class="line">at tryCatcher (F:\hexo\node_modules\bluebird\js\release\util.js:16:23)</span><br><span class="line">at Promise.settlePromiseFromHandler (F:\hexo\nodemodules\bluebird\js\release\promise.js:517:31)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>2.0.0版本以上刪掉了gallery，而引入新的gallery。所以如果有使用舊版，需刪掉或者更改寫法。</p>
+</blockquote>
+<h3 id="代碼渲染與實際不同">代碼渲染與實際不同</h3>
+<p>2.1.0 以下版本會出現的問題</p>
+<p>代碼渲染與實際不同</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;div&gt;aaa&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>渲染結果:</p>
+<p><img src="https://jsd.012700.xyz/gh/jerryc127/CDN/img/73515338-e6874d80-442f-11ea-9d07-725d37002985.png" alt=""></p>
+<blockquote>
+<p>cheerio版本錯誤，請安裝0.22.0版本</p>
+<p>npm install cheerio@0.22.0 --save</p>
+</blockquote>
+<h3 id="搜索欄在底部">搜索欄在底部</h3>
+<p>hexo deploy後搜索欄在頁面底部</p>
+<blockquote>
+<p>生成前先hexo clean</p>
+</blockquote>
+<h3 id="本地可以正常運行-但是push上去後出錯-缺失-無效">本地可以正常運行，但是push上去後出錯/缺失/無效</h3>
+<blockquote>
 <ol>
-<li>hexo-butterfly-douban 會主動生成頁面，所以不需要自己創建。</li>
-<li>如遇到無法抓取問題，顯示 <code>INFO  0 movies have been loaded in xxx ms, because you are offline or your network is bad</code><br>
-請過段時間再試試，這我也無能為力。</li>
+<li>清理瀏覽器緩存</li>
+<li>如果1無效，請確認上傳時是否有運行 hexo clean</li>
 </ol>
-<h2 id="説説">説説</h2>
-<h3 id="artitalk">Artitalk</h3>
-<p>安裝插件 <a href="https://www.npmjs.com/package/hexo-butterfly-artitalk">hexo-butterfly-artitalk</a></p>
-<p>具體配置查看<a href="https://github.com/jerryc127/butterfly-plugins/tree/main/hexo-butterfly-artitalk">插件文檔</a></p>
-<h3 id="hexoplusplus-talk">HexoPlusPlus Talk</h3>
-<p>安裝插件 <a href="https://www.npmjs.com/package/hexo-butterfly-hpptalk">hexo-butterfly-hpptalk</a></p>
-<p>具體配置查看<a href="https://github.com/jerryc127/butterfly-plugins/tree/main/hexo-butterfly-hpptalk">插件文檔</a></p>
-<h2 id="自定義代碼配色">自定義代碼配色</h2>
-<a class="btn-beautify block blue" href="/posts/b37b5fe3/" 
-  title="點擊前往"><i class="fas fa-code"></i><span>點擊前往</span></a>
-<h2 id="自定義側邊欄">自定義側邊欄</h2>
-<a class="btn-beautify block green" href="/posts/ea33ab97/" 
-  title="點擊前往"><i class="fas fa-lightbulb"></i><span>點擊前往</span></a>
-<h2 id="添加全局吸底aplayer教程">添加全局吸底Aplayer教程</h2>
-<a class="btn-beautify block pink" href="/posts/507c070f/" 
-  title="點擊前往"><i class="fas fa-music"></i><span>點擊前往</span></a>
-<h2 id="icon">Icon</h2>
-<p>Butterfly主題內置了<a href="https://fontawesome.com/">Font Awesome V5 </a>圖標，目前已更新到 5.13.0，總共有1,588個免費圖標。由於是國外的圖標網站，對於國內的一些網站Icon並不支持。如有需要，你可以引入其它的圖標服務商。</p>
-<h3 id="iconfont">iconfont</h3>
-<p>國內最出名的莫過於<a href="https://www.iconfont.cn/">iconfont</a>,功能很強大且圖標內容很豐富的矢量圖標庫。很多<code>Font Awesome</code>不支持的圖標都可以在這裏找到。同時，<a href="https://www.iconfont.cn/">iconfont</a>支持選擇需要的圖標生成css鏈接，減少不必要的CSS加載。</p>
-<h4 id="註冊賬號">註冊賬號</h4>
-<p>打開<a href="https://www.iconfont.cn/">iconfont</a>的網站，點擊導航欄的<code>人像</code>圖標，會跳出註冊界面，按要求註冊賬號。</p>
-<p><img src="https://jsd.012700.xyz/gh/jerryc127/CDN/img/butterfly-iconfont.png" alt="Snipaste_2020-05-28_21-12-01"></p>
-<h4 id="添加圖標入庫">添加圖標入庫</h4>
-<p>選擇自己需要的圖標，把鼠標移到圖標上，會顯示三個按鈕（依次是添加入庫、收藏和下載），而我們需要的是把圖標添加入庫</p>
-<p><img src="https://jsd.012700.xyz/gh/jerryc127/CDN/img/butterfly-iconfont-add.png" alt="image-20200528205401440"></p>
-<p>添加入庫後，你可以看到網站右上角<code>購物車</code>圖標顯示了<code>1</code>字，代表圖標已經添加入庫，點擊<code>購物車</code>圖標，會彈出側邊欄顯示詳情。</p>
-<p><img src="https://jsd.012700.xyz/gh/jerryc127/CDN/img/butterfly-iconfont-check.png" alt="image-20200528205925258"></p>
-<p><img src="https://jsd.012700.xyz/gh/jerryc127/CDN/img/butterfly-iconfont-detail.png" alt="image-20200528210120442"></p>
-<p>已選擇的圖標會顯示在上面，你可以重複上面的操作，把需要的圖標添加入庫，然後點擊<code>添加到項目</code>。</p>
-<p>接下來會要求選擇項目名稱，沒有的自己創建一個。</p>
-<p><img src="https://jsd.012700.xyz/gh/jerryc127/CDN/img/butterfly-iconfont-create.png" alt="image-20200528211624459"></p>
-<h4 id="生成css鏈接">生成CSS鏈接</h4>
-<p>在添加到項目之後，會跳到項目的詳情界面。點擊<code>Font class</code>，然後再點擊<code>暫無代碼，點擊生成</code>文字。網站會自動生成CSS鏈接，我們只需要複製鏈接就行。</p>
-<p><img src="https://jsd.012700.xyz/gh/jerryc127/CDN/img/butterfly-iconfont-link.png" alt="image-20200528212301786"></p>
-<h4 id="添加鏈接進主題配置文件">添加鏈接進主題配置文件</h4>
-<p>打開<code>主題配置文件</code>，找到<code>inject</code>配置，按要求把鏈接填入</p>
-<p><img src="https://jsd.012700.xyz/gh/jerryc127/CDN/img/butterfly-iconfont-setting.png" alt="image-20200528212440743"></p>
-<p>在我們需要使用的地方填入icon，例如<code>Menu</code>，圖片使用格式為<code>iconfont icon名字</code></p>
-<p><img src="https://jsd.012700.xyz/gh/jerryc127/CDN/img/butterfly-iconfont-setting-menu.png" alt="image-20200528213151304"></p>
-<p>運行Butterfly之後，你就可以看到menu的圖標生效了</p>
-<p><img src="https://jsd.012700.xyz/gh/jerryc127/CDN/img/butterfly-iconfont-show.png" alt="image-20200528213346338"></p>
-<h4 id="其他添加方法">其他添加方法</h4>
-<p>除了通過引入CSS鏈接使用圖標，iconfont也支持通過其它方法使用圖標，具體可查看<a href="https://www.iconfont.cn/help/detail?helptype=code">iconfont官方使用文檔</a></p>
-<h3 id="其它圖標提供商">其它圖標提供商</h3>
-<p>除了<a href="https://www.iconfont.cn/">iconfont</a>，還有<a href="https://github.com/Remix-Design/RemixIcon">RemixIcon</a>、<a href="https://www.flaticon.com/categories/seo-and-web">Flaticon</a>等等提供商，很多圖標可以選擇，具體使用方法請參考各自的文檔。</p>
-<h2 id="圖片壓縮">圖片壓縮</h2>
-<p>Butterfly主題需要使用到很多圖片。如果圖片太大，會嚴重拖慢網站的加載速度。</p>
-<p>圖片壓縮能夠有效的緩解這個問題。</p>
-<p>除了通過<code>gulp-imagemin</code>來壓縮圖片，還可以通過在綫壓縮網站和軟件來進行壓縮。以下兩款是我自己正在使用的工具。網上有很多這樣的工具，挑選一款適合自己的就行。</p>
-<ul>
-<li>
-<p><a href="https://tinypng.com/">tinypng</a></p>
-<p>一個在綫壓縮的網站。壓縮後的圖片也保留了很高的質量，在知乎上很多人推薦，不過免費版有限制。</p>
-<p><img src="https://jsd.012700.xyz/gh/jerryc127/CDN/img/butterfly-tinypng.png" alt="image-20200526173511503"></p>
-</li>
-<li>
-<p><a href="https://saerasoft.com/caesium/">caesium</a></p>
-<p>開源軟件，支持Windows和macOS。可以批量壓縮軟件，無限制。</p>
-<p><img src="https://jsd.012700.xyz/gh/jerryc127/CDN/img/butterfly-caesium.png" alt="image-20200526173316278"></p>
-</li>
-<li>
-<p><a href="https://github.com/marketplace/imgbot">imgbot</a></p>
-</li>
-</ul>
-<p>imgbot 是一款 Github 插件。</p>
-<p>安裝後，你上傳圖片到 Github 去，imgbot 會自動壓縮圖片並推送 PR，我們只需要合併 PR 就行</p>
-<p>你可以配置 imgbot 的偵測方法、壓縮方法（有損/無損），具體可以查看插件的文檔</p>
-<p><img src="https://jsd.012700.xyz/gh/jerryc127/CDN/img/butterfly-enhance-imgbot.png" alt="image-20200830231742951"></p>
-<h2 id="插件推薦">插件推薦</h2>
-<ul>
-<li>
-<p><a href="https://github.com/rozbo/hexo-abbrlink">hexo-abbrlink</a></p>
-<p>可以把鏈接permalink轉為數字的插件，配置容易，生成時自動轉為數字。</p>
-</li>
-<li>
-<p><a href="https://github.com/hexojs/hexo-generator-feed">hexo-generator-feed</a></p>
-<p>生成RSS文件的插件</p>
-</li>
-<li>
-<p><a href="https://github.com/hexojs/hexo-filter-nofollow">hexo-filter-nofollow</a></p>
-<p>為網站使用到的所有外鏈添加<code>rel=&quot;noopener external nofollow noreferrer&quot;</code>, 可以有效地加強網站SEO和防止權重流失</p>
-</li>
-<li>
-<p><a href="https://github.com/hexojs/hexo-generator-sitemap">hexo-generator-sitemap</a></p>
-<p>生成sitemap的插件</p>
-</li>
-<li>
-<p><a href="https://github.com/coneycode/hexo-generator-baidu-sitemap">hexo-generator-baidu-sitemap</a></p>
-<p>看名字就知道，是專門為百度生成sitemap的插件</p>
-</li>
-</ul>
-]]></content>
+</blockquote>
+<h3 id="已在hexo的配置文件設置了語言-為什麼導航欄仍然是英文">已在Hexo的配置文件設置了語言，為什麼導航欄仍然是英文</h3>
+<blockquote>
+<p>請在導航的配置裏，自己修改成想要的中文</p>
+</blockquote>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">首頁:</span> <span class="string">/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-home</span></span><br><span class="line"><span class="string">時間軸:</span> <span class="string">/archives/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-archive</span></span><br><span class="line"><span class="string">標籤:</span> <span class="string">/tags/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-tags</span></span><br><span class="line"><span class="string">分類:</span> <span class="string">/categories/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-folder-open</span></span><br></pre></td></tr></table></figure>
+<h3 id="運行報錯-cannot-read-property-bind-of-undefined-full-url-for-is-not-function">運行報錯 Cannot read property ‘bind’ of undefined/full_url_for is not function</h3>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">TypeError: Cannot read property <span class="string">&#x27;bind&#x27;</span> of undefined</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>把Hexo升級到4.0以上版本</p>
+</blockquote>
+<h3 id="cannot-read-property-appid-of-undefined">Cannot read property ‘appId’ of undefined</h3>
+<p>報錯</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">  &gt; <span class="number">1</span>| -</span><br><span class="line">    <span class="number">2</span>|   var algolia = <span class="string">&#x27;undefined&#x27;</span>;</span><br><span class="line">    <span class="number">3</span>|   var env = process.env;</span><br><span class="line">    <span class="number">4</span>|   <span class="keyword">if</span> (theme.algolia_search.enable) &#123;</span><br><span class="line"></span><br><span class="line">Cannot read property <span class="string">&#x27;appId&#x27;</span> of undefined</span><br><span class="line">    at eval (eval at wrap (F:\github\Blog\blog\node_modules\pug<span class="literal">-runtime</span>\wrap.js:<span class="number">6</span>:<span class="number">10</span>), &lt;anonymous&gt;:<span class="number">8</span>:<span class="number">49</span>)</span><br><span class="line">    at template (eval at wrap (F:\github\Blog\blog\node_modules\pug<span class="literal">-runtime</span>\wrap.js:<span class="number">6</span>:<span class="number">10</span>), &lt;anonymous&gt;:<span class="number">329</span>:<span class="number">53</span>)</span><br><span class="line">    at _View._compiledSync (F:\github\Blog\blog\node_modules\hexo\lib\theme\view.js:<span class="number">132</span>:<span class="number">24</span>)</span><br><span class="line">    at _View.renderSync (F:\github\Blog\blog\node_modules\hexo\lib\theme\view.js:<span class="number">59</span>:<span class="number">25</span>)</span><br><span class="line">    at F:\github\Blog\blog\node_modules\hexo\lib\plugins\helper\partial.js:<span class="number">31</span>:<span class="number">52</span></span><br><span class="line">    at Cache.apply (F:\github\Blog\blog\node_modules\hexo\node_modules\hexo<span class="literal">-util</span>\lib\cache.js:<span class="number">27</span>:<span class="number">46</span>)</span><br><span class="line">    at Object.fragmentCache (F:\github\Blog\blog\node_modules\hexo\lib\plugins\helper\fragment_cache.js:<span class="number">11</span>:<span class="number">34</span>)</span><br><span class="line">    at Object.partial (F:\github\Blog\blog\node_modules\hexo\lib\plugins\helper\partial.js:<span class="number">31</span>:<span class="number">17</span>)</span><br><span class="line">    at eval (eval at wrap (F:\github\Blog\blog\node_modules\pug<span class="literal">-runtime</span>\wrap.js:<span class="number">6</span>:<span class="number">10</span>), &lt;anonymous&gt;:<span class="number">149</span>:<span class="number">46</span>)</span><br><span class="line">    at template (eval at wrap (F:\github\Blog\blog\node_modules\pug<span class="literal">-runtime</span>\wrap.js:<span class="number">6</span>:<span class="number">10</span>), &lt;anonymous&gt;:<span class="number">5213</span>:<span class="number">93</span>)</span><br><span class="line">    at _View._compiled (F:\github\Blog\blog\node_modules\hexo\lib\theme\view.js:<span class="number">136</span>:<span class="number">50</span>)</span><br><span class="line">    at _View.render (F:\github\Blog\blog\node_modules\hexo\lib\theme\view.js:<span class="number">39</span>:<span class="number">17</span>)</span><br><span class="line">    at F:\github\Blog\blog\node_modules\hexo\lib\hexo\index.js:<span class="number">64</span>:<span class="number">21</span></span><br><span class="line">    at tryCatcher (F:\github\Blog\blog\node_modules\hexo\node_modules\bluebird\js\release\util.js:<span class="number">16</span>:<span class="number">23</span>)</span><br><span class="line">    at F:\github\Blog\blog\node_modules\hexo\node_modules\bluebird\js\release\method.js:<span class="number">15</span>:<span class="number">34</span></span><br><span class="line">    at RouteStream._read (F:\github\Blog\blog\node_modules\hexo\lib\hexo\router.js:<span class="number">30</span>:<span class="number">5</span>)</span><br><span class="line">    at RouteStream.Readable.read (_stream_readable.js:<span class="number">490</span>:<span class="number">10</span>)</span><br><span class="line">    at resume_ (_stream_readable.js:<span class="number">975</span>:<span class="number">12</span>)</span><br><span class="line">    at processTicksAndRejections (internal/<span class="keyword">process</span>/task_queues.js:<span class="number">80</span>:<span class="number">21</span>) &#123;</span><br><span class="line">  path: <span class="string">&#x27;F:\\github\\Blog\\blog\\themes\\Butterfly\\layout\\includes\\head.pug&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>algolia 插件安裝後還需要配置<br>
+查看插件文檔配置</p>
+</blockquote>
+<h3 id="頂部出現-loading">頂部出現 Loading</h3>
+<blockquote>
+<p>生成前先 hexo clean</p>
+</blockquote>
+<h3 id="點擊中文目錄報錯的問題">點擊中文目錄報錯的問題</h3>
+<p>這種情況出現在主題為 <code>3.0.0</code>以下版本，升級主題就行</p>
+<h3 id="uncaught-referenceerror-regeneratorruntime-is-not-defined">Uncaught ReferenceError: regeneratorRuntime is not defined</h3>
+<p>這是因為使用 babel 壓縮代碼而出現的報錯，具體解決方法查看 <a href="https://github.com/babel/gulp-babel#runtime">babel/gulp-babel</a></p>
+<a class="btn-beautify block orange right larger" href="/posts/4073eda/" 
+  title="⚡️ Butterfly 安裝文檔(六) 進階教程"><i class="far fa-hand-point-right"></i><span>⚡️ Butterfly 安裝文檔(六) 進階教程</span></a>]]></content>
       <categories>
         <category>Docs</category>
       </categories>
@@ -2049,279 +1903,10 @@ w:Rock-y did-nt like that</div>
       </tags>
   </entry>
   <entry>
-    <title>[论文阅读]CAST: Component-Aligned 3D Scene Reconstruction from an RGB Image</title>
-    <url>/2025/11/02/CAST/</url>
-    <content><![CDATA[<h1 id="论文笔记-cast-component-aligned-3d-scene-reconstruction-from-an-rgb-image">[论文笔记] CAST: Component-Aligned 3D Scene Reconstruction from an RGB Image</h1>
-<p>paper:<a href="https://arxiv.org/abs/2502.12894">CAST: Component-Aligned 3D Scene Reconstruction from an RGB Image</a> <!-- 请替换为实际链接 --><br>
-Comments: Project Page: <a href="https://sites.google.com/view/cast4">this https URL</a><br>
-Subjects:	<strong>Computer Vision and Pattern Recognition (<a href="http://cs.CV">cs.CV</a>)</strong></p>
-<h2 id="摘要">摘要</h2>
-<p>单图像恢复高质量 3D 场景是一项极具挑战性的任务。现有技术往往面临领域特定性强（仅限室内）、物体生成质量低（几何缺失、纹理失真）等痛点，且难以处理物体间的空间与物理关系。</p>
-<p>本文提出了 <strong>CAST</strong>，一种新颖的场景重建流水线。该方法摒弃了直接生成整个场景网格的传统思路，转而采用“逐物体生成 + 关系对齐”的策略。通过独立生成高质量 3D 物体网格，并利用生成式模型进行姿态对齐，CAST 成功解决了遮挡、姿态估计不准及物体孤立等问题，实现了通用、泛化的单图像 3D 场景重建。</p>
-<hr>
-<h2 id="1-背景与目标">1. 背景与目标</h2>
-<h3 id="1-1-现有技术的两大痛点">1.1 现有技术的两大痛点</h3>
-<p>单图像 3D 场景重建不仅要还原单个物体的几何与纹理，更要还原物体间的“关系”。目前该领域主要面临两大挑战：</p>
-<ol>
-<li><strong>领域特定性强</strong>：许多方法仅适用于特定场景（如仅能处理室内场景），无法泛化到室外或复杂的野外观测场景。</li>
-<li><strong>物体生成质量低</strong>：生成的物体常存在几何细节缺失、纹理失真等问题，难以满足高质量重建需求。</li>
-</ol>
-<h3 id="1-2-核心目标">1.2 核心目标</h3>
-<p>为了解决上述问题，本文设定了以下核心研究目标：</p>
-<ul>
-<li><strong>突破“物体孤立无关联”</strong>：还原场景中物体的空间与物理关系，建模“细粒度物理关系”（如支撑、接触），确保虚拟环境与真实场景的连贯性。</li>
-<li><strong>解决姿态与遮挡问题</strong>：针对真实场景中物体朝向多样性和单张图像遮挡问题，提升生成的精度与完整性。</li>
-<li><strong>实现通用泛化</strong>：让方法适用于任意场景类型（室内/室外、真实拍摄/AI生成图像）与任意物体类别。</li>
-</ul>
-<hr>
-<h2 id="2-相关工作局限">2. 相关工作局限</h2>
-<h3 id="2-1-多图与单图重建">2.1 多图与单图重建</h3>
-<ul>
-<li><strong>摄影测量法</strong>：虽能高精度捕捉，但需要数十至数百张多视角图像，耗时且资源密集，难以规模化。</li>
-<li><strong>单图像重建</strong>：更高效、可扩展性强，是本文的研究重点。</li>
-</ul>
-<h3 id="2-2-现有单图像场景重建方法的缺陷">2.2 现有单图像场景重建方法的缺陷</h3>
-<ol>
-<li><strong>单目深度估计</strong>：
-<ul>
-<li>从单张图像推断深度信息（生成点云），或通过辐射场等表示学习遮挡先验，补全场景隐藏部分。</li>
-<li><strong>局限</strong>：遮挡处理能力差，无法精准推断被遮挡物体的完整几何；细节不足，多为“体积近似”，缺乏精细网格与纹理。</li>
-</ul>
-</li>
-<li><strong>直接回归几何与语义</strong>：
-<ul>
-<li>通过神经网络直接从图像回归物体的几何结构（如网格）和语义标签（如 “桌子”“椅子”），实现端到端重建。</li>
-<li><strong>局限</strong>：严重依赖数据集，仅在小规模室内数据集有效，无法处理室外及开放世界场景。质量低：几何细节粗糙</li>
-</ul>
-</li>
-<li><strong>基于检索的方法</strong>：
-<ul>
-<li>从预存 3D 数据集（模型库）中检索与场景物体相似的模型，替换并组装成场景，提升重建真实感。</li>
-<li><strong>局限</strong>：但是对于数据集外的物体检索失败，导致重建错误或缺失产生错误的结果，范化性差</li>
-</ul>
-</li>
-</ol>
-<h3 id="2-3-生成模型的整合难题">2.3 生成模型的整合难题</h3>
-<p>现有的 3D 资产生成技术虽已成熟，但整合为场景时面临：</p>
-<ul>
-<li><strong>不可编辑</strong>：生成结果往往是整体的网格，难以拆分编辑。</li>
-<li><strong>流程脱节</strong>：与传统生产流程不兼容。</li>
-</ul>
-<h3 id="2-4-本文解决思路">2.4 本文解决思路</h3>
-<p>作者提出“分析-合成”的新范式：利用预训练生成模型和学习到的先验，直接合成合理的 3D 场景，绕过显式的迭代渲染优化循环。</p>
-<ul>
-<li><strong>策略</strong>：独立生成每个物体，再将它们对齐整合为连贯的场景。</li>
-<li><strong>优势</strong>：保留精准几何与纹理，确保空间关系一致，结果可编辑。</li>
-</ul>
-<hr>
-<h2 id="3-cast-框架">3. CAST 框架</h2>
-<p>CAST 将场景重建拆分为“单个物体生成”和“物体关系对齐”两步，避免了直接生成整个场景带来的不可控性。</p>
-<h3 id="3-1-核心模块概览">3.1 核心模块概览</h3>
-<p><img src="https://image.baidu.com/search/down?url=https://tvax4.sinaimg.cn/large/009frmRQly1iblbsh6yunj30dt0i40vj.jpg" alt="image"><br>
-框架主要包含三个关键部分：</p>
-<ol>
-<li><strong>姿态对齐生成</strong>：计算物体在场景中的旋转、平移、缩放参数。</li>
-<li><strong>遮挡感知生成</strong>：补全被遮挡区域的几何结构。</li>
-<li><strong>纹理模型</strong>：生成逼真的纹理。</li>
-</ol>
-<h3 id="3-2-遮挡感知物体生成">3.2 遮挡感知物体生成</h3>
-<p><img src="https://image.baidu.com/search/down?url=https://tvax2.sinaimg.cn/large/009frmRQly1iblbuae4b4j30bn00yt91.jpg" alt="image"><br>
-<strong>目标</strong>：解决“遮挡导致几何不完整”的问题。</p>
-<ul>
-<li><strong>输入</strong>：掩码图像+ 遮挡掩码+ 规范空间部分点云。</li>
-<li><strong>输出</strong>：完整的物体网格。</li>
-<li><strong>技术细节</strong>：
-<ul>
-<li><strong>利用 DINOv2 的 MAE 能力</strong>：输入可见区域，推断遮挡部分的潜在特征，确保几何完整。</li>
-<li><strong>规范点云条件约束</strong>：生成“真实点云”与“噪声点云”的插值点云，让模型适应不同质量的点云输入，确保几何与点云精准对齐。</li>
-</ul>
-</li>
-</ul>
-<h3 id="3-3-生成式对齐">3.3 生成式对齐</h3>
-<p><strong>目标</strong>：解决“物体姿态与场景空间错位”的问题。</p>
-<ul>
-<li><strong>输入</strong>：规范空间的物体网格 + 噪声 + 场景级部分点云。</li>
-<li><strong>输出</strong>：物体的姿态参数（R, T, S）+ 对齐后的点云。</li>
-<li><strong>技术细节</strong>：
-<ul>
-<li><strong>点云扩散 Transformer</strong>：以“场景空间部分点云”和“物体几何潜在码”为条件，生成“规范空间对齐点云”。</li>
-<li><strong>Umeyama 算法</strong>：利用生成的对齐点云恢复相似变换矩阵，确定物体在场景中的最终位置和姿态。</li>
-</ul>
-</li>
-</ul>
-<h3 id="3-4-迭代生成流程">3.4 迭代生成流程</h3>
-<p><strong>目标</strong>：解决“几何与点云的逐步优化需求”。<br>
-通过“物体生成 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> 姿态对齐 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> 精化”的三步骤迭代循环，逐步提升几何精度与空间对齐度。</p>
-<hr>
-<h2 id="4-实验与结果">4. 实验与结果</h2>
-<h3 id="4-1-消融实验">4.1 消融实验</h3>
-<p>通过“移除/保留关键组件”评估各模块贡献：</p>
-<ul>
-<li><strong>关系图约束的作用</strong>：实验表明，移除关系图约束后，场景重建出现物理不合理现象（如物体悬空）。整合关系图约束后，方法确保了物理合理性和与预期场景的精确对齐，维持了正确的空间关系。</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>方法</th>
-<th>场景级 CD（↓）</th>
-<th>场景级 FS（↑）</th>
-<th>物体级 CD（↓）</th>
-<th>物体级 FS（↑）</th>
-<th>边界框 IoU（↑）</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>基础版（Vanilla）</td>
-<td>0.079</td>
-<td>53.38</td>
-<td>0.069</td>
-<td>52.83</td>
-<td>0.515</td>
-</tr>
-<tr>
-<td>+ MAE（遮挡处理）</td>
-<td>0.064</td>
-<td>53.79</td>
-<td>0.066</td>
-<td>54.32</td>
-<td>0.548</td>
-</tr>
-<tr>
-<td>+ 点云条件（PCD）</td>
-<td>0.056</td>
-<td>53.91</td>
-<td>0.060</td>
-<td>54.60</td>
-<td>0.582</td>
-</tr>
-<tr>
-<td>+ 迭代优化（iter.）</td>
-<td>0.052</td>
-<td>56.18</td>
-<td>0.057</td>
-<td>56.50</td>
-<td>0.603</td>
-</tr>
-</tbody>
-</table>
-<p><img src="https://image.baidu.com/search/down?url=https://tvax2.sinaimg.cn/large/009frmRQly1iblbxk8im7j30k908mdi1.jpg" alt="image"></p>
-<h3 id="4-2-对比结果">4.2 对比结果</h3>
-<p>在视觉质量与物理合理性方面，CAST 显著优于当前最先进的方法，能够有效处理遮挡和未知物体。</p>
-<table>
-<thead>
-<tr>
-<th>方法</th>
-<th>CLIP 分数（视觉相似度）</th>
-<th>GPT-4 排名（语义合理性）</th>
-<th>视觉质量（VQ，用户评分）</th>
-<th>物理合理性（PP，用户评分）</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>ACDC</td>
-<td>69.77</td>
-<td>2.7</td>
-<td>5.58%</td>
-<td>22.86%</td>
-</tr>
-<tr>
-<td>Gen3DSR</td>
-<td>79.84</td>
-<td>2.175</td>
-<td>6.35%</td>
-<td>5.72%</td>
-</tr>
-<tr>
-<td>CAST</td>
-<td>85.77</td>
-<td>1.125</td>
-<td>88.07%</td>
-<td>71.42%</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>方法</th>
-<th>场景级 CD（↓，形状误差）</th>
-<th>场景级 FS（↑，重建完整性）</th>
-<th>物体级 CD（↓，形状误差）</th>
-<th>物体级 FS（↑，重建完整性）</th>
-<th>边界框 IoU（↑，空间对齐）</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>ACDC</td>
-<td>0.104</td>
-<td>39.46</td>
-<td>0.072</td>
-<td>41.99</td>
-<td>0.541</td>
-</tr>
-<tr>
-<td>InstPIFU</td>
-<td>0.092</td>
-<td>39.12</td>
-<td>0.103</td>
-<td>38.29</td>
-<td>0.436</td>
-</tr>
-<tr>
-<td>Gen3DSR</td>
-<td>0.083</td>
-<td>38.95</td>
-<td>0.071</td>
-<td>39.13</td>
-<td>0.459</td>
-</tr>
-<tr>
-<td>CAST</td>
-<td>0.052</td>
-<td>56.18</td>
-<td>0.057</td>
-<td>56.50</td>
-<td>0.603</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<h2 id="5-结论与局限">5. 结论与局限</h2>
-<h3 id="5-1-结论">5.1 结论</h3>
-<p><img src="https://image.baidu.com/search/down?url=https://tvax2.sinaimg.cn/large/009frmRQly1iblby2bk9vj30ku07kmz9.jpg" alt="image"><br>
-<img src="https://image.baidu.com/search/down?url=https://tvax3.sinaimg.cn/large/009frmRQly1iblbybnzslj30en0argp4.jpg" alt="image"></p>
-<ol>
-<li><strong>创新流水线</strong>：提出“场景分解 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> 感知 3D 生成 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> 物理校正”的端到端流水线。</li>
-<li><strong>技术融合</strong>：首次将“GPT-4v 关系识别”、“生成式姿态对齐”、“SDF 物理约束”结合，解决了姿态错位、物体依赖缺失、部分遮挡三大痛点。</li>
-<li><strong>SOTA 表现</strong>：在视觉质量与物理合理性方面显著优于现有方法，为 3D 生成和沉浸式内容创作奠定了基础。</li>
-</ol>
-<h3 id="5-3-局限性与未来工作">5.3 局限性与未来工作</h3>
-<p><img src="https://image.baidu.com/search/down?url=https://tvax1.sinaimg.cn/large/009frmRQly1iblbymrzjcj30ao0a3783.jpg" alt="image"><br>
-尽管表现出色，CAST 仍存在以下局限：</p>
-<ol>
-<li><strong>特殊材质还原不佳</strong>：扩散模型对透明玻璃、软布纺织品等材质的刻画能力不足。</li>
-<li><strong>光照缺失</strong>：当前仅重建形状与姿态，缺乏自然的阴影和照明效果，需用户手动预设，影响真实渲染感。</li>
-<li><strong>密集场景精度下降</strong>：当场景物体过多时，关系图复杂度上升，优化易陷入局部最优，导致重建误差增大。</li>
-</ol>
-]]></content>
-      <categories>
-        <category>paper</category>
-      </categories>
-      <tags>
-        <tag>论文阅读</tag>
-        <tag>3D Scene Reconstruction</tag>
-        <tag>计算机图形学</tag>
-        <tag>Computer Vision</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Butterfly 安裝文檔(四) 主題配置-2</title>
     <url>/2024/07/21/Butterfly04/</url>
     <content><![CDATA[
-    <div id="aplayer-RXFTFlVu" class="aplayer aplayer-tag-marker meting-tag-marker"
+    <div id="aplayer-KbiUrxSZ" class="aplayer aplayer-tag-marker meting-tag-marker"
          data-id="000PeZCQ1i4XVs" data-server="tencent" data-type="artist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#3F51B5"
     ></div>
 <div class="note green icon-padding flat"><i class="note-icon fas fa-rocket"></i><p>📚  文檔目錄</p>
@@ -3172,6 +2757,275 @@ Subjects:	<strong>Computer Vision and Pattern Recognition (<a href="http://cs.CV
       </tags>
   </entry>
   <entry>
+    <title>[论文阅读]CAST: Component-Aligned 3D Scene Reconstruction from an RGB Image</title>
+    <url>/2025/11/02/CAST/</url>
+    <content><![CDATA[<h1 id="论文笔记-cast-component-aligned-3d-scene-reconstruction-from-an-rgb-image">[论文笔记] CAST: Component-Aligned 3D Scene Reconstruction from an RGB Image</h1>
+<p>paper:<a href="https://arxiv.org/abs/2502.12894">CAST: Component-Aligned 3D Scene Reconstruction from an RGB Image</a> <!-- 请替换为实际链接 --><br>
+Comments: Project Page: <a href="https://sites.google.com/view/cast4">this https URL</a><br>
+Subjects:	<strong>Computer Vision and Pattern Recognition (<a href="http://cs.CV">cs.CV</a>)</strong></p>
+<h2 id="摘要">摘要</h2>
+<p>单图像恢复高质量 3D 场景是一项极具挑战性的任务。现有技术往往面临领域特定性强（仅限室内）、物体生成质量低（几何缺失、纹理失真）等痛点，且难以处理物体间的空间与物理关系。</p>
+<p>本文提出了 <strong>CAST</strong>，一种新颖的场景重建流水线。该方法摒弃了直接生成整个场景网格的传统思路，转而采用“逐物体生成 + 关系对齐”的策略。通过独立生成高质量 3D 物体网格，并利用生成式模型进行姿态对齐，CAST 成功解决了遮挡、姿态估计不准及物体孤立等问题，实现了通用、泛化的单图像 3D 场景重建。</p>
+<hr>
+<h2 id="1-背景与目标">1. 背景与目标</h2>
+<h3 id="1-1-现有技术的两大痛点">1.1 现有技术的两大痛点</h3>
+<p>单图像 3D 场景重建不仅要还原单个物体的几何与纹理，更要还原物体间的“关系”。目前该领域主要面临两大挑战：</p>
+<ol>
+<li><strong>领域特定性强</strong>：许多方法仅适用于特定场景（如仅能处理室内场景），无法泛化到室外或复杂的野外观测场景。</li>
+<li><strong>物体生成质量低</strong>：生成的物体常存在几何细节缺失、纹理失真等问题，难以满足高质量重建需求。</li>
+</ol>
+<h3 id="1-2-核心目标">1.2 核心目标</h3>
+<p>为了解决上述问题，本文设定了以下核心研究目标：</p>
+<ul>
+<li><strong>突破“物体孤立无关联”</strong>：还原场景中物体的空间与物理关系，建模“细粒度物理关系”（如支撑、接触），确保虚拟环境与真实场景的连贯性。</li>
+<li><strong>解决姿态与遮挡问题</strong>：针对真实场景中物体朝向多样性和单张图像遮挡问题，提升生成的精度与完整性。</li>
+<li><strong>实现通用泛化</strong>：让方法适用于任意场景类型（室内/室外、真实拍摄/AI生成图像）与任意物体类别。</li>
+</ul>
+<hr>
+<h2 id="2-相关工作局限">2. 相关工作局限</h2>
+<h3 id="2-1-多图与单图重建">2.1 多图与单图重建</h3>
+<ul>
+<li><strong>摄影测量法</strong>：虽能高精度捕捉，但需要数十至数百张多视角图像，耗时且资源密集，难以规模化。</li>
+<li><strong>单图像重建</strong>：更高效、可扩展性强，是本文的研究重点。</li>
+</ul>
+<h3 id="2-2-现有单图像场景重建方法的缺陷">2.2 现有单图像场景重建方法的缺陷</h3>
+<ol>
+<li><strong>单目深度估计</strong>：
+<ul>
+<li>从单张图像推断深度信息（生成点云），或通过辐射场等表示学习遮挡先验，补全场景隐藏部分。</li>
+<li><strong>局限</strong>：遮挡处理能力差，无法精准推断被遮挡物体的完整几何；细节不足，多为“体积近似”，缺乏精细网格与纹理。</li>
+</ul>
+</li>
+<li><strong>直接回归几何与语义</strong>：
+<ul>
+<li>通过神经网络直接从图像回归物体的几何结构（如网格）和语义标签（如 “桌子”“椅子”），实现端到端重建。</li>
+<li><strong>局限</strong>：严重依赖数据集，仅在小规模室内数据集有效，无法处理室外及开放世界场景。质量低：几何细节粗糙</li>
+</ul>
+</li>
+<li><strong>基于检索的方法</strong>：
+<ul>
+<li>从预存 3D 数据集（模型库）中检索与场景物体相似的模型，替换并组装成场景，提升重建真实感。</li>
+<li><strong>局限</strong>：但是对于数据集外的物体检索失败，导致重建错误或缺失产生错误的结果，范化性差</li>
+</ul>
+</li>
+</ol>
+<h3 id="2-3-生成模型的整合难题">2.3 生成模型的整合难题</h3>
+<p>现有的 3D 资产生成技术虽已成熟，但整合为场景时面临：</p>
+<ul>
+<li><strong>不可编辑</strong>：生成结果往往是整体的网格，难以拆分编辑。</li>
+<li><strong>流程脱节</strong>：与传统生产流程不兼容。</li>
+</ul>
+<h3 id="2-4-本文解决思路">2.4 本文解决思路</h3>
+<p>作者提出“分析-合成”的新范式：利用预训练生成模型和学习到的先验，直接合成合理的 3D 场景，绕过显式的迭代渲染优化循环。</p>
+<ul>
+<li><strong>策略</strong>：独立生成每个物体，再将它们对齐整合为连贯的场景。</li>
+<li><strong>优势</strong>：保留精准几何与纹理，确保空间关系一致，结果可编辑。</li>
+</ul>
+<hr>
+<h2 id="3-cast-框架">3. CAST 框架</h2>
+<p>CAST 将场景重建拆分为“单个物体生成”和“物体关系对齐”两步，避免了直接生成整个场景带来的不可控性。</p>
+<h3 id="3-1-核心模块概览">3.1 核心模块概览</h3>
+<p><img src="https://image.baidu.com/search/down?url=https://tvax4.sinaimg.cn/large/009frmRQly1iblbsh6yunj30dt0i40vj.jpg" alt="image"><br>
+框架主要包含三个关键部分：</p>
+<ol>
+<li><strong>姿态对齐生成</strong>：计算物体在场景中的旋转、平移、缩放参数。</li>
+<li><strong>遮挡感知生成</strong>：补全被遮挡区域的几何结构。</li>
+<li><strong>纹理模型</strong>：生成逼真的纹理。</li>
+</ol>
+<h3 id="3-2-遮挡感知物体生成">3.2 遮挡感知物体生成</h3>
+<p><img src="https://image.baidu.com/search/down?url=https://tvax2.sinaimg.cn/large/009frmRQly1iblbuae4b4j30bn00yt91.jpg" alt="image"><br>
+<strong>目标</strong>：解决“遮挡导致几何不完整”的问题。</p>
+<ul>
+<li><strong>输入</strong>：掩码图像+ 遮挡掩码+ 规范空间部分点云。</li>
+<li><strong>输出</strong>：完整的物体网格。</li>
+<li><strong>技术细节</strong>：
+<ul>
+<li><strong>利用 DINOv2 的 MAE 能力</strong>：输入可见区域，推断遮挡部分的潜在特征，确保几何完整。</li>
+<li><strong>规范点云条件约束</strong>：生成“真实点云”与“噪声点云”的插值点云，让模型适应不同质量的点云输入，确保几何与点云精准对齐。</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-3-生成式对齐">3.3 生成式对齐</h3>
+<p><strong>目标</strong>：解决“物体姿态与场景空间错位”的问题。</p>
+<ul>
+<li><strong>输入</strong>：规范空间的物体网格 + 噪声 + 场景级部分点云。</li>
+<li><strong>输出</strong>：物体的姿态参数（R, T, S）+ 对齐后的点云。</li>
+<li><strong>技术细节</strong>：
+<ul>
+<li><strong>点云扩散 Transformer</strong>：以“场景空间部分点云”和“物体几何潜在码”为条件，生成“规范空间对齐点云”。</li>
+<li><strong>Umeyama 算法</strong>：利用生成的对齐点云恢复相似变换矩阵，确定物体在场景中的最终位置和姿态。</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-4-迭代生成流程">3.4 迭代生成流程</h3>
+<p><strong>目标</strong>：解决“几何与点云的逐步优化需求”。<br>
+通过“物体生成 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> 姿态对齐 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> 精化”的三步骤迭代循环，逐步提升几何精度与空间对齐度。</p>
+<hr>
+<h2 id="4-实验与结果">4. 实验与结果</h2>
+<h3 id="4-1-消融实验">4.1 消融实验</h3>
+<p>通过“移除/保留关键组件”评估各模块贡献：</p>
+<ul>
+<li><strong>关系图约束的作用</strong>：实验表明，移除关系图约束后，场景重建出现物理不合理现象（如物体悬空）。整合关系图约束后，方法确保了物理合理性和与预期场景的精确对齐，维持了正确的空间关系。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>场景级 CD（↓）</th>
+<th>场景级 FS（↑）</th>
+<th>物体级 CD（↓）</th>
+<th>物体级 FS（↑）</th>
+<th>边界框 IoU（↑）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>基础版（Vanilla）</td>
+<td>0.079</td>
+<td>53.38</td>
+<td>0.069</td>
+<td>52.83</td>
+<td>0.515</td>
+</tr>
+<tr>
+<td>+ MAE（遮挡处理）</td>
+<td>0.064</td>
+<td>53.79</td>
+<td>0.066</td>
+<td>54.32</td>
+<td>0.548</td>
+</tr>
+<tr>
+<td>+ 点云条件（PCD）</td>
+<td>0.056</td>
+<td>53.91</td>
+<td>0.060</td>
+<td>54.60</td>
+<td>0.582</td>
+</tr>
+<tr>
+<td>+ 迭代优化（iter.）</td>
+<td>0.052</td>
+<td>56.18</td>
+<td>0.057</td>
+<td>56.50</td>
+<td>0.603</td>
+</tr>
+</tbody>
+</table>
+<p><img src="https://image.baidu.com/search/down?url=https://tvax2.sinaimg.cn/large/009frmRQly1iblbxk8im7j30k908mdi1.jpg" alt="image"></p>
+<h3 id="4-2-对比结果">4.2 对比结果</h3>
+<p>在视觉质量与物理合理性方面，CAST 显著优于当前最先进的方法，能够有效处理遮挡和未知物体。</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>CLIP 分数（视觉相似度）</th>
+<th>GPT-4 排名（语义合理性）</th>
+<th>视觉质量（VQ，用户评分）</th>
+<th>物理合理性（PP，用户评分）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ACDC</td>
+<td>69.77</td>
+<td>2.7</td>
+<td>5.58%</td>
+<td>22.86%</td>
+</tr>
+<tr>
+<td>Gen3DSR</td>
+<td>79.84</td>
+<td>2.175</td>
+<td>6.35%</td>
+<td>5.72%</td>
+</tr>
+<tr>
+<td>CAST</td>
+<td>85.77</td>
+<td>1.125</td>
+<td>88.07%</td>
+<td>71.42%</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>场景级 CD（↓，形状误差）</th>
+<th>场景级 FS（↑，重建完整性）</th>
+<th>物体级 CD（↓，形状误差）</th>
+<th>物体级 FS（↑，重建完整性）</th>
+<th>边界框 IoU（↑，空间对齐）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ACDC</td>
+<td>0.104</td>
+<td>39.46</td>
+<td>0.072</td>
+<td>41.99</td>
+<td>0.541</td>
+</tr>
+<tr>
+<td>InstPIFU</td>
+<td>0.092</td>
+<td>39.12</td>
+<td>0.103</td>
+<td>38.29</td>
+<td>0.436</td>
+</tr>
+<tr>
+<td>Gen3DSR</td>
+<td>0.083</td>
+<td>38.95</td>
+<td>0.071</td>
+<td>39.13</td>
+<td>0.459</td>
+</tr>
+<tr>
+<td>CAST</td>
+<td>0.052</td>
+<td>56.18</td>
+<td>0.057</td>
+<td>56.50</td>
+<td>0.603</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="5-结论与局限">5. 结论与局限</h2>
+<h3 id="5-1-结论">5.1 结论</h3>
+<p><img src="https://image.baidu.com/search/down?url=https://tvax2.sinaimg.cn/large/009frmRQly1iblby2bk9vj30ku07kmz9.jpg" alt="image"><br>
+<img src="https://image.baidu.com/search/down?url=https://tvax3.sinaimg.cn/large/009frmRQly1iblbybnzslj30en0argp4.jpg" alt="image"></p>
+<ol>
+<li><strong>创新流水线</strong>：提出“场景分解 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> 感知 3D 生成 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> 物理校正”的端到端流水线。</li>
+<li><strong>技术融合</strong>：首次将“GPT-4v 关系识别”、“生成式姿态对齐”、“SDF 物理约束”结合，解决了姿态错位、物体依赖缺失、部分遮挡三大痛点。</li>
+<li><strong>SOTA 表现</strong>：在视觉质量与物理合理性方面显著优于现有方法，为 3D 生成和沉浸式内容创作奠定了基础。</li>
+</ol>
+<h3 id="5-3-局限性与未来工作">5.3 局限性与未来工作</h3>
+<p><img src="https://image.baidu.com/search/down?url=https://tvax1.sinaimg.cn/large/009frmRQly1iblbymrzjcj30ao0a3783.jpg" alt="image"><br>
+尽管表现出色，CAST 仍存在以下局限：</p>
+<ol>
+<li><strong>特殊材质还原不佳</strong>：扩散模型对透明玻璃、软布纺织品等材质的刻画能力不足。</li>
+<li><strong>光照缺失</strong>：当前仅重建形状与姿态，缺乏自然的阴影和照明效果，需用户手动预设，影响真实渲染感。</li>
+<li><strong>密集场景精度下降</strong>：当场景物体过多时，关系图复杂度上升，优化易陷入局部最优，导致重建误差增大。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>paper</category>
+      </categories>
+      <tags>
+        <tag>论文阅读</tag>
+        <tag>3D Scene Reconstruction</tag>
+        <tag>计算机图形学</tag>
+        <tag>Computer Vision</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>[论文阅读]Chat2SVG:Vector Graphics Generation with Large Language Models and Image Diffusion Models</title>
     <url>/2026/03/18/Chat2SVG/</url>
     <content><![CDATA[<h1 id="论文笔记-chat2svg-大语言模型与扩散模型协同的矢量图形生成">[论文笔记] Chat2SVG: 大语言模型与扩散模型协同的矢量图形生成</h1>
@@ -3554,6 +3408,185 @@ Subjects:	<strong>Computer Vision and Pattern Recognition (<a href="http://cs.CV
       </tags>
   </entry>
   <entry>
+    <title>[论文阅读]DeepVecFont-v2: Exploiting Transformers to Synthesize Vector Fonts with Higher Quality</title>
+    <url>/2026/04/03/DeepVecFont-v2/</url>
+    <content><![CDATA[<h1 id="论文笔记-deepvecfont-v2-transformer驱动的矢量字体生成">[论文笔记] DeepVecFont-v2: Transformer驱动的矢量字体生成</h1>
+<p>paper:<a href="https://arxiv.org/abs/2303.14585">DeepVecFont-v2: Exploiting Transformers to Synthesize Vector Fonts with Higher Quality</a> <!-- 请替换为实际链接 --><br>
+Comments:	Accepted by CVPR 2023. Code: <a href="https://github.com/yizhiwang96/deepvecfont-v2">this https URL</a><br>
+Subjects:	<strong>Computer Vision and Pattern Recognition (<a href="http://cs.CV">cs.CV</a>); Graphics (<a href="http://cs.GR">cs.GR</a>)</strong></p>
+<h2 id="摘要">摘要</h2>
+<p>矢量字体以 SVG 为标准格式，具备无损缩放、可编辑、文件体积小的特性，是现代数字设计的基础设施。然而，高质量矢量字体设计门槛高、成本高，尤其是字符集庞大的中文。现有方法中，栅格生成方法无法输出可商用矢量格式；早期 RNN 方案存在误差累积、笔画断裂等问题；前代 SOTA 方法 DeepVecFont 受限于 RNN 的串行计算瓶颈，且图像引导后处理易引入伪影。</p>
+<p>本文提出了 <strong>DeepVecFont-v2</strong>，核心改进是将DeepVecFont第一代的 RNN 替换为 Transformer，提升对长序列、复杂拓扑字符的建模能力。通过设计适配 Transformer 的矢量轮廓表示方法、贝塞尔曲线对齐损失以及上下文自精炼模块，该方法摆脱了对图像引导后处理的强依赖，在中英文矢量字体生成任务上全面超越现有 SOTA 方法。</p>
+<hr>
+<h2 id="1-研究背景与目的">1. 研究背景与目的</h2>
+<h3 id="1-1-矢量字体的核心应用价值">1.1 矢量字体的核心应用价值</h3>
+<p>矢量字体以 SVG 为标准格式，具备无损缩放、可编辑、文件体积小的特性，广泛应用于文档排版、品牌视觉系统、动态媒体内容生产等专业设计场景。</p>
+<h3 id="1-2-人工设计的高门槛与成本">1.2 人工设计的高门槛与成本</h3>
+<p>高质量矢量字体需设计师逐字符精确控制贝塞尔曲线，周期长、成本高。中文等字符集庞大、拓扑复杂的文字体系，设计工作量呈指数级增长，自动化需求迫切。</p>
+<h3 id="1-3-现有技术的缺陷">1.3 现有技术的缺陷</h3>
+<ol>
+<li><strong>栅格生成方法</strong>：仅能输出像素图像，无法提供可商用矢量格式，放大后易出现锯齿、失真。</li>
+<li><strong>早期 RNN 方案</strong>：易出现误差累积，生成的字符存在轮廓错位、笔画断裂、结构失真等问题。</li>
+<li><strong>前代 SOTA 方法 的固有缺陷</strong>：
+<ul>
+<li><strong>RNN 序列建模的结构性瓶颈</strong>：采用 RNN 进行序列建模，循环结构的串行计算特性导致长序列处理能力受限，难以有效捕捉复杂字符的全局拓扑依赖关系，复杂字形生成稳定性不足。</li>
+<li><strong>图像引导后处理的伪影问题</strong>：通过对齐光栅化结果和合成图像来微调原始矢量字形的坐标，该设计易过拟合图像噪声，引入角点过平滑、连接处欠平滑、笔画自相交等伪影，生成结果无法直接商用。</li>
+</ul>
+</li>
+</ol>
+<h3 id="1-4-本文目的">1.4 本文目的</h3>
+<p>提出 DeepVecFont-v2，实现以下目标：</p>
+<ol>
+<li>替换 RNN 为 Transformer，提升模型对长序列、复杂拓扑字符的建模与生成能力。</li>
+<li>设计适配 Transformer 的矢量轮廓表示方法，摆脱对图像引导后处理的强依赖，解决序列生成中的误差累积问题。</li>
+<li>消除轮廓失真、毛刺、错位等问题，在中英文矢量字体生成任务上全面超越现有 SOTA 方法，实现少样本场景下的高保真风格迁移。</li>
+</ol>
+<hr>
+<h2 id="2-相关工作">2. 相关工作</h2>
+<h3 id="2-1-栅格图像字体合成">2.1 栅格图像字体合成</h3>
+<p>这类方法以像素级的字形图像为生成目标，核心基于 VAE、GAN 等深度生成模型实现字体风格迁移与合成，是字体生成领域的早期主流研究方向。</p>
+<ul>
+<li><strong>局限</strong>：无法输出可编辑、无损缩放的矢量格式，放大后易出现锯齿、失真问题。</li>
+</ul>
+<h3 id="2-2-矢量字体生成">2.2 矢量字体生成</h3>
+<ul>
+<li><strong>传统非深度学习方法</strong>：基于规则或模板。</li>
+<li><strong>深度学习驱动的方法</strong>：RNN/LSTM 序列建模（如 Easyfont）。</li>
+<li><strong>DeepVecFont (v1)</strong>：首次采用图像与序列双模态学习框架。通过 CNN 图像编码器与双向 LSTM 序列编码器分别提取特征，融合得到统一的字体风格隐向量，利用反卷积图像解码器与 LSTM+MDN 生成栅格图像与矢量绘图指令，最后经过图像引导的轮廓精修后处理优化。虽然效果不错，但仍受限于 RNN 结构和后处理伪影。</li>
+</ul>
+<hr>
+<h2 id="3-方法架构">3. 方法架构</h2>
+<h3 id="3-1-svg-embedding-矢量嵌入">3.1 SVG Embedding (矢量嵌入)</h3>
+<p><strong>目标</strong>：把指令、坐标、字形大小、位置转成模型可处理的向量。</p>
+<p><strong>定义</strong>：本文把一个矢量字定义成一串绘图指令序列 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>G</mi><mi>i</mi></msub><mo>=</mo><mo stretchy="false">[</mo><msub><mi>C</mi><mrow><mi>i</mi><mo separator="true">,</mo><mn>1</mn></mrow></msub><mo separator="true">,</mo><msub><mi>C</mi><mrow><mi>i</mi><mo separator="true">,</mo><mn>2</mn></mrow></msub><mo separator="true">,</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mo separator="true">,</mo><msub><mi>C</mi><mrow><mi>i</mi><mo separator="true">,</mo><msub><mi>N</mi><mi>c</mi></msub></mrow></msub><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">G_i = [C_{i,1}, C_{i,2}, ..., C_{i,N_c}]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">G</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.036108em;vertical-align:-0.286108em;"></span><span class="mopen">[</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mpunct mtight">,</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mpunct mtight">,</span><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">.</span><span class="mord">.</span><span class="mord">.</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.328331em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mpunct mtight">,</span><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.10903em;">N</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.16454285714285719em;"><span style="top:-2.357em;margin-left:-0.10903em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathdefault mtight">c</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mclose">]</span></span></span></span>。每条指令 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>C</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub></mrow><annotation encoding="application/x-tex">C_{i,j}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span> 固定写成：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>C</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub><mo>=</mo><mo stretchy="false">(</mo><msub><mi>z</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub><mo separator="true">,</mo><msub><mi>p</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">C_{i,j} = (z_{i,j}, p_{i,j})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.036108em;vertical-align:-0.286108em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.04398em;">z</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.04398em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>。</p>
+<ul>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>z</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub></mrow><annotation encoding="application/x-tex">z_{i,j}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.716668em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.04398em;">z</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.04398em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>：指令类型（4 种之一）：MoveFromTo（移动），LineFromTo（直线），CurveFromTo（三阶贝塞尔曲线），EOS（结束）。</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub></mrow><annotation encoding="application/x-tex">p_{i,j}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.716668em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>：坐标点集合（控制点）。</li>
+</ul>
+<p><strong>关键改进：松弛表示</strong></p>
+<ul>
+<li><strong>问题</strong>：传统 SVG 相邻指令共用起点和终点（前一个终点 = 后一个起点），这会导致前一个指令画错从而后面全部跟着歪，不适合 Transformer（注意力需要完整位置信息）。</li>
+<li><strong>本文规定</strong>：每条指令自己单独拥有起点和终点，且全部指令固定用 4 个坐标点，EOS 不用坐标。</li>
+<li><strong>约束与推理</strong>：训练时加约束强制前一条终点 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≈</mo></mrow><annotation encoding="application/x-tex">\approx</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.48312em;vertical-align:0em;"></span><span class="mrel">≈</span></span></span></span> 后一条起点；推理时把这两个点取平均合并。</li>
+</ul>
+<p><strong>向量构成</strong>：<br>
+每条指令 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>C</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub></mrow><annotation encoding="application/x-tex">C_{i,j}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span> 变成一个 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>E</mi></msub></mrow><annotation encoding="application/x-tex">d_E</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.05764em;">E</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 维向量 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>e</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub></mrow><annotation encoding="application/x-tex">e_{i,j}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.716668em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>，由 4 部分相加得到：</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>e</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub><mo>=</mo><mtext>cmd</mtext><mo>+</mo><mtext>args</mtext><mo>+</mo><mtext>wh</mtext><mo>+</mo><mtext>pos</mtext></mrow><annotation encoding="application/x-tex">e_{i,j} = \text{cmd} + \text{args} + \text{wh} + \text{pos} 
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.716668em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mord text"><span class="mord">cmd</span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.7777700000000001em;vertical-align:-0.19444em;"></span><span class="mord text"><span class="mord">args</span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mord text"><span class="mord">wh</span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord text"><span class="mord">pos</span></span></span></span></span></span></p>
+<ul>
+<li>cmd：指令类型嵌入。</li>
+<li>args：坐标参数嵌入。</li>
+<li>wh：字形高宽嵌入。</li>
+<li>pos：Transformer 绝对位置编码。</li>
+</ul>
+<p><img src="https://image.baidu.com/search/down?url=https://tvax2.sinaimg.cn/large/009frmRQgy1ibvqojd1pnj31660hcn7q.jpg" alt="image"></p>
+<h3 id="3-2-编码器">3.2 编码器</h3>
+<p>继承了前代 DeepVecFont 的双模态（图像 + 序列）思想，但全部换成 Transformer 架构。编码器由两个分支组成：</p>
+<ol>
+<li><strong>图像编码器</strong>：普通 CNN，输出图像风格特征 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mrow><mi>i</mi><mi>m</mi><mi>g</mi></mrow></msub></mrow><annotation encoding="application/x-tex">f_{img}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mord mathdefault mtight">m</span><span class="mord mathdefault mtight" style="margin-right:0.03588em;">g</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>。</li>
+<li><strong>序列编码器</strong>：6 层 Transformer Encoder，输出序列结构特征 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mrow><mi>s</mi><mi>e</mi><mi>q</mi></mrow></msub></mrow><annotation encoding="application/x-tex">f_{seq}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.15139200000000003em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">s</span><span class="mord mathdefault mtight">e</span><span class="mord mathdefault mtight" style="margin-right:0.03588em;">q</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>。</li>
+</ol>
+<h3 id="3-3-模态融合">3.3 模态融合</h3>
+<ul>
+<li>把 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>f</mi><mrow><mi>s</mi><mi>e</mi><mi>q</mi></mrow><mn>0</mn></msubsup></mrow><annotation encoding="application/x-tex">f^0_{seq}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.197216em;vertical-align:-0.383108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-2.4530000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">s</span><span class="mord mathdefault mtight">e</span><span class="mord mathdefault mtight" style="margin-right:0.03588em;">q</span></span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.383108em;"><span></span></span></span></span></span></span></span></span></span> 与 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mrow><mi>i</mi><mi>m</mi><mi>g</mi></mrow></msub></mrow><annotation encoding="application/x-tex">f_{img}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mord mathdefault mtight">m</span><span class="mord mathdefault mtight" style="margin-right:0.03588em;">g</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span> 拼接得到融合特征 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi></mrow><annotation encoding="application/x-tex">f</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span></span></span></span>。</li>
+<li>使用重参数化技巧，让 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi></mrow><annotation encoding="application/x-tex">f</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span></span></span></span> 服从高斯分布，保证生成稳定。</li>
+</ul>
+<h3 id="3-4-解码器">3.4 解码器</h3>
+<p>解码器分两条路，同时生成图像和矢量指令。</p>
+<ol>
+<li><strong>图像解码器</strong>：反卷积 CNN，输出目标字的栅格图像 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mover accent="true"><mi>I</mi><mo>^</mo></mover><mi>t</mi></msub></mrow><annotation encoding="application/x-tex">\hat{I}_t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0967699999999998em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9467699999999999em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07847em;">I</span></span></span><span style="top:-3.25233em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.13889em;"><span class="mord">^</span></span></span></span></span></span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>。</li>
+<li><strong>序列解码器</strong>：Transformer Decoder。
+<ul>
+<li><strong>输入</strong>：融合特征 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi></mrow><annotation encoding="application/x-tex">f</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span></span></span></span> 和序列风格特征。</li>
+<li><strong>输出</strong>：指令类型 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mover accent="true"><mi>z</mi><mo>^</mo></mover><mi>t</mi></msub></mrow><annotation encoding="application/x-tex">\hat{z}_t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.69444em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.04398em;">z</span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.19444em;"><span class="mord">^</span></span></span></span></span></span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>（Move/Line/Curve/EOS）、坐标点 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mover accent="true"><mi>p</mi><mo>^</mo></mover><mi>t</mi></msub></mrow><annotation encoding="application/x-tex">\hat{p}_t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord accent"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.69444em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">p</span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.16666em;"><span class="mord">^</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.19444em;"><span></span></span></span></span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>y</mi><mn>1</mn></msub><mo>…</mo><msub><mi>x</mi><mn>4</mn></msub><mo separator="true">,</mo><msub><mi>y</mi><mn>4</mn></msub></mrow><annotation encoding="application/x-tex">x_1, y_1 \dots x_4, y_4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">4</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">4</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>）。</li>
+</ul>
+</li>
+</ol>
+<p><strong>与 DeepVecFont 的区别</strong>：</p>
+<ol>
+<li>序列编解码全部换成 Transformer 而不是 LSTM，Transformer 用自注意力注意所有指令。</li>
+<li>DeepVecFont 必须靠图像引导后处理，v2 靠特征融合与自精炼。</li>
+</ol>
+<h3 id="3-5-context-based-self-refinement-基于上下文的自精炼">3.5 Context-based Self-refinement (基于上下文的自精炼)</h3>
+<p><strong>原因</strong>：在推理阶段，Transformer 遵循 RNN 的序列生成流程，以前序预测结果为条件预测后续步骤，会产生误差累积，导致字形失真。而字形本身有很强的几何先验（如对称性、笔画宽度的平滑变化），这些上下文信息可修正生成结果。<br>
+<img src="https://image.baidu.com/search/down?url=https://tvax2.sinaimg.cn/large/009frmRQgy1ibvqpdywnbj30h903r0tl.jpg" alt="image"><br>
+<strong>结构</strong>：2-layer Transformer decoder。</p>
+<ul>
+<li><strong>作用</strong>：再编码初始序列，利用全局上下文做修正，输出更准确的指令与坐标。</li>
+<li><strong>输入</strong>：
+<ul>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Q</mi></mrow><annotation encoding="application/x-tex">Q</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">Q</span></span></span></span>：初始生成序列的嵌入。</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo separator="true">,</mo><mi>V</mi></mrow><annotation encoding="application/x-tex">K, V</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">K</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.22222em;">V</span></span></span></span>：前序序列解码器的记忆的线性投影。</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi></mrow><annotation encoding="application/x-tex">M</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span></span></span></span>：Mask 掩码（0 或负无限大），让模型关注有效长度的指令，忽略后面的空位置。</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-6-损失函数">3.6 损失函数</h3>
+<p><img src="https://image.baidu.com/search/down?url=https://tvax2.sinaimg.cn/large/009frmRQgy1ibvrisrv0qj30h301q0t7.jpg" alt="image"><br>
+模型训练包含以下损失函数：</p>
+<ol>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>L</mi><mrow><mi>i</mi><mi>m</mi><mi>g</mi></mrow></msub></mrow><annotation encoding="application/x-tex">L_{img}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault">L</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mord mathdefault mtight">m</span><span class="mord mathdefault mtight" style="margin-right:0.03588em;">g</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>：图像重建损失（L1 + 感知损失）。</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>L</mi><mrow><mi>C</mi><mi>E</mi><mi mathvariant="normal">_</mi><mi>i</mi><mi>n</mi><mi>i</mi><mi>t</mi></mrow></msub></mrow><annotation encoding="application/x-tex">L_{CE\_init}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.05033em;vertical-align:-0.367em;"></span><span class="mord"><span class="mord mathdefault">L</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.07153em;">C</span><span class="mord mathdefault mtight" style="margin-right:0.05764em;">E</span><span class="mord mtight" style="margin-right:0.02778em;">_</span><span class="mord mathdefault mtight">i</span><span class="mord mathdefault mtight">n</span><span class="mord mathdefault mtight">i</span><span class="mord mathdefault mtight">t</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.367em;"><span></span></span></span></span></span></span></span></span></span>：初始序列交叉熵损失。</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>L</mi><mrow><mi>C</mi><mi>E</mi><mi mathvariant="normal">_</mi><mi>r</mi><mi>e</mi><mi>f</mi><mi>i</mi><mi>n</mi><mi>e</mi></mrow></msub></mrow><annotation encoding="application/x-tex">L_{CE\_refine}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.05033em;vertical-align:-0.367em;"></span><span class="mord"><span class="mord mathdefault">L</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.07153em;">C</span><span class="mord mathdefault mtight" style="margin-right:0.05764em;">E</span><span class="mord mtight" style="margin-right:0.02778em;">_</span><span class="mord mathdefault mtight" style="margin-right:0.02778em;">r</span><span class="mord mathdefault mtight">e</span><span class="mord mathdefault mtight" style="margin-right:0.10764em;">f</span><span class="mord mathdefault mtight">i</span><span class="mord mathdefault mtight">n</span><span class="mord mathdefault mtight">e</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.367em;"><span></span></span></span></span></span></span></span></span></span>：精炼序列交叉熵损失。</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>L</mi><mrow><mi>c</mi><mi>o</mi><mi>n</mi><mi>s</mi></mrow></msub></mrow><annotation encoding="application/x-tex">L_{cons}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">L</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">c</span><span class="mord mathdefault mtight">o</span><span class="mord mathdefault mtight">n</span><span class="mord mathdefault mtight">s</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>：一致性约束损失。计算相邻指令的起点与终点的坐标差得到，保证笔画连续不断开。</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>L</mi><mrow><mi>b</mi><mi>e</mi><mi>z</mi><mi>i</mi><mi>e</mi><mi>r</mi></mrow></msub></mrow><annotation encoding="application/x-tex">L_{bezier}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">L</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">b</span><span class="mord mathdefault mtight">e</span><span class="mord mathdefault mtight" style="margin-right:0.04398em;">z</span><span class="mord mathdefault mtight">i</span><span class="mord mathdefault mtight">e</span><span class="mord mathdefault mtight" style="margin-right:0.02778em;">r</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>：贝塞尔曲线对齐损失。除了监督贝塞尔曲线的 4 个控制点，额外在曲线上采样 0.25、0.5、0.75 三个辅助点，计算生成曲线与真实曲线在采样点的坐标差。</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>L</mi><mrow><mi>k</mi><mi>l</mi></mrow></msub></mrow><annotation encoding="application/x-tex">L_{kl}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">L</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span><span class="mord mathdefault mtight" style="margin-right:0.01968em;">l</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>：KL 散度损失，重参数化操作时约束隐空间服从高斯分布。</li>
+</ol>
+<hr>
+<h2 id="4-实验">4. 实验</h2>
+<h3 id="4-1-实验细节">4.1 实验细节</h3>
+<p><strong>数据集</strong>：</p>
+<ul>
+<li><strong>英文</strong>：沿用 DeepVecFont 数据集，8035 个训练字体、1425 个测试字体。</li>
+<li><strong>中文</strong>：自己构建，212 个训练、34 个测试；只选 52 个结构简单的汉字，并用仿射变换把训练集扩大 10 倍。</li>
+</ul>
+<p><img src="https://image.baidu.com/search/down?url=https://tvax3.sinaimg.cn/large/009frmRQgy1ibvrnsx1icj30h506ntbp.jpg" alt="image"><br>
+<strong>参数情况</strong>：<br>
+贝塞尔曲线采样点数：0 个 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> 3 个效果大幅提升；3 个 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> 9 个提升很小。</p>
+<h3 id="4-2-实验结果">4.2 实验结果</h3>
+<p><img src="https://image.baidu.com/search/down?url=https://tvax1.sinaimg.cn/large/009frmRQgy1ibvrmcjafsj316a0bwgrd.jpg" alt="image"></p>
+<ul>
+<li>生成的少样本中文字体向量结果对比显示，DeepVecFont-v2 能够生成结构准确、线条流畅的矢量字形。</li>
+<li>中英文矢量字体插值结果平滑，权重、宽度和样式变化自然。</li>
+</ul>
+<h3 id="4-3-消融实验">4.3 消融实验</h3>
+<p><img src="https://image.baidu.com/search/down?url=https://tvax2.sinaimg.cn/large/009frmRQgy1ibvro94v0fj30ii0760vp.jpg" alt="image"><br>
+基线：把 DeepVecFont 的 LSTM 简单换成 Transformer。<br>
+逐步加入 3 大创新模块的效果：</p>
+<ol>
+<li><strong>松弛表示</strong>：保证指令连接顺畅、不崩坏。</li>
+<li><strong>贝塞尔损失</strong>：消除曲线扭曲、更贴合真实轮廓。</li>
+<li><strong>自精炼</strong>：去掉毛刺、伪影，得到紧凑、平滑、高质量字形。</li>
+</ol>
+<hr>
+<h2 id="5-结论和局限">5. 结论和局限</h2>
+<p><img src="https://image.baidu.com/search/down?url=https://tvax1.sinaimg.cn/large/009frmRQgy1ibvrpt2l8fj30l3074jvn.jpg" alt="image"></p>
+<h3 id="5-1-结论">5.1 结论</h3>
+<p>本文提出了全新的矢量字体生成模型 DeepVecFont-v2，核心改进是将前代 DeepVecFont 中用于序列建模的 RNN 网络全面替换为 Transformer 架构，并针对性设计了三大关键创新模块：</p>
+<ol>
+<li><strong>松弛表示</strong>：适配 Transformer 全局注意力机制。</li>
+<li><strong>贝塞尔曲线对齐损失</strong>：通过采样辅助点提升曲线拟合精度，解决仅监督控制点导致的轮廓贴合度不足问题。</li>
+<li><strong>上下文自精炼模块</strong>：摆脱对图像引导后处理的依赖。</li>
+</ol>
+<p>实现了端到端直接生成高质量矢量字体，无需额外后处理。实验结果充分证明，DeepVecFont-v2 在英文、中文矢量字体生成任务上，性能全面超越现有 SOTA 方法，生成效果更精准、无伪影，对复杂拓扑字符的适配性大幅提升。</p>
+<h3 id="5-3-局限性">5.3 局限性</h3>
+<ol>
+<li><strong>超长序列复杂字形生成失败</strong>：对于包含大量长绘图路径的超复杂汉字（如“霸”），模型无法生成正确结果。</li>
+<li><strong>拓扑结构变化场景建模困难</strong>：同一中文字符在不同字体风格下可能出现大幅拓扑结构变化，模型难以学习到稳定的 SVG 嵌入表示，导致生成效果不稳定。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>paper</category>
+      </categories>
+      <tags>
+        <tag>论文阅读</tag>
+        <tag>CNN</tag>
+        <tag>Vector Font</tag>
+        <tag>Transformer</tag>
+        <tag>Deep Learning</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>[论文阅读]Denoising-Aware Contrastive Learning for Noisy Time Series</title>
     <url>/2025/10/18/Denoising_Aware/</url>
     <content><![CDATA[<h1 id="论文笔记-去噪感知自适应采样：让光追少噪点">[论文笔记] 去噪感知自适应采样：让光追少噪点</h1>
@@ -3731,6 +3764,152 @@ Subjects:	<strong>Machine Learning (cs.LG); Artificial Intelligence (<a href="ht
         <tag>Classics</tag>
         <tag>Denoising</tag>
         <tag>Adaptive Sampling</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Butterfly 安裝文檔(六) 進階教程</title>
+    <url>/2024/07/21/Butterfly06/</url>
+    <content><![CDATA[
+    <div id="aplayer-ZrrRrQpI" class="aplayer aplayer-tag-marker meting-tag-marker"
+         data-id="000PeZCQ1i4XVs" data-server="tencent" data-type="artist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#3F51B5"
+    ></div>
+<div class="note green icon-padding flat"><i class="note-icon fas fa-rocket"></i><p>📚  文檔目錄<br>
+<a href="/2024/07/21/Butterfly01/" title="Butterfly-安裝文檔-一-快速開始">🚀 快速開始</a> - <a href="/2024/07/21/Butterfly02/" title="Butterfly 安裝文檔(二) 主題頁面">📑 主題頁面</a> - <a href="/2024/07/21/Butterfly03/" title="Butterfly 安裝文檔(三) 主題配置-1">📌 主題配置-1</a> - <a href="/2024/07/21/Butterfly04/" title="Butterfly 安裝文檔(四) 主題配置-2">⚔️ 主題配置-2</a> - <a href="/2024/07/21/Butterfly05/" title="Butterfly 安裝文檔(五) 主題問答">❓ 主題問答</a> - <a href="/2024/07/21/Butterfly06/" title="Butterfly 安裝文檔(六) 進階教程">⚡️ 進階教程</a></p>
+</div>
+<div class="note orange icon-padding flat"><i class="note-icon fas fa-magic"></i><p>你可以通過右下角的 <strong>簡</strong> 按鈕切換為簡體顯示</p>
+</div>
+<hr>
+<h2 id="建議">建議</h2>
+<ol>
+<li>不要把個人需要的文件/圖片放在主題<code>source</code>文件夾裏，因為在升級主題的過程中，可能會把文件覆蓋刪除了。<br>
+在Hexo根目錄的<code>source</code>文件夾裏，創建一個文件夾來放置個人文件/圖片。<br>
+引用文件直接為<code>/文件夾名稱/文件名</code></li>
+</ol>
+<h2 id="音樂">音樂</h2>
+<p>音樂界面使用了插件 <code>hexo-tag-aplayer</code><br>
+使用方法請參考插件<a href="https://github.com/MoePlayer/hexo-tag-aplayer/blob/master/docs/README-zh_cn.md">文檔</a></p>
+<p>音樂頁面只是普通的page頁，按普通頁面操作生成就行。</p>
+<blockquote>
+<p>以下內容可供<strong>選擇</strong>配置</p>
+<p>注意： 仍需要安裝插件<a href="https://github.com/MoePlayer/hexo-tag-aplayer">hexo-tag-aplayer</a></p>
+</blockquote>
+<p>插件會在每一個文件都插入 js 和 css，為了避免這一情況，3.0 版本內置了 aplayer 需要的 css 和 js。</p>
+<p>首先在Hexo根目錄<code>_config</code>裏配置<code>asset_inject</code>為<code>false</code></p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">aplayer:</span></span><br><span class="line">  <span class="attr">asset_inject:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+<p>然後在你需要使用aplayer的頁面Front-matter添加</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">aplayer: true</span><br></pre></td></tr></table></figure>
+<p>這樣只會在需要aplayer的頁面插入js和css。</p>
+<p>如何添加全局 Aplayer 播放，請參考 <a href="/posts/507c070f/">這篇文章</a></p>
+<h2 id="電影">電影</h2>
+<p>電影界面使用了插件 <code>hexo-butterfly-douban</code><br>
+使用方法請參考插件的<a href="https://github.com/jerryc127/butterfly-plugins/tree/main/hexo-butterfly-douban">文檔</a>。</p>
+<p><strong>注意：</strong></p>
+<ol>
+<li>hexo-butterfly-douban 會主動生成頁面，所以不需要自己創建。</li>
+<li>如遇到無法抓取問題，顯示 <code>INFO  0 movies have been loaded in xxx ms, because you are offline or your network is bad</code><br>
+請過段時間再試試，這我也無能為力。</li>
+</ol>
+<h2 id="説説">説説</h2>
+<h3 id="artitalk">Artitalk</h3>
+<p>安裝插件 <a href="https://www.npmjs.com/package/hexo-butterfly-artitalk">hexo-butterfly-artitalk</a></p>
+<p>具體配置查看<a href="https://github.com/jerryc127/butterfly-plugins/tree/main/hexo-butterfly-artitalk">插件文檔</a></p>
+<h3 id="hexoplusplus-talk">HexoPlusPlus Talk</h3>
+<p>安裝插件 <a href="https://www.npmjs.com/package/hexo-butterfly-hpptalk">hexo-butterfly-hpptalk</a></p>
+<p>具體配置查看<a href="https://github.com/jerryc127/butterfly-plugins/tree/main/hexo-butterfly-hpptalk">插件文檔</a></p>
+<h2 id="自定義代碼配色">自定義代碼配色</h2>
+<a class="btn-beautify block blue" href="/posts/b37b5fe3/" 
+  title="點擊前往"><i class="fas fa-code"></i><span>點擊前往</span></a>
+<h2 id="自定義側邊欄">自定義側邊欄</h2>
+<a class="btn-beautify block green" href="/posts/ea33ab97/" 
+  title="點擊前往"><i class="fas fa-lightbulb"></i><span>點擊前往</span></a>
+<h2 id="添加全局吸底aplayer教程">添加全局吸底Aplayer教程</h2>
+<a class="btn-beautify block pink" href="/posts/507c070f/" 
+  title="點擊前往"><i class="fas fa-music"></i><span>點擊前往</span></a>
+<h2 id="icon">Icon</h2>
+<p>Butterfly主題內置了<a href="https://fontawesome.com/">Font Awesome V5 </a>圖標，目前已更新到 5.13.0，總共有1,588個免費圖標。由於是國外的圖標網站，對於國內的一些網站Icon並不支持。如有需要，你可以引入其它的圖標服務商。</p>
+<h3 id="iconfont">iconfont</h3>
+<p>國內最出名的莫過於<a href="https://www.iconfont.cn/">iconfont</a>,功能很強大且圖標內容很豐富的矢量圖標庫。很多<code>Font Awesome</code>不支持的圖標都可以在這裏找到。同時，<a href="https://www.iconfont.cn/">iconfont</a>支持選擇需要的圖標生成css鏈接，減少不必要的CSS加載。</p>
+<h4 id="註冊賬號">註冊賬號</h4>
+<p>打開<a href="https://www.iconfont.cn/">iconfont</a>的網站，點擊導航欄的<code>人像</code>圖標，會跳出註冊界面，按要求註冊賬號。</p>
+<p><img src="https://jsd.012700.xyz/gh/jerryc127/CDN/img/butterfly-iconfont.png" alt="Snipaste_2020-05-28_21-12-01"></p>
+<h4 id="添加圖標入庫">添加圖標入庫</h4>
+<p>選擇自己需要的圖標，把鼠標移到圖標上，會顯示三個按鈕（依次是添加入庫、收藏和下載），而我們需要的是把圖標添加入庫</p>
+<p><img src="https://jsd.012700.xyz/gh/jerryc127/CDN/img/butterfly-iconfont-add.png" alt="image-20200528205401440"></p>
+<p>添加入庫後，你可以看到網站右上角<code>購物車</code>圖標顯示了<code>1</code>字，代表圖標已經添加入庫，點擊<code>購物車</code>圖標，會彈出側邊欄顯示詳情。</p>
+<p><img src="https://jsd.012700.xyz/gh/jerryc127/CDN/img/butterfly-iconfont-check.png" alt="image-20200528205925258"></p>
+<p><img src="https://jsd.012700.xyz/gh/jerryc127/CDN/img/butterfly-iconfont-detail.png" alt="image-20200528210120442"></p>
+<p>已選擇的圖標會顯示在上面，你可以重複上面的操作，把需要的圖標添加入庫，然後點擊<code>添加到項目</code>。</p>
+<p>接下來會要求選擇項目名稱，沒有的自己創建一個。</p>
+<p><img src="https://jsd.012700.xyz/gh/jerryc127/CDN/img/butterfly-iconfont-create.png" alt="image-20200528211624459"></p>
+<h4 id="生成css鏈接">生成CSS鏈接</h4>
+<p>在添加到項目之後，會跳到項目的詳情界面。點擊<code>Font class</code>，然後再點擊<code>暫無代碼，點擊生成</code>文字。網站會自動生成CSS鏈接，我們只需要複製鏈接就行。</p>
+<p><img src="https://jsd.012700.xyz/gh/jerryc127/CDN/img/butterfly-iconfont-link.png" alt="image-20200528212301786"></p>
+<h4 id="添加鏈接進主題配置文件">添加鏈接進主題配置文件</h4>
+<p>打開<code>主題配置文件</code>，找到<code>inject</code>配置，按要求把鏈接填入</p>
+<p><img src="https://jsd.012700.xyz/gh/jerryc127/CDN/img/butterfly-iconfont-setting.png" alt="image-20200528212440743"></p>
+<p>在我們需要使用的地方填入icon，例如<code>Menu</code>，圖片使用格式為<code>iconfont icon名字</code></p>
+<p><img src="https://jsd.012700.xyz/gh/jerryc127/CDN/img/butterfly-iconfont-setting-menu.png" alt="image-20200528213151304"></p>
+<p>運行Butterfly之後，你就可以看到menu的圖標生效了</p>
+<p><img src="https://jsd.012700.xyz/gh/jerryc127/CDN/img/butterfly-iconfont-show.png" alt="image-20200528213346338"></p>
+<h4 id="其他添加方法">其他添加方法</h4>
+<p>除了通過引入CSS鏈接使用圖標，iconfont也支持通過其它方法使用圖標，具體可查看<a href="https://www.iconfont.cn/help/detail?helptype=code">iconfont官方使用文檔</a></p>
+<h3 id="其它圖標提供商">其它圖標提供商</h3>
+<p>除了<a href="https://www.iconfont.cn/">iconfont</a>，還有<a href="https://github.com/Remix-Design/RemixIcon">RemixIcon</a>、<a href="https://www.flaticon.com/categories/seo-and-web">Flaticon</a>等等提供商，很多圖標可以選擇，具體使用方法請參考各自的文檔。</p>
+<h2 id="圖片壓縮">圖片壓縮</h2>
+<p>Butterfly主題需要使用到很多圖片。如果圖片太大，會嚴重拖慢網站的加載速度。</p>
+<p>圖片壓縮能夠有效的緩解這個問題。</p>
+<p>除了通過<code>gulp-imagemin</code>來壓縮圖片，還可以通過在綫壓縮網站和軟件來進行壓縮。以下兩款是我自己正在使用的工具。網上有很多這樣的工具，挑選一款適合自己的就行。</p>
+<ul>
+<li>
+<p><a href="https://tinypng.com/">tinypng</a></p>
+<p>一個在綫壓縮的網站。壓縮後的圖片也保留了很高的質量，在知乎上很多人推薦，不過免費版有限制。</p>
+<p><img src="https://jsd.012700.xyz/gh/jerryc127/CDN/img/butterfly-tinypng.png" alt="image-20200526173511503"></p>
+</li>
+<li>
+<p><a href="https://saerasoft.com/caesium/">caesium</a></p>
+<p>開源軟件，支持Windows和macOS。可以批量壓縮軟件，無限制。</p>
+<p><img src="https://jsd.012700.xyz/gh/jerryc127/CDN/img/butterfly-caesium.png" alt="image-20200526173316278"></p>
+</li>
+<li>
+<p><a href="https://github.com/marketplace/imgbot">imgbot</a></p>
+</li>
+</ul>
+<p>imgbot 是一款 Github 插件。</p>
+<p>安裝後，你上傳圖片到 Github 去，imgbot 會自動壓縮圖片並推送 PR，我們只需要合併 PR 就行</p>
+<p>你可以配置 imgbot 的偵測方法、壓縮方法（有損/無損），具體可以查看插件的文檔</p>
+<p><img src="https://jsd.012700.xyz/gh/jerryc127/CDN/img/butterfly-enhance-imgbot.png" alt="image-20200830231742951"></p>
+<h2 id="插件推薦">插件推薦</h2>
+<ul>
+<li>
+<p><a href="https://github.com/rozbo/hexo-abbrlink">hexo-abbrlink</a></p>
+<p>可以把鏈接permalink轉為數字的插件，配置容易，生成時自動轉為數字。</p>
+</li>
+<li>
+<p><a href="https://github.com/hexojs/hexo-generator-feed">hexo-generator-feed</a></p>
+<p>生成RSS文件的插件</p>
+</li>
+<li>
+<p><a href="https://github.com/hexojs/hexo-filter-nofollow">hexo-filter-nofollow</a></p>
+<p>為網站使用到的所有外鏈添加<code>rel=&quot;noopener external nofollow noreferrer&quot;</code>, 可以有效地加強網站SEO和防止權重流失</p>
+</li>
+<li>
+<p><a href="https://github.com/hexojs/hexo-generator-sitemap">hexo-generator-sitemap</a></p>
+<p>生成sitemap的插件</p>
+</li>
+<li>
+<p><a href="https://github.com/coneycode/hexo-generator-baidu-sitemap">hexo-generator-baidu-sitemap</a></p>
+<p>看名字就知道，是專門為百度生成sitemap的插件</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Docs</category>
+      </categories>
+      <tags>
+        <tag>tutorial</tag>
+        <tag>Hexo</tag>
+        <tag>theme</tag>
+        <tag>butterfly</tag>
       </tags>
   </entry>
   <entry>
@@ -5274,6 +5453,195 @@ Subjects:	<strong>Computer Vision and Pattern Recognition (<a href="http://cs.CV
       </tags>
   </entry>
   <entry>
+    <title>[论文阅读]SwiftSketch: A Diffusion Model for Image-to-Vector Sketch Generation</title>
+    <url>/2025/12/18/SwiftSketch/</url>
+    <content><![CDATA[<h1 id="论文笔记-swiftsketch-秒级矢量线稿扩散生成器">[论文笔记] SwiftSketch: 秒级矢量线稿扩散生成器</h1>
+<p>paper:<a href="https://arxiv.org/abs/2502.08642">SwiftSketch: A Diffusion Model for Image-to-Vector Sketch Generation</a><br>
+Comments:<br>
+Subjects:	<strong>Computer Vision and Pattern Recognition (<a href="http://cs.CV">cs.CV</a>)</strong></p>
+<h2 id="摘要">摘要</h2>
+<p><img src="https://image.baidu.com/search/down?url=https://tvax3.sinaimg.cn/large/009frmRQly1iblnp63tacj30tt0akdjh.jpg" alt="image"><br>
+图像转矢量线稿任务旨在捕捉输入图像的结构、轮廓和视觉本质。现有技术面临两大痛点：数据集要么规模大但业余（如 QuickDraw），要么专业但规模极小（如 OpenSketch）；生成速度上，先进方法往往需要几分钟甚至几小时。本文提出了 <strong>SwiftSketch</strong> 模型，搭配 <strong>ControlSketch</strong> 数据生成工具和 3.5 万对合成数据集，实现了不到 1 秒生成高质量、可编辑、能适配多种物体的矢量草图，解决了质量、速度与泛化性的平衡问题。</p>
+<hr>
+<h2 id="1-研究背景与目标">1. 研究背景与目标</h2>
+<p><strong>图像转矢量线稿</strong>:这项任务需要将输入图像转换为线描图，以捕捉其关键特征，如结构、轮廓和整体视觉本质。草图可以表示为像素或矢量图形，后者因其分辨率无关性、更强的可编辑性以及能够捕捉草图的序列性和抽象性而更受青睐。</p>
+<p>现有技术要么能生成好看的矢量草图但速度极慢，要么依赖的数据集大规模但不专业，要么是专业但规模小只能画特定领域；为此作者提出了「SwiftSketch」模型，搭配「ControlSketch」工具和3.5 万对合成数据集，实现了不到 1 秒生成高质量、可编辑、能适配多种物体的矢量草图。</p>
+<h3 id="1-1-motivation-两大核心问题">1.1 Motivation: 两大核心问题</h3>
+<p><strong>数据集问题</strong>：<br>
+以前的草图数据分两类，难以兼顾质量与规模：</p>
+<ul>
+<li><strong>大规模但业余</strong>：如 QuickDraw，有 5000 万张，但风格业余，缺乏专业结构。</li>
+<li><strong>专业但规模小</strong>：如 OpenSketch，由专业设计师绘制，但只有几百张，且局限于肖像、产品设计特定领域。</li>
+</ul>
+<p><strong>速度问题</strong>：<br>
+现在最先进的方法（如基于优化的方法）画一张草图需要漫长的迭代等待，耗时几分钟甚至几小时。</p>
+<h3 id="1-2-本文目标">1.2 本文目标</h3>
+<ul>
+<li><strong>极速生成</strong>：画一张草图不到 1 秒。</li>
+<li><strong>泛化性强大</strong>：能画没专门训练过的东西。</li>
+<li><strong>矢量质量</strong>：线条流畅、结构准确，具备专业设计师的风格。</li>
+</ul>
+<h3 id="1-3-任务定义">1.3 任务定义</h3>
+<p>这项任务需要将输入图像转换为线描图，以捕捉其关键特征，如结构、轮廓和整体视觉本质。草图可以表示为像素或矢量图形，后者因其分辨率无关性、更强的可编辑性以及能够捕捉草图的序列性和抽象性而更受青睐。</p>
+<hr>
+<h2 id="2-相关研究">2. 相关研究</h2>
+<h3 id="2-1-数据驱动的草图生成">2.1 数据驱动的草图生成</h3>
+<ul>
+<li><strong>RNN 类（代表：Sketch-RNN）</strong>：早期主流的序列生成模型，逐笔顺序生成。</li>
+<li><strong>GANs 类（代表：Info-drawing、VAE-GAN）</strong>：靠“生成器 + 判别器”的对抗，进行“对抗优化生成”。</li>
+<li><strong>Transformer 类</strong>：借助自注意力机制捕捉笔画间的长距离依赖。</li>
+<li><strong>扩散模型类（代表：SketchKnitter）</strong>：把草图生成看成笔画点变形去噪的过程。<br>
+RNN 和 GANs 对数据量要求较高Transformer 和扩散模型能更好地利用数据特征，但仍离不开大规模训练数据。</li>
+</ul>
+<p><strong>核心不足</strong>：RNN 和 GANs 对数据量要求较高；Transformer 和扩散模型能更好地利用数据特征，但仍离不开大规模训练数据。整体泛化能力差，风格和质量受限。</p>
+<h3 id="2-2-基于视觉语言模型-vlm-的矢量草图生成">2.2 基于视觉语言模型（VLM）的矢量草图生成</h3>
+<p>借预训练 VLM 的语义理解能力，靠 VLM 的跨模态知识来指导草图生成。</p>
+<ul>
+<li><strong>早期 CLIP 类</strong>：利用 CLIP 进行语义引导。</li>
+<li><strong>后期扩散 + SDS 类</strong>：把草图的贝塞尔曲线参数当成优化目标，用扩散模型的语义先验指导曲线调整。</li>
+</ul>
+<p><strong>局限</strong>：速度极慢（反向过程耗时），适配性差。</p>
+<h3 id="2-3-面向非像素数据的扩散模型">2.3 面向非像素数据的扩散模型</h3>
+<ul>
+<li><strong>VecFusion</strong>：为了适配字体设计，没法迁移到通用草图生成任务。</li>
+<li><strong>SketchKnitter</strong>：不支持“图像或文本条件生成”。</li>
+</ul>
+<h3 id="2-4-扩散模型和-clip-背景知识">2.4 扩散模型和 CLIP 背景知识</h3>
+<p><img src="https://image.baidu.com/search/down?url=https://tvax1.sinaimg.cn/large/009frmRQly1iblnwcasoaj30uw0b1af2.jpg" alt="image"></p>
+<ul>
+<li>
+<p><strong>CLIP</strong>：CLIP（Contrastive Language-Image Pre-Training）是OpenAI于2021年提出的一种新型的图像-文本对比学习模型。它是在大规模数据集上进行训练的，目标是将图像和文本映射到同一个嵌入空间，使得图像和与之对应的文本描述能够在该空间中保持相似性。CLIP的提出背景是为了应对传统图像识别模型的局限性，尤其是在缺乏大量标注数据的情况下，如何通过自监督学习让模型从互联网中大量的图像-文本对中获取有用的信息。</p>
+</li>
+<li>
+<p><strong>扩散模型</strong>：通过去噪过程生成数据，具有很强的生成能力。</p>
+</li>
+<li>
+<p>传统的图像识别模型（如 CNN）通常依赖大量标注的图像数据来进行训练，这使得模型的训练过程需要非常多的人工标注工作和数据。此外，很多时候这些模型的能力较为局限，特别是在面对没有标注数据的新任务时，通常需要进行迁移学习或者重新训练，这限制了模型的泛化能力。</p>
+</li>
+</ul>
+<hr>
+<h2 id="3-方法框架">3. 方法框架</h2>
+<h3 id="3-1-controlsketch-数据生成">3.1 ControlSketch: 数据生成</h3>
+<p><img src="https://image.baidu.com/search/down?url=https://tvax1.sinaimg.cn/large/009frmRQly1iblnyu10e6j30ji08l42l.jpg" alt="image"><br>
+为了解决数据稀缺问题，作者提出了 ControlSketch 流程来生成高质量训练数据。</p>
+<p><strong>输入</strong>：SDXL 生成的图像或真实拍摄的单对象照片 + 注意力图（DDIM inversion 提取） + 深度图（MiDaS 提取） + 图像描述（BLIP2 生成）。<br>
+<strong>输出</strong>：高质量矢量草图 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi></mrow><annotation encoding="application/x-tex">S</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span></span></span></span>，由 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mn>32</mn></mrow><annotation encoding="application/x-tex">n=32</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">3</span><span class="mord">2</span></span></span></span> 条“二维三次贝塞尔曲线”组成（每条笔画含 4 个控制点）。</p>
+<p><strong>步骤 1：笔画初始化</strong></p>
+<ul>
+<li>用“加权 KMeans 算法”将输入图像的“对象区域”分成 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mo>=</mo><mn>6</mn></mrow><annotation encoding="application/x-tex">k=6</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">6</span></span></span></span> 个等面积区域。</li>
+<li><strong>控制点分配</strong>：一半控制点平均分配给 6 个区域；另一半控制点按每个区域的“平均注意力值”比例分配。</li>
+</ul>
+<p><strong>步骤 2：迭代优化</strong></p>
+<ul>
+<li>调整笔画的控制点坐标，让草图逐步贴合输入图像的结构、语义和空间关系。</li>
+<li>用可微渲染器将当前迭代的 32 条贝塞尔曲线转换成 2D 像素图。</li>
+<li>像素图加噪之后使用 ControlNet 噪声预测。</li>
+<li>含噪像素图、深度图、图像描述 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span></span></span></span> 输入 ControlNet + 预训练文本到图像扩散模型。</li>
+<li><strong>效率</strong>：在 RTX 3090 GPU 上，每生成一张 32 笔画的矢量草图需迭代 2000 步，耗时约 10 分钟。</li>
+</ul>
+<p><strong>ControlSketch Dataset 构建细节</strong>：<br>
+<img src="https://image.baidu.com/search/down?url=https://tvax4.sinaimg.cn/large/009frmRQly1iblnzefc0qj30k6088wgz.jpg" alt="image"></p>
+<ul>
+<li><strong>数据生成</strong>：输入 SDXL 生成非真实图像。</li>
+<li><strong>Prompt 模板</strong>：<em>“A highly detailed wideshot image of one <c>, set against a plain mesmerizing background. Center.”</em>（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi></mrow><annotation encoding="application/x-tex">c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">c</span></span></span></span> 为类别标签）。</li>
+<li><strong>图像规格</strong>：通过 CLIP 筛选，输出 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1024</mn><mo>×</mo><mn>1024</mn></mrow><annotation encoding="application/x-tex">1024 \times 1024</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">1</span><span class="mord">0</span><span class="mord">2</span><span class="mord">4</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">0</span><span class="mord">2</span><span class="mord">4</span></span></span></span> 高清图像，覆盖 100 个目标类别。</li>
+<li><strong>单样本组成</strong>：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi><mo separator="true">,</mo><msub><mi>I</mi><mrow><mi>a</mi><mi>t</mi><mi>t</mi><mi>n</mi></mrow></msub><mo separator="true">,</mo><msub><mi>I</mi><mrow><mi>d</mi><mi>e</mi><mi>p</mi><mi>t</mi><mi>h</mi></mrow></msub><mo separator="true">,</mo><msub><mi>I</mi><mrow><mi>m</mi><mi>a</mi><mi>s</mi><mi>k</mi></mrow></msub><mo separator="true">,</mo><mi>S</mi><mo separator="true">,</mo><mi>c</mi><mo separator="true">,</mo><mi>y</mi></mrow><annotation encoding="application/x-tex">I, I_{attn}, I_{depth}, I_{mask}, S, c, y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord mathdefault" style="margin-right:0.07847em;">I</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07847em;">I</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-left:-0.07847em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">a</span><span class="mord mathdefault mtight">t</span><span class="mord mathdefault mtight">t</span><span class="mord mathdefault mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07847em;">I</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361079999999999em;"><span style="top:-2.5500000000000003em;margin-left:-0.07847em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">d</span><span class="mord mathdefault mtight">e</span><span class="mord mathdefault mtight">p</span><span class="mord mathdefault mtight">t</span><span class="mord mathdefault mtight">h</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07847em;">I</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:-0.07847em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">m</span><span class="mord mathdefault mtight">a</span><span class="mord mathdefault mtight">s</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">c</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span></span></span></span>（图像 + 注意力图 + 深度图 + 物体掩码 + 矢量草图 + 类别标签 + 图像描述）。</li>
+<li><strong>启发式排序方案</strong>：对草图 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi></mrow><annotation encoding="application/x-tex">S</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span></span></span></span> 的 32 条笔画排序。按“笔画与物体轮廓的交集数 + 笔画所在区域的注意力分数”加权排序，优先保留“轮廓笔画”和“高注意力区域笔画”，支持模型后续生成不同抽象程度的草图。<br>
+<img src="https://image.baidu.com/search/down?url=https://tvax2.sinaimg.cn/large/009frmRQly1iblnzsq888j30yr064adm.jpg" alt="image"></li>
+</ul>
+<h3 id="3-2-swiftsketch-模型">3.2 SwiftSketch 模型</h3>
+<p><img src="https://image.baidu.com/search/down?url=https://tvax4.sinaimg.cn/large/009frmRQly1iblo07axqoj30p9091jum.jpg" alt="image"><br>
+<strong>步骤 1：数据输入处理</strong></p>
+<ul>
+<li>从 ControlSketch Dataset 中随机采样。</li>
+<li><strong>训练参数</strong>：批量大小 32，训练步数 400K，学习率 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>5</mn><mo>×</mo><mn>1</mn><msup><mn>0</mn><mrow><mo>−</mo><mn>5</mn></mrow></msup></mrow><annotation encoding="application/x-tex">5 \times 10^{-5}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">5</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">5</span></span></span></span></span></span></span></span></span></span></span></span>，Classifier-Free Guidance 概率 10%（随机不输入图像 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi></mrow><annotation encoding="application/x-tex">I</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07847em;">I</span></span></span></span>）。</li>
+<li><strong>特征提取</strong>：用 CLIP ResNet 处理图像 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi></mrow><annotation encoding="application/x-tex">I</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07847em;">I</span></span></span></span>，提取最后一个残差特征层（能同时捕捉几何细节和语义信息），输入轻量 CNN（3 层卷积 + 激活函数）调整维度。</li>
+</ul>
+<p><img src="https://image.baidu.com/search/down?url=https://tvax2.sinaimg.cn/large/009frmRQly1iblo0ijbawj30eq04ndie.jpg" alt="image"><br>
+<strong>步骤 2：加噪</strong></p>
+<ul>
+<li>随机选择时间步 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathdefault">t</span></span></span></span> 和高斯噪声加噪，此处 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>=</mo><mn>50</mn></mrow><annotation encoding="application/x-tex">T=50</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">5</span><span class="mord">0</span></span></span></span>。</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mover accent="true"><mi>α</mi><mo>ˉ</mo></mover><mi>t</mi></msub></mrow><annotation encoding="application/x-tex">\bar{\alpha}_t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.71778em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.56778em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.0037em;">α</span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.22222em;"><span class="mord">ˉ</span></span></span></span></span></span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 范围 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>→</mo><mn>0.4</mn></mrow><annotation encoding="application/x-tex">2 \to 0.4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span><span class="mord">.</span><span class="mord">4</span></span></span></span>。</li>
+</ul>
+<p><strong>步骤 3：模型预测干净草图</strong></p>
+<ul>
+<li><strong>核心模型 M 模块</strong>：Transformer Decoder 8 层。
+<ul>
+<li><strong>自注意力</strong>：让模型注意到笔画间关联，同时捕捉绘画逻辑。</li>
+<li><strong>交叉注意力</strong>：让模型注意到图像特征，保留这些特征结构，确保草图贴合输入图像。</li>
+</ul>
+</li>
+</ul>
+<p><strong>步骤 4：损失函数</strong><br>
+<img src="https://image.baidu.com/search/down?url=https://tvax1.sinaimg.cn/large/009frmRQly1iblo1c3u4bj30fh05rjte.jpg" alt="image"></p>
+<ul>
+<li><strong>L1 损失</strong>：直接计算真实草图和预测草图的控制点坐标差。</li>
+<li><strong>LPIPS 损失</strong>：先通过可微光栅器 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="script">R</mi></mrow><annotation encoding="application/x-tex">\mathcal{R}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord"><span class="mord mathcal">R</span></span></span></span></span>，将两个图像转成像素图再计算感知相似度。<br>
+<img src="https://image.baidu.com/search/down?url=https://tvax2.sinaimg.cn/large/009frmRQly1iblo1mfqjlj30az04u3z3.jpg" alt="image"><br>
+<strong>精炼网络</strong></li>
+<li>仅用 LPIPS 损失优化细节，不需要调整整体笔画位置。</li>
+<li>学习率降低为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>5</mn><mo>×</mo><mn>1</mn><msup><mn>0</mn><mrow><mo>−</mo><mn>6</mn></mrow></msup></mrow><annotation encoding="application/x-tex">5 \times 10^{-6}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">5</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">6</span></span></span></span></span></span></span></span></span></span></span></span>，避免破坏主模型已学到的结构。</li>
+</ul>
+<p><strong>成本与效率</strong></p>
+<ul>
+<li><strong>训练成本</strong>：单 A100 GPU 训练 400K 步，耗时约 6 天；精炼网络训练 30K 步，耗时约 0.5 天。</li>
+<li><strong>推理效率</strong>：单张草图生成时间约 0.5 秒（50 步降噪 + 1 步精炼），比现有 SOTA 矢量草图方法（CLIPasso，5 分钟/张）快 <strong>600 倍</strong>。</li>
+</ul>
+<hr>
+<h2 id="4-实验结果与分析">4. 实验结果与分析</h2>
+<h3 id="4-1-定性对比">4.1 定性对比</h3>
+<p><img src="https://image.baidu.com/search/down?url=https://tvax3.sinaimg.cn/large/009frmRQly1iblo23599pj30vt0g2133.jpg" alt="image"></p>
+<ul>
+<li><strong>XDoG</strong>：经典边缘检测技术，作为基准。</li>
+<li><strong>Chan 等人和 InstantStyle</strong>：草图细节丰富，与输入图像的整体结构契合度高，但都严格遵循边缘图，缺乏抽象性。</li>
+<li><strong>Photo-Sketching</strong>：草图更具抽象性，却难以以自然的方式有效捕捉图像内容。</li>
+<li><strong>基于 SDS 的方法</strong>：通常需要更长时间才能收敛。</li>
+</ul>
+<h3 id="4-2-定量分析">4.2 定量分析</h3>
+<p><img src="https://image.baidu.com/search/down?url=https://tvax1.sinaimg.cn/large/009frmRQly1iblo2g219tj30xa0bc4bk.jpg" alt="image"></p>
+<ul>
+<li><strong>泛化能力</strong>：在未见过的类别中，SwiftSketch 的 CLIP Top-1 类别识别准确率达到 <strong>0.70</strong>，在同等速度下表现突出。</li>
+<li><strong>外部数据集</strong>：External 外部数据集下效果也不错。</li>
+<li><strong>对比矢量方法</strong>：CLIPasso 的 Unseen 准确率虽高，但速度慢 600 倍；ControlSketch 速度更慢。</li>
+<li><strong>对比像素方法</strong>：Photo-Sketching（0.6 秒/张）的 Unseen 准确率是 0.81，但它是像素格式，不可编辑。</li>
+</ul>
+<h3 id="4-3-ablation-study-消融实验">4.3 Ablation Study (消融实验)</h3>
+<p><img src="https://image.baidu.com/search/down?url=https://tvax3.sinaimg.cn/large/009frmRQly1iblo2ror61j30gq0a7n39.jpg" alt="image"><br>
+对比了移除不同组件的效果：</p>
+<ul>
+<li>w/o L1（移除 L1 损失）</li>
+<li>w/o LPIPS（移除 LPIPS 损失）</li>
+<li>w/o Sort（移除笔画排序）</li>
+<li>+Refine（加入精炼网络）</li>
+</ul>
+<p><strong>结论</strong>：各模块重要性排序为：<strong>L1 损失 &gt; LPIPS 损失 &gt; 精炼网络 &gt; 笔画排序技术</strong>。</p>
+<hr>
+<h2 id="5-总结和局限">5. 总结和局限</h2>
+<h3 id="5-1-conclusion">5.1 Conclusion</h3>
+<ol>
+<li><strong>方法创新</strong>：提出了 SwiftSketch 方法，高效生成高质量矢量草图，实现了不到 1 秒（约 0.5 秒）的生成速度，且草图具备可识别性。</li>
+<li><strong>解决数据瓶颈</strong>：解决了专业级图像-矢量草图配对数据集稀缺的问题。</li>
+<li><strong>应用价值</strong>：为“实时、高质量矢量草图生成”奠定了基础，可支持更多交互式应用，同时公开了可扩展的数据集构建流程。<br>
+<img src="https://image.baidu.com/search/down?url=https://tvax3.sinaimg.cn/large/009frmRQly1iblo33l3emj30ie08stac.jpg" alt="image"></li>
+</ol>
+<h3 id="5-3-limitation">5.3 Limitation</h3>
+<ol>
+<li><strong>未见过类别的泛化不足</strong>：SwiftSketch 在训练过的类别上表现良好，但对未训练过的类别（尤其与训练类别差异显著的非人类、非动物对象）性能下降，生成的草图可能存在噪声或完全无法识别（如胡萝卜、埃菲尔铁塔的失败案例）。</li>
+<li><strong>精炼阶段易丢失细节</strong>：为修正草图噪声而设计的精炼阶段可能会过度简化草图，导致细微特征丢失。</li>
+<li><strong>笔画数固定</strong>：当前模型仅针对 32 笔的固定笔画数进行训练，缺乏抽象程度灵活性，无法根据需求生成不同笔画数量、不同抽象层级的草图。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>paper</category>
+      </categories>
+      <tags>
+        <tag>论文阅读</tag>
+        <tag>Diffusion Model</tag>
+        <tag>Vector Graphics</tag>
+        <tag>Sketch Generation</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>[论文阅读]W-Net:One-Shot Arbitrary-Style Chinese Character Generation with Deep Neural Networks</title>
     <url>/2026/01/09/W_Net/</url>
     <content><![CDATA[<h1 id="论文笔记-w-net-one-shot-arbitrary-style-chinese-character-generation-with-deep-neural-networks">[论文笔记] W-Net:One-Shot Arbitrary-Style Chinese Character Generation with Deep Neural Networks</h1>
@@ -5633,195 +6001,6 @@ Subjects:	<strong>Computer Vision and Pattern Recognition (<a href="http://cs.CV
         <tag>Diffusion Model</tag>
         <tag>Vector Graphics</tag>
         <tag>Semantic Typography</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>[论文阅读]SwiftSketch: A Diffusion Model for Image-to-Vector Sketch Generation</title>
-    <url>/2025/12/18/SwiftSketch/</url>
-    <content><![CDATA[<h1 id="论文笔记-swiftsketch-秒级矢量线稿扩散生成器">[论文笔记] SwiftSketch: 秒级矢量线稿扩散生成器</h1>
-<p>paper:<a href="https://arxiv.org/abs/2502.08642">SwiftSketch: A Diffusion Model for Image-to-Vector Sketch Generation</a><br>
-Comments:<br>
-Subjects:	<strong>Computer Vision and Pattern Recognition (<a href="http://cs.CV">cs.CV</a>)</strong></p>
-<h2 id="摘要">摘要</h2>
-<p><img src="https://image.baidu.com/search/down?url=https://tvax3.sinaimg.cn/large/009frmRQly1iblnp63tacj30tt0akdjh.jpg" alt="image"><br>
-图像转矢量线稿任务旨在捕捉输入图像的结构、轮廓和视觉本质。现有技术面临两大痛点：数据集要么规模大但业余（如 QuickDraw），要么专业但规模极小（如 OpenSketch）；生成速度上，先进方法往往需要几分钟甚至几小时。本文提出了 <strong>SwiftSketch</strong> 模型，搭配 <strong>ControlSketch</strong> 数据生成工具和 3.5 万对合成数据集，实现了不到 1 秒生成高质量、可编辑、能适配多种物体的矢量草图，解决了质量、速度与泛化性的平衡问题。</p>
-<hr>
-<h2 id="1-研究背景与目标">1. 研究背景与目标</h2>
-<p><strong>图像转矢量线稿</strong>:这项任务需要将输入图像转换为线描图，以捕捉其关键特征，如结构、轮廓和整体视觉本质。草图可以表示为像素或矢量图形，后者因其分辨率无关性、更强的可编辑性以及能够捕捉草图的序列性和抽象性而更受青睐。</p>
-<p>现有技术要么能生成好看的矢量草图但速度极慢，要么依赖的数据集大规模但不专业，要么是专业但规模小只能画特定领域；为此作者提出了「SwiftSketch」模型，搭配「ControlSketch」工具和3.5 万对合成数据集，实现了不到 1 秒生成高质量、可编辑、能适配多种物体的矢量草图。</p>
-<h3 id="1-1-motivation-两大核心问题">1.1 Motivation: 两大核心问题</h3>
-<p><strong>数据集问题</strong>：<br>
-以前的草图数据分两类，难以兼顾质量与规模：</p>
-<ul>
-<li><strong>大规模但业余</strong>：如 QuickDraw，有 5000 万张，但风格业余，缺乏专业结构。</li>
-<li><strong>专业但规模小</strong>：如 OpenSketch，由专业设计师绘制，但只有几百张，且局限于肖像、产品设计特定领域。</li>
-</ul>
-<p><strong>速度问题</strong>：<br>
-现在最先进的方法（如基于优化的方法）画一张草图需要漫长的迭代等待，耗时几分钟甚至几小时。</p>
-<h3 id="1-2-本文目标">1.2 本文目标</h3>
-<ul>
-<li><strong>极速生成</strong>：画一张草图不到 1 秒。</li>
-<li><strong>泛化性强大</strong>：能画没专门训练过的东西。</li>
-<li><strong>矢量质量</strong>：线条流畅、结构准确，具备专业设计师的风格。</li>
-</ul>
-<h3 id="1-3-任务定义">1.3 任务定义</h3>
-<p>这项任务需要将输入图像转换为线描图，以捕捉其关键特征，如结构、轮廓和整体视觉本质。草图可以表示为像素或矢量图形，后者因其分辨率无关性、更强的可编辑性以及能够捕捉草图的序列性和抽象性而更受青睐。</p>
-<hr>
-<h2 id="2-相关研究">2. 相关研究</h2>
-<h3 id="2-1-数据驱动的草图生成">2.1 数据驱动的草图生成</h3>
-<ul>
-<li><strong>RNN 类（代表：Sketch-RNN）</strong>：早期主流的序列生成模型，逐笔顺序生成。</li>
-<li><strong>GANs 类（代表：Info-drawing、VAE-GAN）</strong>：靠“生成器 + 判别器”的对抗，进行“对抗优化生成”。</li>
-<li><strong>Transformer 类</strong>：借助自注意力机制捕捉笔画间的长距离依赖。</li>
-<li><strong>扩散模型类（代表：SketchKnitter）</strong>：把草图生成看成笔画点变形去噪的过程。<br>
-RNN 和 GANs 对数据量要求较高Transformer 和扩散模型能更好地利用数据特征，但仍离不开大规模训练数据。</li>
-</ul>
-<p><strong>核心不足</strong>：RNN 和 GANs 对数据量要求较高；Transformer 和扩散模型能更好地利用数据特征，但仍离不开大规模训练数据。整体泛化能力差，风格和质量受限。</p>
-<h3 id="2-2-基于视觉语言模型-vlm-的矢量草图生成">2.2 基于视觉语言模型（VLM）的矢量草图生成</h3>
-<p>借预训练 VLM 的语义理解能力，靠 VLM 的跨模态知识来指导草图生成。</p>
-<ul>
-<li><strong>早期 CLIP 类</strong>：利用 CLIP 进行语义引导。</li>
-<li><strong>后期扩散 + SDS 类</strong>：把草图的贝塞尔曲线参数当成优化目标，用扩散模型的语义先验指导曲线调整。</li>
-</ul>
-<p><strong>局限</strong>：速度极慢（反向过程耗时），适配性差。</p>
-<h3 id="2-3-面向非像素数据的扩散模型">2.3 面向非像素数据的扩散模型</h3>
-<ul>
-<li><strong>VecFusion</strong>：为了适配字体设计，没法迁移到通用草图生成任务。</li>
-<li><strong>SketchKnitter</strong>：不支持“图像或文本条件生成”。</li>
-</ul>
-<h3 id="2-4-扩散模型和-clip-背景知识">2.4 扩散模型和 CLIP 背景知识</h3>
-<p><img src="https://image.baidu.com/search/down?url=https://tvax1.sinaimg.cn/large/009frmRQly1iblnwcasoaj30uw0b1af2.jpg" alt="image"></p>
-<ul>
-<li>
-<p><strong>CLIP</strong>：CLIP（Contrastive Language-Image Pre-Training）是OpenAI于2021年提出的一种新型的图像-文本对比学习模型。它是在大规模数据集上进行训练的，目标是将图像和文本映射到同一个嵌入空间，使得图像和与之对应的文本描述能够在该空间中保持相似性。CLIP的提出背景是为了应对传统图像识别模型的局限性，尤其是在缺乏大量标注数据的情况下，如何通过自监督学习让模型从互联网中大量的图像-文本对中获取有用的信息。</p>
-</li>
-<li>
-<p><strong>扩散模型</strong>：通过去噪过程生成数据，具有很强的生成能力。</p>
-</li>
-<li>
-<p>传统的图像识别模型（如 CNN）通常依赖大量标注的图像数据来进行训练，这使得模型的训练过程需要非常多的人工标注工作和数据。此外，很多时候这些模型的能力较为局限，特别是在面对没有标注数据的新任务时，通常需要进行迁移学习或者重新训练，这限制了模型的泛化能力。</p>
-</li>
-</ul>
-<hr>
-<h2 id="3-方法框架">3. 方法框架</h2>
-<h3 id="3-1-controlsketch-数据生成">3.1 ControlSketch: 数据生成</h3>
-<p><img src="https://image.baidu.com/search/down?url=https://tvax1.sinaimg.cn/large/009frmRQly1iblnyu10e6j30ji08l42l.jpg" alt="image"><br>
-为了解决数据稀缺问题，作者提出了 ControlSketch 流程来生成高质量训练数据。</p>
-<p><strong>输入</strong>：SDXL 生成的图像或真实拍摄的单对象照片 + 注意力图（DDIM inversion 提取） + 深度图（MiDaS 提取） + 图像描述（BLIP2 生成）。<br>
-<strong>输出</strong>：高质量矢量草图 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi></mrow><annotation encoding="application/x-tex">S</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span></span></span></span>，由 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mn>32</mn></mrow><annotation encoding="application/x-tex">n=32</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">3</span><span class="mord">2</span></span></span></span> 条“二维三次贝塞尔曲线”组成（每条笔画含 4 个控制点）。</p>
-<p><strong>步骤 1：笔画初始化</strong></p>
-<ul>
-<li>用“加权 KMeans 算法”将输入图像的“对象区域”分成 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mo>=</mo><mn>6</mn></mrow><annotation encoding="application/x-tex">k=6</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">6</span></span></span></span> 个等面积区域。</li>
-<li><strong>控制点分配</strong>：一半控制点平均分配给 6 个区域；另一半控制点按每个区域的“平均注意力值”比例分配。</li>
-</ul>
-<p><strong>步骤 2：迭代优化</strong></p>
-<ul>
-<li>调整笔画的控制点坐标，让草图逐步贴合输入图像的结构、语义和空间关系。</li>
-<li>用可微渲染器将当前迭代的 32 条贝塞尔曲线转换成 2D 像素图。</li>
-<li>像素图加噪之后使用 ControlNet 噪声预测。</li>
-<li>含噪像素图、深度图、图像描述 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span></span></span></span> 输入 ControlNet + 预训练文本到图像扩散模型。</li>
-<li><strong>效率</strong>：在 RTX 3090 GPU 上，每生成一张 32 笔画的矢量草图需迭代 2000 步，耗时约 10 分钟。</li>
-</ul>
-<p><strong>ControlSketch Dataset 构建细节</strong>：<br>
-<img src="https://image.baidu.com/search/down?url=https://tvax4.sinaimg.cn/large/009frmRQly1iblnzefc0qj30k6088wgz.jpg" alt="image"></p>
-<ul>
-<li><strong>数据生成</strong>：输入 SDXL 生成非真实图像。</li>
-<li><strong>Prompt 模板</strong>：<em>“A highly detailed wideshot image of one <c>, set against a plain mesmerizing background. Center.”</em>（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi></mrow><annotation encoding="application/x-tex">c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">c</span></span></span></span> 为类别标签）。</li>
-<li><strong>图像规格</strong>：通过 CLIP 筛选，输出 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1024</mn><mo>×</mo><mn>1024</mn></mrow><annotation encoding="application/x-tex">1024 \times 1024</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">1</span><span class="mord">0</span><span class="mord">2</span><span class="mord">4</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">0</span><span class="mord">2</span><span class="mord">4</span></span></span></span> 高清图像，覆盖 100 个目标类别。</li>
-<li><strong>单样本组成</strong>：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi><mo separator="true">,</mo><msub><mi>I</mi><mrow><mi>a</mi><mi>t</mi><mi>t</mi><mi>n</mi></mrow></msub><mo separator="true">,</mo><msub><mi>I</mi><mrow><mi>d</mi><mi>e</mi><mi>p</mi><mi>t</mi><mi>h</mi></mrow></msub><mo separator="true">,</mo><msub><mi>I</mi><mrow><mi>m</mi><mi>a</mi><mi>s</mi><mi>k</mi></mrow></msub><mo separator="true">,</mo><mi>S</mi><mo separator="true">,</mo><mi>c</mi><mo separator="true">,</mo><mi>y</mi></mrow><annotation encoding="application/x-tex">I, I_{attn}, I_{depth}, I_{mask}, S, c, y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord mathdefault" style="margin-right:0.07847em;">I</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07847em;">I</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-left:-0.07847em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">a</span><span class="mord mathdefault mtight">t</span><span class="mord mathdefault mtight">t</span><span class="mord mathdefault mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07847em;">I</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361079999999999em;"><span style="top:-2.5500000000000003em;margin-left:-0.07847em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">d</span><span class="mord mathdefault mtight">e</span><span class="mord mathdefault mtight">p</span><span class="mord mathdefault mtight">t</span><span class="mord mathdefault mtight">h</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07847em;">I</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:-0.07847em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">m</span><span class="mord mathdefault mtight">a</span><span class="mord mathdefault mtight">s</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">c</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span></span></span></span>（图像 + 注意力图 + 深度图 + 物体掩码 + 矢量草图 + 类别标签 + 图像描述）。</li>
-<li><strong>启发式排序方案</strong>：对草图 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi></mrow><annotation encoding="application/x-tex">S</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span></span></span></span> 的 32 条笔画排序。按“笔画与物体轮廓的交集数 + 笔画所在区域的注意力分数”加权排序，优先保留“轮廓笔画”和“高注意力区域笔画”，支持模型后续生成不同抽象程度的草图。<br>
-<img src="https://image.baidu.com/search/down?url=https://tvax2.sinaimg.cn/large/009frmRQly1iblnzsq888j30yr064adm.jpg" alt="image"></li>
-</ul>
-<h3 id="3-2-swiftsketch-模型">3.2 SwiftSketch 模型</h3>
-<p><img src="https://image.baidu.com/search/down?url=https://tvax4.sinaimg.cn/large/009frmRQly1iblo07axqoj30p9091jum.jpg" alt="image"><br>
-<strong>步骤 1：数据输入处理</strong></p>
-<ul>
-<li>从 ControlSketch Dataset 中随机采样。</li>
-<li><strong>训练参数</strong>：批量大小 32，训练步数 400K，学习率 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>5</mn><mo>×</mo><mn>1</mn><msup><mn>0</mn><mrow><mo>−</mo><mn>5</mn></mrow></msup></mrow><annotation encoding="application/x-tex">5 \times 10^{-5}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">5</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">5</span></span></span></span></span></span></span></span></span></span></span></span>，Classifier-Free Guidance 概率 10%（随机不输入图像 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi></mrow><annotation encoding="application/x-tex">I</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07847em;">I</span></span></span></span>）。</li>
-<li><strong>特征提取</strong>：用 CLIP ResNet 处理图像 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi></mrow><annotation encoding="application/x-tex">I</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07847em;">I</span></span></span></span>，提取最后一个残差特征层（能同时捕捉几何细节和语义信息），输入轻量 CNN（3 层卷积 + 激活函数）调整维度。</li>
-</ul>
-<p><img src="https://image.baidu.com/search/down?url=https://tvax2.sinaimg.cn/large/009frmRQly1iblo0ijbawj30eq04ndie.jpg" alt="image"><br>
-<strong>步骤 2：加噪</strong></p>
-<ul>
-<li>随机选择时间步 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathdefault">t</span></span></span></span> 和高斯噪声加噪，此处 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>=</mo><mn>50</mn></mrow><annotation encoding="application/x-tex">T=50</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">5</span><span class="mord">0</span></span></span></span>。</li>
-<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mover accent="true"><mi>α</mi><mo>ˉ</mo></mover><mi>t</mi></msub></mrow><annotation encoding="application/x-tex">\bar{\alpha}_t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.71778em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.56778em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.0037em;">α</span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.22222em;"><span class="mord">ˉ</span></span></span></span></span></span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 范围 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>→</mo><mn>0.4</mn></mrow><annotation encoding="application/x-tex">2 \to 0.4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span><span class="mord">.</span><span class="mord">4</span></span></span></span>。</li>
-</ul>
-<p><strong>步骤 3：模型预测干净草图</strong></p>
-<ul>
-<li><strong>核心模型 M 模块</strong>：Transformer Decoder 8 层。
-<ul>
-<li><strong>自注意力</strong>：让模型注意到笔画间关联，同时捕捉绘画逻辑。</li>
-<li><strong>交叉注意力</strong>：让模型注意到图像特征，保留这些特征结构，确保草图贴合输入图像。</li>
-</ul>
-</li>
-</ul>
-<p><strong>步骤 4：损失函数</strong><br>
-<img src="https://image.baidu.com/search/down?url=https://tvax1.sinaimg.cn/large/009frmRQly1iblo1c3u4bj30fh05rjte.jpg" alt="image"></p>
-<ul>
-<li><strong>L1 损失</strong>：直接计算真实草图和预测草图的控制点坐标差。</li>
-<li><strong>LPIPS 损失</strong>：先通过可微光栅器 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="script">R</mi></mrow><annotation encoding="application/x-tex">\mathcal{R}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord"><span class="mord mathcal">R</span></span></span></span></span>，将两个图像转成像素图再计算感知相似度。<br>
-<img src="https://image.baidu.com/search/down?url=https://tvax2.sinaimg.cn/large/009frmRQly1iblo1mfqjlj30az04u3z3.jpg" alt="image"><br>
-<strong>精炼网络</strong></li>
-<li>仅用 LPIPS 损失优化细节，不需要调整整体笔画位置。</li>
-<li>学习率降低为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>5</mn><mo>×</mo><mn>1</mn><msup><mn>0</mn><mrow><mo>−</mo><mn>6</mn></mrow></msup></mrow><annotation encoding="application/x-tex">5 \times 10^{-6}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">5</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">6</span></span></span></span></span></span></span></span></span></span></span></span>，避免破坏主模型已学到的结构。</li>
-</ul>
-<p><strong>成本与效率</strong></p>
-<ul>
-<li><strong>训练成本</strong>：单 A100 GPU 训练 400K 步，耗时约 6 天；精炼网络训练 30K 步，耗时约 0.5 天。</li>
-<li><strong>推理效率</strong>：单张草图生成时间约 0.5 秒（50 步降噪 + 1 步精炼），比现有 SOTA 矢量草图方法（CLIPasso，5 分钟/张）快 <strong>600 倍</strong>。</li>
-</ul>
-<hr>
-<h2 id="4-实验结果与分析">4. 实验结果与分析</h2>
-<h3 id="4-1-定性对比">4.1 定性对比</h3>
-<p><img src="https://image.baidu.com/search/down?url=https://tvax3.sinaimg.cn/large/009frmRQly1iblo23599pj30vt0g2133.jpg" alt="image"></p>
-<ul>
-<li><strong>XDoG</strong>：经典边缘检测技术，作为基准。</li>
-<li><strong>Chan 等人和 InstantStyle</strong>：草图细节丰富，与输入图像的整体结构契合度高，但都严格遵循边缘图，缺乏抽象性。</li>
-<li><strong>Photo-Sketching</strong>：草图更具抽象性，却难以以自然的方式有效捕捉图像内容。</li>
-<li><strong>基于 SDS 的方法</strong>：通常需要更长时间才能收敛。</li>
-</ul>
-<h3 id="4-2-定量分析">4.2 定量分析</h3>
-<p><img src="https://image.baidu.com/search/down?url=https://tvax1.sinaimg.cn/large/009frmRQly1iblo2g219tj30xa0bc4bk.jpg" alt="image"></p>
-<ul>
-<li><strong>泛化能力</strong>：在未见过的类别中，SwiftSketch 的 CLIP Top-1 类别识别准确率达到 <strong>0.70</strong>，在同等速度下表现突出。</li>
-<li><strong>外部数据集</strong>：External 外部数据集下效果也不错。</li>
-<li><strong>对比矢量方法</strong>：CLIPasso 的 Unseen 准确率虽高，但速度慢 600 倍；ControlSketch 速度更慢。</li>
-<li><strong>对比像素方法</strong>：Photo-Sketching（0.6 秒/张）的 Unseen 准确率是 0.81，但它是像素格式，不可编辑。</li>
-</ul>
-<h3 id="4-3-ablation-study-消融实验">4.3 Ablation Study (消融实验)</h3>
-<p><img src="https://image.baidu.com/search/down?url=https://tvax3.sinaimg.cn/large/009frmRQly1iblo2ror61j30gq0a7n39.jpg" alt="image"><br>
-对比了移除不同组件的效果：</p>
-<ul>
-<li>w/o L1（移除 L1 损失）</li>
-<li>w/o LPIPS（移除 LPIPS 损失）</li>
-<li>w/o Sort（移除笔画排序）</li>
-<li>+Refine（加入精炼网络）</li>
-</ul>
-<p><strong>结论</strong>：各模块重要性排序为：<strong>L1 损失 &gt; LPIPS 损失 &gt; 精炼网络 &gt; 笔画排序技术</strong>。</p>
-<hr>
-<h2 id="5-总结和局限">5. 总结和局限</h2>
-<h3 id="5-1-conclusion">5.1 Conclusion</h3>
-<ol>
-<li><strong>方法创新</strong>：提出了 SwiftSketch 方法，高效生成高质量矢量草图，实现了不到 1 秒（约 0.5 秒）的生成速度，且草图具备可识别性。</li>
-<li><strong>解决数据瓶颈</strong>：解决了专业级图像-矢量草图配对数据集稀缺的问题。</li>
-<li><strong>应用价值</strong>：为“实时、高质量矢量草图生成”奠定了基础，可支持更多交互式应用，同时公开了可扩展的数据集构建流程。<br>
-<img src="https://image.baidu.com/search/down?url=https://tvax3.sinaimg.cn/large/009frmRQly1iblo33l3emj30ie08stac.jpg" alt="image"></li>
-</ol>
-<h3 id="5-3-limitation">5.3 Limitation</h3>
-<ol>
-<li><strong>未见过类别的泛化不足</strong>：SwiftSketch 在训练过的类别上表现良好，但对未训练过的类别（尤其与训练类别差异显著的非人类、非动物对象）性能下降，生成的草图可能存在噪声或完全无法识别（如胡萝卜、埃菲尔铁塔的失败案例）。</li>
-<li><strong>精炼阶段易丢失细节</strong>：为修正草图噪声而设计的精炼阶段可能会过度简化草图，导致细微特征丢失。</li>
-<li><strong>笔画数固定</strong>：当前模型仅针对 32 笔的固定笔画数进行训练，缺乏抽象程度灵活性，无法根据需求生成不同笔画数量、不同抽象层级的草图。</li>
-</ol>
-]]></content>
-      <categories>
-        <category>paper</category>
-      </categories>
-      <tags>
-        <tag>论文阅读</tag>
-        <tag>Diffusion Model</tag>
-        <tag>Vector Graphics</tag>
-        <tag>Sketch Generation</tag>
       </tags>
   </entry>
   <entry>
