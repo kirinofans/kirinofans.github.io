@@ -1,0 +1,500 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>[论文阅读]From Events to Clarity: The Event-Guided Diffusion Framework for Dehazing | Kirinofans的博客</title><meta name="author" content="Kirinofans"><meta name="copyright" content="Kirinofans"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="[论文笔记] EvDehaze：事件引导的扩散模型去雾框架 paper: From Events to Clarity: The Event-Guided Diffusion Framework for Dehazing Subjects: Computer Vision and Pattern Recognition (cs.CV) 摘要 雾霾环境下的清晰成像是一项关键任务。基于先验与基于神经网">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[论文阅读]From Events to Clarity: The Event-Guided Diffusion Framework for Dehazing">
+<meta property="og:url" content="http://example.com/2026/07/31/From%20Events%20to%20Clarity%20The%20Event-Guided%20Diffusion%20Framework%20for%20Dehazing/index.html">
+<meta property="og:site_name" content="Kirinofans的博客">
+<meta property="og:description" content="[论文笔记] EvDehaze：事件引导的扩散模型去雾框架 paper: From Events to Clarity: The Event-Guided Diffusion Framework for Dehazing Subjects: Computer Vision and Pattern Recognition (cs.CV) 摘要 雾霾环境下的清晰成像是一项关键任务。基于先验与基于神经网">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/blog_migration/1785641714220_image.png">
+<meta property="article:published_time" content="2026-07-31T02:00:00.000Z">
+<meta property="article:modified_time" content="2026-08-02T03:42:26.248Z">
+<meta property="article:author" content="Kirinofans">
+<meta property="article:tag" content="论文阅读">
+<meta property="article:tag" content="Diffusion Model">
+<meta property="article:tag" content="Image Dehazing">
+<meta property="article:tag" content="Event Camera">
+<meta property="article:tag" content="图像复原">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/blog_migration/1785641714220_image.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2026/07/31/From%20Events%20to%20Clarity%20The%20Event-Guided%20Diffusion%20Framework%20for%20Dehazing/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: {"defaultEncoding":1,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Error',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: 'days',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '[论文阅读]From Events to Clarity: The Event-Guided Diffusion Framework for Dehazing',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2026-08-02 11:42:26'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/transpancy.css"><meta name="generator" content="Hexo 7.3.0"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">Loading...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load',() => { preloader.endLoading() })
+
+  if (true) {
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+  }
+})()</script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/profile.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">38</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">80</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/chat/"><i class="fa-fw fas fa-comments"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://blog-imgsave.oss-cn-beijing.aliyuncs.com/blog_migration/1785641714220_image.png')"><nav id="nav"><span id="blog-info"><a href="/" title="Kirinofans的博客"><img class="site-icon" src="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/blog_migration/cfg_009frmRQly1ibks87f20wj306c06cjry.jpg"/><span class="site-name">Kirinofans的博客</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/chat/"><i class="fa-fw fas fa-comments"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">[论文阅读]From Events to Clarity: The Event-Guided Diffusion Framework for Dehazing</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2026-07-31T02:00:00.000Z" title="Created 2026-07-31 10:00:00">2026-07-31</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2026-08-02T03:42:26.248Z" title="Updated 2026-08-02 11:42:26">2026-08-02</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/paper/">paper</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word Count:</span><span class="word-count">3.3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading Time:</span><span>10mins</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="[论文阅读]From Events to Clarity: The Event-Guided Diffusion Framework for Dehazing"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="论文笔记-evdehaze：事件引导的扩散模型去雾框架">[论文笔记] EvDehaze：事件引导的扩散模型去雾框架</h1>
+<p>paper: <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2511.11944">From Events to Clarity: The Event-Guided Diffusion Framework for Dehazing</a><br>
+Subjects: <strong>Computer Vision and Pattern Recognition (<a target="_blank" rel="noopener" href="http://cs.CV">cs.CV</a>)</strong></p>
+<h2 id="摘要">摘要</h2>
+<p>雾霾环境下的清晰成像是一项关键任务。基于先验与基于神经网络的方法都已取得一定进展，但这类方法均基于RGB帧进行处理，受限于有限的动态范围，去雾结果往往存在结构丢失、光照细节缺失等问题。为解决这一问题，本文首次将事件相机应用于图像去雾任务。事件相机具备更高的动态范围（120dB vs 60dB）与微秒级延迟，天然适配雾霾场景。</p>
+<p>在实际应用中，将事件中的高动态范围线索迁移到RGB帧中存在难度，因为真实场景下的成对标注数据十分稀缺。针对该问题，本文提出事件引导扩散模型，利用扩散模型强大的生成先验，有效迁移事件中的高动态信息，从有雾输入中重建清晰图像。具体而言，本文设计了事件多尺度金字塔表征，将边缘、角点等结构化信息注入扩散潜空间，为生成过程提供精准的结构引导，提升视觉真实感并减少语义偏移。</p>
+<p>为验证真实场景下的效果，本文采集了重度雾霾（AQI=341）环境下的无人机数据集，包含同步的RGB与事件传感器数据。在两个基准数据集与自采数据集上的实验均达到了当前最优水平。</p>
+<hr>
+<h2 id="1-研究背景与挑战">1. 研究背景与挑战</h2>
+<h3 id="1-1-研究背景">1.1 研究背景</h3>
+<p>雾霾会通过光线散射与吸收大幅压缩成像的动态范围，导致图像纹理、边缘细节严重丢失，既降低视觉质量，也影响无人机巡检、自动驾驶等下游视觉任务的有效性，因此雾天清晰成像具有重要的应用价值。</p>
+<p>与传统相机相比，事件相机的成像原理完全不同：它不是逐帧记录完整场景，而是记录场景的亮度变化。对于单个像素点，只有接收的光强产生变化并超过阈值时，该像素点才会输出信号——亮度增加输出正事件（+1），亮度降低输出负事件（-1）。输出可看作一维二值信号，每个信号点包含(x, y, t, p)四元信息，即横向纵向坐标、时间戳、事件极性（±1）。在静止场景下，事件相机几乎没有有效输出。</p>
+<h3 id="1-2-核心难点">1.2 核心难点</h3>
+<p>事件相机的高动态范围特性，使其在雾霾环境下依然能保留精准的边缘、轮廓与光照变化信息，理论上可以为RGB图像去雾提供关键的结构线索，弥补普通RGB传感器的信息缺失。</p>
+<p>但在真实场景中，雾霾浓度、光照条件完全不可控，几乎无法采集到严格对齐的有雾图像-清晰图像成对标注数据；而传统事件引导的增强方法大多依赖大规模成对数据集学习映射关系，无法直接套用在去雾任务上。</p>
+<p>因此本文的核心问题是：在缺少真实成对标注数据集监督的前提下，如何将事件的高动态范围信息有效注入去雾模型，提升真实浓雾场景下去雾结果的结构准确性与视觉真实感。</p>
+<h3 id="1-3-本文目标">1.3 本文目标</h3>
+<p>首次提出事件引导的图像去雾任务，并将其建模为扩散模型框架下的条件图像生成问题，为事件辅助去雾提供了全新的技术路线。</p>
+<p><img src="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/blog_migration/1785641714220_image.png" alt="图1 整体效果与框架示意"></p>
+<hr>
+<h2 id="2-相关工作">2. 相关工作</h2>
+<h3 id="1-基于帧的图像去雾方法">（1）基于帧的图像去雾方法</h3>
+<p>传统方法依赖大气散射模型，代表方法有DCP等。这类方法具备物理可解释性，但在复杂真实场景中泛化能力较差。</p>
+<p>深度学习方法以DehazeNet、PMHLD、传输传播网络为代表，部分方案完全脱离物理模型，采用端到端监督学习实现去雾。这类方法效果提升显著，但高度依赖大规模合成成对数据集，真实场景下表现受限。</p>
+<p>后续发展出无监督去雾方法，无需成对标注数据即可训练。但所有帧去雾方法都仅依赖RGB图像输入，受限于传感器有限的动态范围，在动态复杂场景下存在本质瓶颈。</p>
+<h3 id="2-基于事件的图像增强方法">（2）基于事件的图像增强方法</h3>
+<p>事件相机已在图像重建类任务中展现出突出潜力，覆盖视频插帧、图像去模糊、卷帘校正、HDR成像等多个方向，能够克服传统相机在极端成像条件下的缺陷。</p>
+<p>除此之外，事件也被用于缓解环境退化带来的画质问题，例如去雨、去雪，代表工作有事件引导视频去雨框架、异构去雨网络等。</p>
+<h3 id="3-扩散模型相关方法">（3）扩散模型相关方法</h3>
+<p>扩散模型也已被应用于真实场景图像复原，验证了其实用价值。</p>
+<hr>
+<h2 id="3-方法架构">3. 方法架构</h2>
+<p><img src="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/blog_migration/1785641714220_image.png" alt="图2 整体方法架构"></p>
+<p>EvDehaze是首个事件引导的潜空间扩散去雾框架，输入为单张有雾RGB图像与同步采集的事件流数据E，输出为去雾后的清晰RGB图像。<br>
+<img src="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/blog_migration/1785641844083_image.png" alt=""><br>
+框架由三大核心组件构成：</p>
+<ul>
+<li>带冻结VQ-VAE的DDIM扩散主干：负责图像的潜空间编解码与迭代去噪生成</li>
+<li>事件表征模型：将稀疏事件流转换为多尺度结构化特征</li>
+<li>事件引导扩散模块：通过交叉注意力将事件特征注入每一步去噪过程</li>
+</ul>
+<h3 id="模块1：带潜空间vq-vae的ddim主干">模块1：带潜空间VQ-VAE的DDIM主干</h3>
+<p>在低维隐空间中完成扩散生成，降低计算量，同时利用预训练VQ-VAE的通用图像先验稳定生成质量。有雾图像经VAE编码器压缩为潜变量，在潜空间中完成多步迭代去噪，最终经VAE解码器还原为清晰RGB图像。</p>
+<h3 id="模块2：事件表征模型">模块2：事件表征模型</h3>
+<p><img src="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/blog_migration/1785641714220_image.png" alt="图2 整体方法架构"><br>
+将原始事件流转换为和图像空间对齐的特征图，为扩散模型提供结构引导。事件相机输出的原始事件流E，是一长串零散的亮度变化点，每个点包含像素坐标x,y、时间戳t、极性p四类信息。</p>
+<h4 id="步骤1：时间金字塔表征-tpr">步骤1：时间金字塔表征（TPR）</h4>
+<p>搭建3层时间金字塔，把同一段事件流按大、中、小三种时间窗口切成3层：</p>
+<ul>
+<li>第1层（粗尺度）：时间窗口最大，覆盖慢运动、远处物体的完整边缘</li>
+<li>第2层（中尺度）：时间窗口中等，兼顾普通速度的运动</li>
+<li>第3层（细尺度）：时间窗口最小，捕捉快运动、近处物体的精细边缘</li>
+</ul>
+<p>每层内分2个时间仓，每一层的时间窗口再平均切成2小段，如窗口总长0.1秒，就切成「0~0.05秒」和「0.05~0.1秒」两个仓。把3层、每层2张图拼在一起，就得到一个多维的立体网格。</p>
+<p>最终得到TPR表征<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>E</mi><mrow><mi>T</mi><mi>P</mi><mi>R</mi></mrow></msub></mrow><annotation encoding="application/x-tex">E_{TPR}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05764em;">E</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.05764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.13889em;">T</span><span class="mord mathdefault mtight" style="margin-right:0.13889em;">P</span><span class="mord mathdefault mtight" style="margin-right:0.00773em;">R</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>，形状为<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn><mtext>层</mtext><mo>×</mo><mn>2</mn><mtext>仓</mtext><mo>×</mo><mn>256</mn><mo>×</mo><mn>256</mn></mrow><annotation encoding="application/x-tex">3 \text{层} \times 2 \text{仓} \times 256 \times 256</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord">3</span><span class="mord text"><span class="mord cjk_fallback">层</span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord">2</span><span class="mord text"><span class="mord cjk_fallback">仓</span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">2</span><span class="mord">5</span><span class="mord">6</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span><span class="mord">5</span><span class="mord">6</span></span></span></span>。实际送入网络时，会把“层数+时间仓”展平成通道维度，变成6通道、256×256的特征图，与普通图片格式一致。</p>
+<p><strong>输入与输出</strong></p>
+<ul>
+<li>输入：原始事件流E（一堆零散的(x,y,t,p)事件点）</li>
+<li>输出：事件时间金字塔表征<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>E</mi><mrow><mi>T</mi><mi>P</mi><mi>R</mi></mrow></msub></mrow><annotation encoding="application/x-tex">E_{TPR}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05764em;">E</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.05764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.13889em;">T</span><span class="mord mathdefault mtight" style="margin-right:0.13889em;">P</span><span class="mord mathdefault mtight" style="margin-right:0.00773em;">R</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>（规整的4维张量，展平后是6×256×256的多通道特征图）</li>
+</ul>
+<p><strong>设计原因</strong></p>
+<ul>
+<li>解决稀疏问题：把零散的点累积成网格，神经网络才能处理</li>
+<li>多尺度适配：慢运动、远物体用大窗口拍全轮廓；快运动、近物体用小窗口不拖影，场景适配性更强</li>
+<li>保留时间信息：分仓设计保留了亮度变化的先后顺序，比“全堆成一张图”特征更丰富</li>
+</ul>
+<h4 id="步骤2：卷积特征提炼">步骤2：卷积特征提炼</h4>
+<p>使用3层卷积+池化操作，对TPR表征进一步提炼，得到更紧凑的多尺度结构特征图，同时缩小特征尺寸，适配扩散U-Net的不同层级输入。</p>
+<h3 id="模块3：事件引导扩散模块">模块3：事件引导扩散模块</h3>
+<p>通过交叉注意力机制，将事件特征注入扩散U-Net的每一步去噪过程。</p>
+<ul>
+<li>U-Net当前步的中间特征作为键K和值V</li>
+<li>编码后的事件特征作为查询Q</li>
+</ul>
+<p>该交叉注意力模块被嵌入到U-Net的多个中间层中，且在每一步DDIM去噪时都会生效，为生成过程提供持续的结构约束，引导模型还原准确的边缘与纹理细节。</p>
+<h3 id="训练损失函数">训练损失函数</h3>
+<p>总损失由两部分构成：</p>
+<ol>
+<li>L1像素损失：计算生成图像与真实清晰图像的逐像素绝对值差</li>
+<li>感知损失：计算输入和目标图像在VGG特征图上的差异</li>
+</ol>
+<h3 id="真实数据集采集">真实数据集采集</h3>
+<p><img src="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/blog_migration/1785641916468_image.png" alt="图4 数据采集系统与无人机载荷"></p>
+<p>基于大疆Matrice 300 RTK无人机搭建采集系统，搭载PROPHESEE EVK4 HD事件相机与Intel RealSense D435i RGB相机，在广州重度沙尘雾霾天气（AQI=314）下，于80-120米高度飞行采集，共获取30分钟同步数据，用于真实场景下的算法验证。</p>
+<hr>
+<h2 id="4-实验结果分析">4. 实验结果分析</h2>
+<h3 id="4-1-定量对比">4.1 定量对比</h3>
+<p><img src="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/blog_migration/1785641952993_image.png" alt="表2 主实验定量对比结果"></p>
+<p>在SOTS合成数据集与NH-HAZE真实雾天数据集上与多种去雾方法对比，涵盖传统方法、深度学习方法与扩散类方法。实验结果显示，EvDehaze在两项数据集上均取得了具有竞争力的指标，在真实雾天场景下优势更为明显，超越了同类型的扩散基线方法。</p>
+<h3 id="4-2-定性对比">4.2 定性对比</h3>
+<p><img src="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/blog_migration/1785641967534_image.png" alt="图5 合成数据集定性对比"></p>
+<p>在合成测试样本上，其余方法存在残留雾气、过度平滑纹理、色彩偏移等问题；EvDehaze可以还原窗户百叶、路灯、细树枝等高频精细结构，对比度自然，残留雾更少，视觉效果最贴近真值。</p>
+<p><img src="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/blog_migration/1785641983826_image.png" alt="图6 真实浓雾场景去雾效果"></p>
+<p>(a)©为带事件热力图叠加的原始浓雾输入；(b)(d)为EvDehaze去雾输出。可以看到大面积浓雾被有效去除，远处建筑、道路标线、球场纹理完整恢复。右侧亮度直方图显示，输出图像亮度区间更广，中高亮度信息更丰富，证明模型有效拓展了图像动态范围，贴合论文理论推导。</p>
+<h3 id="4-3-消融实验">4.3 消融实验</h3>
+<h4 id="架构消融">架构消融</h4>
+<p><img src="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/blog_migration/1785641999184_image.png" alt="表3 模型架构消融实验结果"></p>
+<p>四组对照实验验证各模块的作用：</p>
+<ol>
+<li>Baseline ResShift：无事件、无交叉注意力的纯扩散基线</li>
+<li>w/o event data：去掉事件输入，指标大幅下跌，证明事件信息的核心作用</li>
+<li>w/o cross attention：保留事件，去掉交叉注意力，仅采用特征拼接，效果弱于完整模型</li>
+<li>Full EvDehaze：完整模型，取得最优指标</li>
+</ol>
+<h4 id="采样器消融">采样器消融</h4>
+<p><img src="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/blog_migration/1785642014951_image.png" alt="表4 扩散采样器消融实验结果"></p>
+<p>对比不同扩散采样器与采样步数的效果，同等15步下DDIM指标优于DDPM，因此最终方案采用DDIM采样器。</p>
+<h3 id="4-4-事件特征可视化">4.4 事件特征可视化</h3>
+<p><img src="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/blog_migration/1785642014951_image.png" alt="图7 事件特征热力图可视化"></p>
+<p>热力图高亮区域集中在物体边缘、角点、纹理交界位置，即使在浓雾场景下结构线索依然稳定，证明事件特征能为扩散采样提供可靠的结构先验。</p>
+<h3 id="4-5-去噪过程可视化">4.5 去噪过程可视化</h3>
+<p><img src="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/blog_migration/1785642030992_image.png" alt="图8 去噪过程逐步可视化"></p>
+<p>展示从Step 0到Step 15的完整去噪过程，图像逐步从噪声状态恢复为清晰的去雾结果，最终效果与真值高度接近。</p>
+<h3 id="4-6-仿真事件验证">4.6 仿真事件验证</h3>
+<p><img src="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/blog_migration/1785642050991_image.png" alt="图9 不同运动下的仿真事件"></p>
+<p>展示缩放、旋转、平移等多种运动下生成的仿真事件。事件仅在物体边界、纹理变化处产生响应，静态区域无事件，证明Vid2E生成的仿真事件能精准捕捉结构轮廓，可用于模型训练。</p>
+<hr>
+<h2 id="5-结论与局限">5. 结论与局限</h2>
+<h3 id="5-1-结论">5.1 结论</h3>
+<p>本文提出了EvDehaze，这是首个适用于真实场景下图像去雾的事件引导扩散框架。通过利用事件相机的高动态范围和时间保真度，模型通过交叉注意力机制在潜在扩散过程中注入细粒度的结构线索。</p>
+<p>在合成数据集和真实世界数据集上的大量实验不仅证明了EvDehaze在基于扩散的方法中具有优越性，还验证了事件引导本身的实际有效性。在Restormer+EGDM和EvDehaze两种模型中，添加事件线索均能持续提升恢复质量，这表明事件是有效的强结构先验。</p>
+<h3 id="5-2-局限性">5.2 局限性</h3>
+<p>当前的一个局限性是依赖固定的VQ-VAE骨干网络，这可能会限制其在高动态场景中的适应性。VQ-VAE是在普通清晰日常图片上预训练的，对极端雾天场景的潜空间表征能力存在一定上限。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="http://example.com">Kirinofans</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a target="_blank" rel="noopener" href="https://kirinofans.github.io">https://kirinofans.github.io</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">本部落格所有文章除特别声明外，均採用 CC BY-NC-SA 4.0 许可协议。转载请注明来自 Kirinofans！本文引用图表仅用于个人学习与学术总结，版权归原作者及出版机构所有，非商业使用。</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">论文阅读</a><a class="post-meta__tags" href="/tags/Diffusion-Model/">Diffusion Model</a><a class="post-meta__tags" href="/tags/Image-Dehazing/">Image Dehazing</a><a class="post-meta__tags" href="/tags/Event-Camera/">Event Camera</a><a class="post-meta__tags" href="/tags/%E5%9B%BE%E5%83%8F%E5%A4%8D%E5%8E%9F/">图像复原</a></div><div class="post_share"><div class="social-share" data-image="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/blog_migration/1785641714220_image.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2026/07/23/Generative%20Image%20Layer%20Decomposition%20with%20Visual%20Effects/" title="[论文阅读]Generative Image Layer Decomposition with Visual Effects"><img class="cover" src="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/blog_migration/1785640519937_image.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next</div><div class="next_info">[论文阅读]Generative Image Layer Decomposition with Visual Effects</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2026/06/26/AnchorFlow/" title="[论文阅读]AnchorFlow: Editable SVG Reconstruction via Sparse  Anchor Point Fields"><img class="cover" src="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/blog_migration/1782649234928_image.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-06-26</div><div class="title">[论文阅读]AnchorFlow: Editable SVG Reconstruction via Sparse  Anchor Point Fields</div></div></a></div><div><a href="/2026/03/18/Chat2SVG/" title="[论文阅读]Chat2SVG:Vector Graphics Generation with Large Language Models and Image Diffusion Models"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-03-18</div><div class="title">[论文阅读]Chat2SVG:Vector Graphics Generation with Large Language Models and Image Diffusion Models</div></div></a></div><div><a href="/2026/07/16/CleanDIFT/" title="[论文阅读]CleanDIFT: Diffusion Features without Noise"><img class="cover" src="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/blog_migration/1785639956268_image.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-07-16</div><div class="title">[论文阅读]CleanDIFT: Diffusion Features without Noise</div></div></a></div><div><a href="/2026/07/09/FlipSketch/" title="[论文阅读]FlipSketch: Flipping Static Drawings to Text-Guided Sketch Animations"><img class="cover" src="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/blog_migration/1785639900351_image.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-07-09</div><div class="title">[论文阅读]FlipSketch: Flipping Static Drawings to Text-Guided Sketch Animations</div></div></a></div><div><a href="/2026/04/23/DirectInversion/" title="[论文阅读]Direct Inversion: Boosting Diffusion-based Editing with 3 Lines of Code"><img class="cover" src="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/blog_migration/e5ec42e8e46cd9941383aab361c50f0c.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-04-23</div><div class="title">[论文阅读]Direct Inversion: Boosting Diffusion-based Editing with 3 Lines of Code</div></div></a></div><div><a href="/2026/07/23/Generative%20Image%20Layer%20Decomposition%20with%20Visual%20Effects/" title="[论文阅读]Generative Image Layer Decomposition with Visual Effects"><img class="cover" src="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/blog_migration/1785640519937_image.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-07-23</div><div class="title">[论文阅读]Generative Image Layer Decomposition with Visual Effects</div></div></a></div></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> Comment</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/profile.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Kirinofans</div><div class="author-info__description">献给喜欢桐乃的朋友们</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">38</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">80</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/kirinofans"><i class="fab fa-github"></i><span>别点我！kimo</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/kirinofans" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:2867105717@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #000000;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">高坂桐乃天下第一可爱</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-evdehaze%EF%BC%9A%E4%BA%8B%E4%BB%B6%E5%BC%95%E5%AF%BC%E7%9A%84%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B%E5%8E%BB%E9%9B%BE%E6%A1%86%E6%9E%B6"><span class="toc-number">1.</span> <span class="toc-text">[论文笔记] EvDehaze：事件引导的扩散模型去雾框架</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%91%98%E8%A6%81"><span class="toc-number">1.1.</span> <span class="toc-text">摘要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E7%A0%94%E7%A9%B6%E8%83%8C%E6%99%AF%E4%B8%8E%E6%8C%91%E6%88%98"><span class="toc-number">1.2.</span> <span class="toc-text">1. 研究背景与挑战</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E7%A0%94%E7%A9%B6%E8%83%8C%E6%99%AF"><span class="toc-number">1.2.1.</span> <span class="toc-text">1.1 研究背景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E6%A0%B8%E5%BF%83%E9%9A%BE%E7%82%B9"><span class="toc-number">1.2.2.</span> <span class="toc-text">1.2 核心难点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-%E6%9C%AC%E6%96%87%E7%9B%AE%E6%A0%87"><span class="toc-number">1.2.3.</span> <span class="toc-text">1.3 本文目标</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E7%9B%B8%E5%85%B3%E5%B7%A5%E4%BD%9C"><span class="toc-number">1.3.</span> <span class="toc-text">2. 相关工作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%9F%BA%E4%BA%8E%E5%B8%A7%E7%9A%84%E5%9B%BE%E5%83%8F%E5%8E%BB%E9%9B%BE%E6%96%B9%E6%B3%95"><span class="toc-number">1.3.1.</span> <span class="toc-text">（1）基于帧的图像去雾方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%9F%BA%E4%BA%8E%E4%BA%8B%E4%BB%B6%E7%9A%84%E5%9B%BE%E5%83%8F%E5%A2%9E%E5%BC%BA%E6%96%B9%E6%B3%95"><span class="toc-number">1.3.2.</span> <span class="toc-text">（2）基于事件的图像增强方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B%E7%9B%B8%E5%85%B3%E6%96%B9%E6%B3%95"><span class="toc-number">1.3.3.</span> <span class="toc-text">（3）扩散模型相关方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%96%B9%E6%B3%95%E6%9E%B6%E6%9E%84"><span class="toc-number">1.4.</span> <span class="toc-text">3. 方法架构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E5%9D%971%EF%BC%9A%E5%B8%A6%E6%BD%9C%E7%A9%BA%E9%97%B4vq-vae%E7%9A%84ddim%E4%B8%BB%E5%B9%B2"><span class="toc-number">1.4.1.</span> <span class="toc-text">模块1：带潜空间VQ-VAE的DDIM主干</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E5%9D%972%EF%BC%9A%E4%BA%8B%E4%BB%B6%E8%A1%A8%E5%BE%81%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.4.2.</span> <span class="toc-text">模块2：事件表征模型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A41%EF%BC%9A%E6%97%B6%E9%97%B4%E9%87%91%E5%AD%97%E5%A1%94%E8%A1%A8%E5%BE%81-tpr"><span class="toc-number">1.4.2.1.</span> <span class="toc-text">步骤1：时间金字塔表征（TPR）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A42%EF%BC%9A%E5%8D%B7%E7%A7%AF%E7%89%B9%E5%BE%81%E6%8F%90%E7%82%BC"><span class="toc-number">1.4.2.2.</span> <span class="toc-text">步骤2：卷积特征提炼</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E5%9D%973%EF%BC%9A%E4%BA%8B%E4%BB%B6%E5%BC%95%E5%AF%BC%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9D%97"><span class="toc-number">1.4.3.</span> <span class="toc-text">模块3：事件引导扩散模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%AD%E7%BB%83%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0"><span class="toc-number">1.4.4.</span> <span class="toc-text">训练损失函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9C%9F%E5%AE%9E%E6%95%B0%E6%8D%AE%E9%9B%86%E9%87%87%E9%9B%86"><span class="toc-number">1.4.5.</span> <span class="toc-text">真实数据集采集</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C%E5%88%86%E6%9E%90"><span class="toc-number">1.5.</span> <span class="toc-text">4. 实验结果分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-%E5%AE%9A%E9%87%8F%E5%AF%B9%E6%AF%94"><span class="toc-number">1.5.1.</span> <span class="toc-text">4.1 定量对比</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-%E5%AE%9A%E6%80%A7%E5%AF%B9%E6%AF%94"><span class="toc-number">1.5.2.</span> <span class="toc-text">4.2 定性对比</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-%E6%B6%88%E8%9E%8D%E5%AE%9E%E9%AA%8C"><span class="toc-number">1.5.3.</span> <span class="toc-text">4.3 消融实验</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9E%B6%E6%9E%84%E6%B6%88%E8%9E%8D"><span class="toc-number">1.5.3.1.</span> <span class="toc-text">架构消融</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%87%87%E6%A0%B7%E5%99%A8%E6%B6%88%E8%9E%8D"><span class="toc-number">1.5.3.2.</span> <span class="toc-text">采样器消融</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-%E4%BA%8B%E4%BB%B6%E7%89%B9%E5%BE%81%E5%8F%AF%E8%A7%86%E5%8C%96"><span class="toc-number">1.5.4.</span> <span class="toc-text">4.4 事件特征可视化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-5-%E5%8E%BB%E5%99%AA%E8%BF%87%E7%A8%8B%E5%8F%AF%E8%A7%86%E5%8C%96"><span class="toc-number">1.5.5.</span> <span class="toc-text">4.5 去噪过程可视化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-6-%E4%BB%BF%E7%9C%9F%E4%BA%8B%E4%BB%B6%E9%AA%8C%E8%AF%81"><span class="toc-number">1.5.6.</span> <span class="toc-text">4.6 仿真事件验证</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E7%BB%93%E8%AE%BA%E4%B8%8E%E5%B1%80%E9%99%90"><span class="toc-number">1.6.</span> <span class="toc-text">5. 结论与局限</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-%E7%BB%93%E8%AE%BA"><span class="toc-number">1.6.1.</span> <span class="toc-text">5.1 结论</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-%E5%B1%80%E9%99%90%E6%80%A7"><span class="toc-number">1.6.2.</span> <span class="toc-text">5.2 局限性</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/07/31/From%20Events%20to%20Clarity%20The%20Event-Guided%20Diffusion%20Framework%20for%20Dehazing/" title="[论文阅读]From Events to Clarity: The Event-Guided Diffusion Framework for Dehazing"><img src="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/blog_migration/1785641714220_image.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="[论文阅读]From Events to Clarity: The Event-Guided Diffusion Framework for Dehazing"/></a><div class="content"><a class="title" href="/2026/07/31/From%20Events%20to%20Clarity%20The%20Event-Guided%20Diffusion%20Framework%20for%20Dehazing/" title="[论文阅读]From Events to Clarity: The Event-Guided Diffusion Framework for Dehazing">[论文阅读]From Events to Clarity: The Event-Guided Diffusion Framework for Dehazing</a><time datetime="2026-07-31T02:00:00.000Z" title="Created 2026-07-31 10:00:00">2026-07-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/07/23/Generative%20Image%20Layer%20Decomposition%20with%20Visual%20Effects/" title="[论文阅读]Generative Image Layer Decomposition with Visual Effects"><img src="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/blog_migration/1785640519937_image.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="[论文阅读]Generative Image Layer Decomposition with Visual Effects"/></a><div class="content"><a class="title" href="/2026/07/23/Generative%20Image%20Layer%20Decomposition%20with%20Visual%20Effects/" title="[论文阅读]Generative Image Layer Decomposition with Visual Effects">[论文阅读]Generative Image Layer Decomposition with Visual Effects</a><time datetime="2026-07-23T02:00:00.000Z" title="Created 2026-07-23 10:00:00">2026-07-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/07/16/CleanDIFT/" title="[论文阅读]CleanDIFT: Diffusion Features without Noise"><img src="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/blog_migration/1785639956268_image.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="[论文阅读]CleanDIFT: Diffusion Features without Noise"/></a><div class="content"><a class="title" href="/2026/07/16/CleanDIFT/" title="[论文阅读]CleanDIFT: Diffusion Features without Noise">[论文阅读]CleanDIFT: Diffusion Features without Noise</a><time datetime="2026-07-16T02:00:00.000Z" title="Created 2026-07-16 10:00:00">2026-07-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/07/09/FlipSketch/" title="[论文阅读]FlipSketch: Flipping Static Drawings to Text-Guided Sketch Animations"><img src="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/blog_migration/1785639900351_image.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="[论文阅读]FlipSketch: Flipping Static Drawings to Text-Guided Sketch Animations"/></a><div class="content"><a class="title" href="/2026/07/09/FlipSketch/" title="[论文阅读]FlipSketch: Flipping Static Drawings to Text-Guided Sketch Animations">[论文阅读]FlipSketch: Flipping Static Drawings to Text-Guided Sketch Animations</a><time datetime="2026-07-09T02:00:00.000Z" title="Created 2026-07-09 10:00:00">2026-07-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/06/26/AnchorFlow/" title="[论文阅读]AnchorFlow: Editable SVG Reconstruction via Sparse  Anchor Point Fields"><img src="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/blog_migration/1782649234928_image.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="[论文阅读]AnchorFlow: Editable SVG Reconstruction via Sparse  Anchor Point Fields"/></a><div class="content"><a class="title" href="/2026/06/26/AnchorFlow/" title="[论文阅读]AnchorFlow: Editable SVG Reconstruction via Sparse  Anchor Point Fields">[论文阅读]AnchorFlow: Editable SVG Reconstruction via Sparse  Anchor Point Fields</a><time datetime="2026-06-26T02:09:00.000Z" title="Created 2026-06-26 10:09:00">2026-06-26</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://blog-imgsave.oss-cn-beijing.aliyuncs.com/blog_migration/1785641714220_image.png')"><div id="footer-wrap"><div class="copyright">&copy;2024 - 2026 By Kirinofans</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="Toggle Between Traditional Chinese And Simplified Chinese">简</button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="Scroll To Comments"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="/js/tw_cn.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@5.2.0/instantpage.min.js" type="module"></script><div class="js-pjax"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/copy-tex.min.js"></script><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script><script>(() => {
+  const initValine = () => {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'ZL8DCahd3ViJJ9ZWHgge2XtW-gzGzoHsz',
+      appKey: '9gNuf0jHBKsRO9p11UZuNrGS',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  const loadValine = async () => {
+    if (typeof Valine === 'function') initValine()
+    else {
+      await getScript('https://cdn.jsdelivr.net/npm/valine@1.5.1/dist/Valine.min.js')
+      initValine()
+    }
+  }
+
+  if ('Valine' === 'Valine' || !true) {
+    if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+    else setTimeout(loadValine, 0)
+  } else {
+    window.loadOtherComment = loadValine
+  }
+})()</script></div><script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.19.0/js/md5.min.js"></script><script>window.addEventListener('load', () => {
+  const changeContent = (content) => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[image]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[link]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[code]') // replace code
+    content = content.replace(/<[^>]+>/g,"") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0,150) + '...'
+    }
+    return content
+  }
+
+  const getIcon = (icon, mail) => {
+    if (icon) return icon
+    let defaultIcon = '?d=monsterid'
+    let iconUrl = `https://gravatar.loli.net/avatar/${md5(mail.toLowerCase()) + defaultIcon}`
+    return iconUrl
+  }
+
+  const generateHtml = array => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class=\'aside-list-item\'>'
+
+        if (true) {
+          const name = 'src'
+          result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'></a>`
+        }
+
+        result += `<div class='content'>
+        <a class='comment' href='${array[i].url}' title='${array[i].content}'>${array[i].content}</a>
+        <div class='name'><span>${array[i].nick} / </span><time datetime="${array[i].date}">${btf.diffDate(array[i].date, true)}</time></div>
+        </div></div>`
+      }
+    } else {
+      result += 'No comments'
+    }
+
+    let $dom = document.querySelector('#card-newest-comments .aside-list')
+    $dom && ($dom.innerHTML= result)
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh($dom)
+  }
+
+  const getComment = () => {
+    const serverURL = 'https://ZL8DCahd.api.lncldglobal.com'
+
+    var settings = {
+      "method": "GET",
+      "headers": {
+        "X-LC-Id": 'ZL8DCahd3ViJJ9ZWHgge2XtW-gzGzoHsz',
+        "X-LC-Key": '9gNuf0jHBKsRO9p11UZuNrGS',
+        "Content-Type": "application/json"
+      },
+    }
+
+    fetch(`${serverURL}/1.1/classes/Comment?limit=6&order=-createdAt`,settings)
+      .then(response => response.json())
+      .then(data => {
+        const valineArray = data.results.map(function (e) {
+          return {
+            'avatar': getIcon(e.QQAvatar, e.mail),
+            'content': changeContent(e.comment),
+            'nick': e.nick,
+            'url': e.url + '#' + e.objectId,
+            'date': e.updatedAt,
+          }
+        })
+        saveToLocal.set('valine-newest-comments', JSON.stringify(valineArray), 10/(60*24))
+        generateHtml(valineArray)
+      }).catch(e => {
+        const $dom = document.querySelector('#card-newest-comments .aside-list')
+        $dom.textContent= "Unable to retrieve comments, please check the configuration"
+      }) 
+  }
+
+  const newestCommentInit = () => {
+    if (document.querySelector('#card-newest-comments .aside-list')) {
+      const data = saveToLocal.get('valine-newest-comments')
+      if (data) {
+        generateHtml(JSON.parse(data))
+      } else {
+        getComment()
+      }
+    }
+  }
+
+  newestCommentInit()
+  document.addEventListener('pjax:complete', newestCommentInit)
+})</script><script defer src="https://npm.elemecdn.com/jquery@latest/dist/jquery.min.js"></script><script data-pjax defer src="https://npm.elemecdn.com/tzy-blog/lib/js/theme/chocolate.js"></script><div class="aplayer no-destroy" data-id="60198" data-server="netease" data-type="playlist" data-fixed="true" data-autoplay="true"> </div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="false"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/canvas-fluttering-ribbon.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/click-show-text.min.js" data-mobile="false" data-text="桐乃,一抹多,Kirino" data-fontsize="15px" data-random="false" async="async"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener
+  btf.removeGlobalFnEvent('pjax')
+  btf.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"dialog":{"hitokoto":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/"});</script></body></html>

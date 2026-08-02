@@ -1,0 +1,560 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>[论文阅读]CleanDIFT: Diffusion Features without Noise | Kirinofans的博客</title><meta name="author" content="Kirinofans"><meta name="copyright" content="Kirinofans"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="[论文笔记] CleanDIFT：无噪声的扩散特征提取 paper: CleanDIFT: Diffusion Features without Noise Subjects: Computer Vision and Pattern Recognition (cs.CV) 摘要 大规模预训练扩散模型的内部特征，已成为适配多种下游任务的强力语义描述工具。现有使用扩散特征的工作通常需要先给图像添加噪声">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[论文阅读]CleanDIFT: Diffusion Features without Noise">
+<meta property="og:url" content="http://example.com/2026/07/16/CleanDIFT/index.html">
+<meta property="og:site_name" content="Kirinofans的博客">
+<meta property="og:description" content="[论文笔记] CleanDIFT：无噪声的扩散特征提取 paper: CleanDIFT: Diffusion Features without Noise Subjects: Computer Vision and Pattern Recognition (cs.CV) 摘要 大规模预训练扩散模型的内部特征，已成为适配多种下游任务的强力语义描述工具。现有使用扩散特征的工作通常需要先给图像添加噪声">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/blog_migration/1785639956268_image.png">
+<meta property="article:published_time" content="2026-07-16T02:00:00.000Z">
+<meta property="article:modified_time" content="2026-08-02T03:06:09.620Z">
+<meta property="article:author" content="Kirinofans">
+<meta property="article:tag" content="论文阅读">
+<meta property="article:tag" content="Diffusion Model">
+<meta property="article:tag" content="U-net">
+<meta property="article:tag" content="特征提取">
+<meta property="article:tag" content="语义表征">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/blog_migration/1785639956268_image.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2026/07/16/CleanDIFT/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: {"defaultEncoding":1,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Error',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: 'days',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '[论文阅读]CleanDIFT: Diffusion Features without Noise',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2026-08-02 11:06:09'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/transpancy.css"><meta name="generator" content="Hexo 7.3.0"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">Loading...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load',() => { preloader.endLoading() })
+
+  if (true) {
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+  }
+})()</script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/profile.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">38</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">80</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/chat/"><i class="fa-fw fas fa-comments"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://blog-imgsave.oss-cn-beijing.aliyuncs.com/blog_migration/1785639956268_image.png')"><nav id="nav"><span id="blog-info"><a href="/" title="Kirinofans的博客"><img class="site-icon" src="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/blog_migration/cfg_009frmRQly1ibks87f20wj306c06cjry.jpg"/><span class="site-name">Kirinofans的博客</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/chat/"><i class="fa-fw fas fa-comments"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">[论文阅读]CleanDIFT: Diffusion Features without Noise</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2026-07-16T02:00:00.000Z" title="Created 2026-07-16 10:00:00">2026-07-16</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2026-08-02T03:06:09.620Z" title="Updated 2026-08-02 11:06:09">2026-08-02</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/paper/">paper</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word Count:</span><span class="word-count">3.3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading Time:</span><span>10mins</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="[论文阅读]CleanDIFT: Diffusion Features without Noise"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="论文笔记-cleandift：无噪声的扩散特征提取">[论文笔记] CleanDIFT：无噪声的扩散特征提取</h1>
+<p>paper: <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2412.03439">CleanDIFT: Diffusion Features without Noise</a><br>
+Subjects: <strong>Computer Vision and Pattern Recognition (<a target="_blank" rel="noopener" href="http://cs.CV">cs.CV</a>)</strong></p>
+<h2 id="摘要">摘要</h2>
+<p>大规模预训练扩散模型的内部特征，已成为适配多种下游任务的强力语义描述工具。现有使用扩散特征的工作通常需要先给图像添加噪声，再输入模型提取语义特征——因为当输入图像噪声极低甚至无噪声时，扩散模型无法输出最具效用的特征。本文证实，输入噪声会对特征的可用性产生严重负面影响，且该问题无法通过不同随机噪声的集成策略解决。针对这一问题，本文提出CleanDIFT，一种轻量级无监督微调方法，使扩散骨干网络能够输出高质量的无噪声语义特征。在多种提取设置与下游任务中，该特征的性能均大幅超越传统扩散特征，效果甚至优于基于集成的方法，而计算成本仅为其一小部分。</p>
+<hr>
+<h2 id="1-研究背景与挑战">1. 研究背景与挑战</h2>
+<h3 id="1-1-研究背景">1.1 研究背景</h3>
+<p>扩散模型可通过自监督方式完成大规模训练，在图像、视频生成领域达到业界领先水平。其内部特征近年来被广泛用作语义描述子，在零样本、微调场景下均能实现优异的下游任务表现。</p>
+<p>传统扩散特征的提取流程为：先给干净图像添加指定程度的噪声，再输入扩散模型的U-Net结构，从解码器的指定中间层抽取特征。</p>
+<h3 id="1-2-motivation-与核心难点">1.2 Motivation 与核心难点</h3>
+<h4 id="1-噪声损害特征质量">（1）噪声损害特征质量</h4>
+<p>要提取有效特征必须先给输入加噪，但噪声会直接损失原图信息。论文通过实验证实，即便是常用的中等噪声步，提取的特征中也有相当一部分方差完全来自输入噪声，属于无效干扰；且仅靠多次随机噪声集成，无法根除这一问题。</p>
+<h4 id="2-时间步依赖">（2）时间步依赖</h4>
+<p>不同下游任务需要不同的最优时间步<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathdefault">t</span></span></span></span>（语义对应任务用<span class='katex-error' title='ParseError: KaTeX parse error: Can&#039;t use function &#039;\(&#039; in math mode at position 1: \̲(̲t=261\)'>\(t=261\)</span>，分割任务用<span class='katex-error' title='ParseError: KaTeX parse error: Can&#039;t use function &#039;\(&#039; in math mode at position 1: \̲(̲t=100\)'>\(t=100\)</span>，低层次任务用<span class='katex-error' title='ParseError: KaTeX parse error: Can&#039;t use function &#039;\(&#039; in math mode at position 1: \̲(̲t=50\)'>\(t=50\)</span>），需要逐任务调参。部分方法通过多噪声集成缓解该问题（如DIFT平均8次采样），但计算开销成倍增加。</p>
+<p>上述问题的本质是：扩散模型在不同噪声水平下学到了不同语义层次的信息——高噪声对应粗结构，低噪声对应精细细节。这一特性提供了多尺度特征，但也造成了严重的时间步依赖。</p>
+<h3 id="1-3-本文目标与核心贡献">1.3 本文目标与核心贡献</h3>
+<p>本文目标是：从扩散模型中提取<strong>无噪声、时间步无关</strong>的通用语义特征，同时保留甚至超越有噪声、多时间步特征的性能。</p>
+<p>核心贡献分为两点：</p>
+<ol>
+<li>提出CleanDIFT，一种针对扩散模型的微调方法，可使扩散模型直接处理干净图像，让模型固有的世界知识更易获取。</li>
+<li>实现将所有扩散时间步的信息整合到单一特征预测中，从而无需针对下游任务进行时间步调优。</li>
+</ol>
+<hr>
+<h2 id="2-相关工作">2. 相关工作</h2>
+<h3 id="自监督视觉表征学习">自监督视觉表征学习</h3>
+<p>大规模预训练基座模型的内部特征，在零样本、微调场景下均可达到媲美监督模型的效果。三类典型预训练范式包括：</p>
+<ul>
+<li>掩码重建类：以MAE为代表，通过重建图像遮挡区域学习表征</li>
+<li>对比学习类：以CLIP为代表，通过图文对对比学习跨模态语义</li>
+<li>自蒸馏类：以DINOv2为代表，通过判别式目标+自蒸馏学习通用视觉特征</li>
+</ul>
+<h3 id="扩散特征的退化">扩散特征的退化</h3>
+<p><img src="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/blog_migration/1785639124066_image.png" alt=""><br>
+由于现有方法需要将含噪图像输入模型以获取有效特征，这会显著减少模型可提取的感知信息，原图细节被噪声破坏。本文通过提取无噪有效特征来缓解这一问题，从而提升下游任务的性能。</p>
+<hr>
+<h2 id="3-方法架构">3. 方法架构</h2>
+<h3 id="3-1-传统扩散特征提取与噪声问题">3.1 传统扩散特征提取与噪声问题</h3>
+<h4 id="3-1-1-扩散前向加噪基础">3.1.1 扩散前向加噪基础</h4>
+<p>扩散模型的标准前向加噪过程为：</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mi>t</mi></msub><mo>=</mo><msqrt><msub><mi>α</mi><mi>t</mi></msub></msqrt><msub><mi>x</mi><mn>0</mn></msub><mo>+</mo><msqrt><mrow><mn>1</mn><mo>−</mo><msub><mi>α</mi><mi>t</mi></msub></mrow></msqrt><mi>ϵ</mi></mrow><annotation encoding="application/x-tex">x_t = \sqrt{\alpha_t} x_0 + \sqrt{1-\alpha_t}\epsilon
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.04em;vertical-align:-0.265845em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.774155em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord" style="padding-left:0.833em;"><span class="mord"><span class="mord mathdefault" style="margin-right:0.0037em;">α</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-left:-0.0037em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-2.734155em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg width='400em' height='1.08em' viewBox='0 0 400000 1080' preserveAspectRatio='xMinYMin slice'><path d='M95,702
+c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,-10,-9.5,-14
+c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54
+c44.2,-33.3,65.8,-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10
+s173,378,173,378c0.7,0,35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429
+c69,-144,104.5,-217.7,106.5,-221
+l0 -0
+c5.3,-9.3,12,-14,20,-14
+H400000v40H845.2724
+s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7
+c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z
+M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.265845em;"><span></span></span></span></span></span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.04em;vertical-align:-0.15890499999999996em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8810950000000001em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord" style="padding-left:0.833em;"><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.0037em;">α</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-left:-0.0037em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-2.841095em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg width='400em' height='1.08em' viewBox='0 0 400000 1080' preserveAspectRatio='xMinYMin slice'><path d='M95,702
+c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,-10,-9.5,-14
+c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54
+c44.2,-33.3,65.8,-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10
+s173,378,173,378c0.7,0,35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429
+c69,-144,104.5,-217.7,106.5,-221
+l0 -0
+c5.3,-9.3,12,-14,20,-14
+H400000v40H845.2724
+s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7
+c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z
+M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15890499999999996em;"><span></span></span></span></span></span><span class="mord mathdefault">ϵ</span></span></span></span></span></p>
+<p>其中<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>α</mi><mi>t</mi></msub></mrow><annotation encoding="application/x-tex">\alpha_t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.0037em;">α</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-left:-0.0037em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>是与时间步相关的系数，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ϵ</mi></mrow><annotation encoding="application/x-tex">\epsilon</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">ϵ</span></span></span></span>为随机高斯噪声。</p>
+<h4 id="3-1-2-传统扩散特征提取">3.1.2 传统扩散特征提取</h4>
+<p>传统扩散特征的提取流程为：</p>
+<ol>
+<li>按时间步<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathdefault">t</span></span></span></span>给干净图像加噪，得到带噪图像<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mi>t</mi></msub></mrow><annotation encoding="application/x-tex">x_t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></li>
+<li>将<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mi>t</mi></msub></mrow><annotation encoding="application/x-tex">x_t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>和时间步<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathdefault">t</span></span></span></span>输入U-Net去噪网络</li>
+<li>从U-Net解码器的人工选定位置，抽取中间层特征图</li>
+</ol>
+<p>该方式存在两大固有缺陷：</p>
+<ul>
+<li>加噪操作会瓶颈化模型可提取的感知信息，原图细节被噪声破坏</li>
+<li>不同下游任务最优时间步不同，需要逐任务调参</li>
+</ul>
+<h4 id="3-1-3-扩散特征编码噪声的验证">3.1.3 扩散特征编码噪声的验证</h4>
+<p><img src="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/blog_migration/1785639208255_image.png" alt=""><br>
+为量化噪声对特征的影响，论文设计了验证实验：</p>
+<ul>
+<li>分别将纯噪声、干净图像、带噪图像输入扩散模型，提取对应特征</li>
+<li>用最小二乘法拟合标量系数，用纯噪声的特征去拟合带噪图像的特征</li>
+<li>计算拟合结果能解释带噪特征多大比例的方差</li>
+</ul>
+<p>核心结论：</p>
+<ul>
+<li>即使是常用的中等时间步<span class='katex-error' title='ParseError: KaTeX parse error: Can&#039;t use function &#039;\(&#039; in math mode at position 1: \̲(̲t=261\)'>\(t=261\)</span>，纯噪声也能解释特征中相当大比例的方差，说明传统扩散特征里混入了大量无效噪声信息</li>
+<li>干净图像的特征也无法完全解释带噪特征的剩余方差，中等时间步的特征存在大量时间步专属的成分</li>
+</ul>
+<h3 id="3-2-cleandift：无噪声扩散特征">3.2 CleanDIFT：无噪声扩散特征</h3>
+<p><img src="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/blog_migration/1785639236772_image.png" alt=""><br>
+整体框架采用师生架构：以预训练扩散模型（SD 1.5/2.1）为教师，初始化一个可训练副本作为学生特征提取器。学生接收干净图像（无噪声、无时间步输入），教师接收对应的加噪图像和时间步。在11个特征提取位置，通过时间步条件投影头将学生特征投影到教师特征空间，最大化余弦相似度。训练仅需400步/30分钟，推理时丢弃投影头，直接使用学生模型的内部特征。</p>
+<h4 id="模块1：冻结教师模型-原始预训练扩散模型">模块1：冻结教师模型（原始预训练扩散模型）</h4>
+<ul>
+<li>原始Stable Diffusion的U-Net，权重全程冻结</li>
+<li>输入：带噪图像<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mi>t</mi></msub></mrow><annotation encoding="application/x-tex">x_t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> + 对应时间步<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathdefault">t</span></span></span></span> + 文本条件</li>
+<li>正常执行一次前向传播，输出U-Net中11个指定位置的中间层特征图<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mi>e</mi><mi>a</mi><msup><mi>t</mi><mrow><mo stretchy="false">(</mo><mi>k</mi><mo stretchy="false">)</mo></mrow></msup><mo stretchy="false">(</mo><msub><mi>x</mi><mi>t</mi></msub><mo separator="true">;</mo><mi>t</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">feat^{(k)}(x_t; t)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.138em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mord mathdefault">e</span><span class="mord mathdefault">a</span><span class="mord"><span class="mord mathdefault">t</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8879999999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">;</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">t</span><span class="mclose">)</span></span></span></span>（<span class='katex-error' title='ParseError: KaTeX parse error: Can&#039;t use function &#039;\(&#039; in math mode at position 1: \̲(̲k=1\)'>\(k=1\)</span>到<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>11</mn></mrow><annotation encoding="application/x-tex">11</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">1</span></span></span></span>）</li>
+<li>这11层包括：U-Net最中间的瓶颈块，以及除最后两块外的所有解码器块</li>
+<li>不同层特征特性不同：浅层对应边缘、纹理等底层信息，深层对应物体、类别等高层语义</li>
+</ul>
+<h4 id="模块2：可训练学生模型-cleandift特征提取器">模块2：可训练学生模型（CleanDIFT特征提取器）</h4>
+<ul>
+<li>与教师模型的完整权重副本</li>
+<li>输入只有干净图像<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">x_0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>，并且不输入时间步<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathdefault">t</span></span></span></span></li>
+<li>执行U-Net前向传播，输出对应位置的11层干净特征图</li>
+</ul>
+<p>不输入时间步的原因：最终目标是得到一套通用于所有任务的特征，因此训练阶段就要产出统一的特征表示，使其能够适配所有时间步的知识。</p>
+<h4 id="模块3：时间步条件投影头-projection-heads">模块3：时间步条件投影头（Projection Heads）</h4>
+<ul>
+<li>附加的可训练模块，只在训练时使用，推理时弃用</li>
+<li>输入：学生模型输出的某一层干净特征 + 当前要对齐的时间步<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathdefault">t</span></span></span></span></li>
+<li>结构：每一层特征对应一个独立的投影头，由3层前馈网络（FFN）堆叠而成；采用零初始化 + 残差连接</li>
+<li>作用：对学生的统一干净特征做逐点变换，把它对齐到当前时间步下教师特征的分布空间</li>
+<li>输出：投影后的特征图<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mi>r</mi><mi>o</mi><msup><mi>j</mi><mrow><mo stretchy="false">(</mo><mi>k</mi><mo stretchy="false">)</mo></mrow></msup><mo stretchy="false">(</mo><mi>f</mi><mi>e</mi><mi>a</mi><msubsup><mi>t</mi><mi>c</mi><mrow><mo stretchy="false">(</mo><mi>k</mi><mo stretchy="false">)</mo></mrow></msubsup><mo stretchy="false">(</mo><msub><mi>x</mi><mn>0</mn></msub><mo stretchy="false">)</mo><mo separator="true">;</mo><mi>t</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">proj^{(k)}(feat_c^{(k)}(x_0); t)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.2948em;vertical-align:-0.25em;"></span><span class="mord mathdefault">p</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">o</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8879999999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mord mathdefault">e</span><span class="mord mathdefault">a</span><span class="mord"><span class="mord mathdefault">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.0448em;"><span style="top:-2.5834080000000004em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">c</span></span></span><span style="top:-3.2198em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span><span class="mclose mtight">)</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.11659199999999997em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mpunct">;</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">t</span><span class="mclose">)</span></span></span></span>，尺寸、通道数和教师对应层特征完全一致</li>
+</ul>
+<p>不同时间步的扩散特征具有不同语义特性，投影头将学生的统一特征分别映射到各时间步空间，迫使学生特征包含所有时间步的信息。</p>
+<h3 id="3-2-2-损失函数计算">3.2.2 损失函数计算</h3>
+<p>核心目标：投影后的学生特征，和对应时间步的教师特征越相似越好。<br>
+<img src="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/blog_migration/1785639269726_image.png" alt=""><br>
+完整计算流程：</p>
+<ol>
+<li>输入一张干净图像<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">x_0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>，采样得到<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi></mrow><annotation encoding="application/x-tex">I</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07847em;">I</span></span></span></span>个时间步</li>
+<li>对每个采样的时间步<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>t</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">t_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76508em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>，给干净图像加上对应强度的噪声，生成带噪图<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><msub><mi>t</mi><mi>i</mi></msub></msub></mrow><annotation encoding="application/x-tex">x_{t_i}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68066em;vertical-align:-0.2501em;"></span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathdefault mtight">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3280857142857143em;"><span style="top:-2.357em;margin-left:0em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2501em;"><span></span></span></span></span></span></span></span></span></span></li>
+<li>把干净图像输入学生模型，得到11层干净特征</li>
+<li>把每张带噪图 + 对应时间步输入教师模型，得到<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi></mrow><annotation encoding="application/x-tex">I</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07847em;">I</span></span></span></span>组、每组11层的教师特征</li>
+<li>对每个时间步、每一层特征，用对应的投影头，把学生特征转换成带时间步的版本</li>
+<li>计算投影后学生特征和教师特征的余弦相似度</li>
+<li>将11层、所有时间步的相似度全部累加，取负数，得到总损失</li>
+</ol>
+<h3 id="3-2-3-分层时间步采样策略">3.2.3 分层时间步采样策略</h3>
+<p>单张训练图像、最大时间步<span class='katex-error' title='ParseError: KaTeX parse error: Can&#039;t use function &#039;\(&#039; in math mode at position 1: \̲(̲T=1000\)'>\(T=1000\)</span>、分层数<span class='katex-error' title='ParseError: KaTeX parse error: Can&#039;t use function &#039;\(&#039; in math mode at position 1: \̲(̲I=3\)'>\(I=3\)</span>，具体步骤：</p>
+<ol>
+<li>把0~1000的时间步范围，均匀分成3个区间：低噪声、中噪声、高噪声</li>
+<li>每个区间里随机采样1个时间步</li>
+<li>这3个时间步每个都算一次损失，累加起来共同更新权重</li>
+</ol>
+<p>分层采样保证每张训练图，都同时覆盖低、中、高三个噪声等级。</p>
+<p>推理阶段：把干净图像输入训练好的CleanDIFT学生模型，执行一次前向传播，即可输出11层无噪声、时间步无关的通用特征图，直接用于下游任务。</p>
+<hr>
+<h2 id="4-实验结果分析">4. 实验结果分析</h2>
+<h3 id="4-1-语义对应匹配">4.1 语义对应匹配</h3>
+<p><img src="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/blog_migration/1785639327287_image.png" alt=""><br>
+在语义对应任务上，干净特征相比基础扩散模型，错误匹配的数量显著更少。<br>
+<img src="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/blog_migration/1785639368922_image.png" alt=""></p>
+<ul>
+<li>标准扩散特征（带噪输入）的PCK（正确关键点百分比）性能随时间步变化，存在最优峰值</li>
+<li>CleanDIFT的性能是一条水平直线，完全不依赖时间步，并且全程高于标准扩散特征的最优峰值</li>
+<li>定量结果：SD 2.1基线最优PCK_img为59.61，CleanDIFT达到61.43，相对提升1.82</li>
+</ul>
+<h3 id="4-2-深度估计">4.2 深度估计</h3>
+<p><img src="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/blog_migration/1785639385168_image.png" alt=""><br>
+从定性结果来看，CleanDIFT预测的深度图噪声明显更少，边缘和结构更清晰、更贴近真值。</p>
+<h3 id="4-3-语义分割">4.3 语义分割</h3>
+<p><img src="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/blog_migration/1785639412464_image.png" alt=""><br>
+基于Pascal VOC数据集的语义分割任务：</p>
+<ul>
+<li>定性结果：标准SD特征以<span class='katex-error' title='ParseError: KaTeX parse error: Can&#039;t use function &#039;\(&#039; in math mode at position 1: \̲(̲t=100\)'>\(t=100\)</span>作为时间步（该时间步定量表现最佳），CleanDIFT的分割图相比标准扩散特征的分割图，噪声显著更少。<br>
+<img src="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/blog_migration/1785639459070_image.png" alt=""></li>
+<li>定量结果：SD 2.1最优mIoU为20.81，CleanDIFT达到21.24，相对提升0.43。标准扩散模型的性能很大程度上取决于最佳噪声步长<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathdefault">t</span></span></span></span>的取值，而CleanDIFT无需调参即可达到更优效果。</li>
+</ul>
+<h3 id="4-4-消融实验">4.4 消融实验</h3>
+<p>以DIFT为基础框架、在SPair-71k测试子集上做消融，验证每一项设计选择的合理性。</p>
+<h4 id="1-损失函数的选择">1. 损失函数的选择</h4>
+<p>对比L1损失、L2损失、余弦相似度三种对齐目标：</p>
+<ul>
+<li>三种损失训练出的模型，性能都优于原生SD 2.1基线</li>
+<li>余弦相似度效果显著最优，大幅领先L1、L2</li>
+</ul>
+<h4 id="2-投影头的作用">2. 投影头的作用</h4>
+<p>对比「有投影头」和「无投影头」两种设置，搭配三种损失分别测试：</p>
+<ul>
+<li>在主配置（余弦相似度）下，加入投影头带来0.24（PCK_img）和0.06（PCK_bbox）的小幅稳定提升</li>
+<li>投影头只在训练阶段增加计算量，推理时可以直接丢弃，不会增加推理开销</li>
+</ul>
+<p>各配置详细结果如下：<br>
+<img src="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/blog_migration/1785639494161_image.png" alt=""></p>
+<hr>
+<h2 id="5-结论与局限">5. 结论与局限</h2>
+<h3 id="5-1-结论">5.1 结论</h3>
+<p>CleanDIFT是一种全新的扩散特征提取范式。它通过轻量微调，将预训练扩散骨干网络中所有时间步对应的差异化特征表示，整合为一套统一的特征表示，最终输出无噪声、不依赖时间步的通用型扩散特征。该方法具有微调成本低，推理极简高效的特点。</p>
+<h3 id="5-2-局限性">5.2 局限性</h3>
+<p>CleanDIFT的设计目标是提升扩散模型的特征提取质量，服务于下游视觉任务（分割、匹配、深度估计），设计场景聚焦于视觉表征下游应用，暂未覆盖生成类任务等其他扩散模型应用场景。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="http://example.com">Kirinofans</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a target="_blank" rel="noopener" href="https://kirinofans.github.io">https://kirinofans.github.io</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">本部落格所有文章除特别声明外，均採用 CC BY-NC-SA 4.0 许可协议。转载请注明来自 Kirinofans！本文引用图表仅用于个人学习与学术总结，版权归原作者及出版机构所有，非商业使用。</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">论文阅读</a><a class="post-meta__tags" href="/tags/Diffusion-Model/">Diffusion Model</a><a class="post-meta__tags" href="/tags/U-net/">U-net</a><a class="post-meta__tags" href="/tags/%E7%89%B9%E5%BE%81%E6%8F%90%E5%8F%96/">特征提取</a><a class="post-meta__tags" href="/tags/%E8%AF%AD%E4%B9%89%E8%A1%A8%E5%BE%81/">语义表征</a></div><div class="post_share"><div class="social-share" data-image="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/blog_migration/1785639956268_image.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2026/07/23/Generative%20Image%20Layer%20Decomposition%20with%20Visual%20Effects/" title="[论文阅读]Generative Image Layer Decomposition with Visual Effects"><img class="cover" src="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/blog_migration/1785640519937_image.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous</div><div class="prev_info">[论文阅读]Generative Image Layer Decomposition with Visual Effects</div></div></a></div><div class="next-post pull-right"><a href="/2026/07/09/FlipSketch/" title="[论文阅读]FlipSketch: Flipping Static Drawings to Text-Guided Sketch Animations"><img class="cover" src="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/blog_migration/1785639900351_image.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next</div><div class="next_info">[论文阅读]FlipSketch: Flipping Static Drawings to Text-Guided Sketch Animations</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2026/06/26/AnchorFlow/" title="[论文阅读]AnchorFlow: Editable SVG Reconstruction via Sparse  Anchor Point Fields"><img class="cover" src="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/blog_migration/1782649234928_image.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-06-26</div><div class="title">[论文阅读]AnchorFlow: Editable SVG Reconstruction via Sparse  Anchor Point Fields</div></div></a></div><div><a href="/2026/03/18/Chat2SVG/" title="[论文阅读]Chat2SVG:Vector Graphics Generation with Large Language Models and Image Diffusion Models"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-03-18</div><div class="title">[论文阅读]Chat2SVG:Vector Graphics Generation with Large Language Models and Image Diffusion Models</div></div></a></div><div><a href="/2026/07/09/FlipSketch/" title="[论文阅读]FlipSketch: Flipping Static Drawings to Text-Guided Sketch Animations"><img class="cover" src="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/blog_migration/1785639900351_image.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-07-09</div><div class="title">[论文阅读]FlipSketch: Flipping Static Drawings to Text-Guided Sketch Animations</div></div></a></div><div><a href="/2026/04/23/DirectInversion/" title="[论文阅读]Direct Inversion: Boosting Diffusion-based Editing with 3 Lines of Code"><img class="cover" src="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/blog_migration/e5ec42e8e46cd9941383aab361c50f0c.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-04-23</div><div class="title">[论文阅读]Direct Inversion: Boosting Diffusion-based Editing with 3 Lines of Code</div></div></a></div><div><a href="/2026/07/23/Generative%20Image%20Layer%20Decomposition%20with%20Visual%20Effects/" title="[论文阅读]Generative Image Layer Decomposition with Visual Effects"><img class="cover" src="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/blog_migration/1785640519937_image.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-07-23</div><div class="title">[论文阅读]Generative Image Layer Decomposition with Visual Effects</div></div></a></div><div><a href="/2025/12/14/IP-Composer/" title="[论文阅读]IP-Composer: Semantic Composition of Visual Concepts"><img class="cover" src="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/blog_migration/1776936271_009frmRQly1iblnfhowiaj30ok0d1n75.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-12-14</div><div class="title">[论文阅读]IP-Composer: Semantic Composition of Visual Concepts</div></div></a></div></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> Comment</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/profile.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Kirinofans</div><div class="author-info__description">献给喜欢桐乃的朋友们</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">38</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">80</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/kirinofans"><i class="fab fa-github"></i><span>别点我！kimo</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/kirinofans" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:2867105717@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #000000;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">高坂桐乃天下第一可爱</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-cleandift%EF%BC%9A%E6%97%A0%E5%99%AA%E5%A3%B0%E7%9A%84%E6%89%A9%E6%95%A3%E7%89%B9%E5%BE%81%E6%8F%90%E5%8F%96"><span class="toc-number">1.</span> <span class="toc-text">[论文笔记] CleanDIFT：无噪声的扩散特征提取</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%91%98%E8%A6%81"><span class="toc-number">1.1.</span> <span class="toc-text">摘要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E7%A0%94%E7%A9%B6%E8%83%8C%E6%99%AF%E4%B8%8E%E6%8C%91%E6%88%98"><span class="toc-number">1.2.</span> <span class="toc-text">1. 研究背景与挑战</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E7%A0%94%E7%A9%B6%E8%83%8C%E6%99%AF"><span class="toc-number">1.2.1.</span> <span class="toc-text">1.1 研究背景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-motivation-%E4%B8%8E%E6%A0%B8%E5%BF%83%E9%9A%BE%E7%82%B9"><span class="toc-number">1.2.2.</span> <span class="toc-text">1.2 Motivation 与核心难点</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%99%AA%E5%A3%B0%E6%8D%9F%E5%AE%B3%E7%89%B9%E5%BE%81%E8%B4%A8%E9%87%8F"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">（1）噪声损害特征质量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E6%97%B6%E9%97%B4%E6%AD%A5%E4%BE%9D%E8%B5%96"><span class="toc-number">1.2.2.2.</span> <span class="toc-text">（2）时间步依赖</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-%E6%9C%AC%E6%96%87%E7%9B%AE%E6%A0%87%E4%B8%8E%E6%A0%B8%E5%BF%83%E8%B4%A1%E7%8C%AE"><span class="toc-number">1.2.3.</span> <span class="toc-text">1.3 本文目标与核心贡献</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E7%9B%B8%E5%85%B3%E5%B7%A5%E4%BD%9C"><span class="toc-number">1.3.</span> <span class="toc-text">2. 相关工作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E7%9B%91%E7%9D%A3%E8%A7%86%E8%A7%89%E8%A1%A8%E5%BE%81%E5%AD%A6%E4%B9%A0"><span class="toc-number">1.3.1.</span> <span class="toc-text">自监督视觉表征学习</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%A9%E6%95%A3%E7%89%B9%E5%BE%81%E7%9A%84%E9%80%80%E5%8C%96"><span class="toc-number">1.3.2.</span> <span class="toc-text">扩散特征的退化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%96%B9%E6%B3%95%E6%9E%B6%E6%9E%84"><span class="toc-number">1.4.</span> <span class="toc-text">3. 方法架构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E4%BC%A0%E7%BB%9F%E6%89%A9%E6%95%A3%E7%89%B9%E5%BE%81%E6%8F%90%E5%8F%96%E4%B8%8E%E5%99%AA%E5%A3%B0%E9%97%AE%E9%A2%98"><span class="toc-number">1.4.1.</span> <span class="toc-text">3.1 传统扩散特征提取与噪声问题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-1-%E6%89%A9%E6%95%A3%E5%89%8D%E5%90%91%E5%8A%A0%E5%99%AA%E5%9F%BA%E7%A1%80"><span class="toc-number">1.4.1.1.</span> <span class="toc-text">3.1.1 扩散前向加噪基础</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-2-%E4%BC%A0%E7%BB%9F%E6%89%A9%E6%95%A3%E7%89%B9%E5%BE%81%E6%8F%90%E5%8F%96"><span class="toc-number">1.4.1.2.</span> <span class="toc-text">3.1.2 传统扩散特征提取</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-3-%E6%89%A9%E6%95%A3%E7%89%B9%E5%BE%81%E7%BC%96%E7%A0%81%E5%99%AA%E5%A3%B0%E7%9A%84%E9%AA%8C%E8%AF%81"><span class="toc-number">1.4.1.3.</span> <span class="toc-text">3.1.3 扩散特征编码噪声的验证</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-cleandift%EF%BC%9A%E6%97%A0%E5%99%AA%E5%A3%B0%E6%89%A9%E6%95%A3%E7%89%B9%E5%BE%81"><span class="toc-number">1.4.2.</span> <span class="toc-text">3.2 CleanDIFT：无噪声扩散特征</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1%E5%9D%971%EF%BC%9A%E5%86%BB%E7%BB%93%E6%95%99%E5%B8%88%E6%A8%A1%E5%9E%8B-%E5%8E%9F%E5%A7%8B%E9%A2%84%E8%AE%AD%E7%BB%83%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.4.2.1.</span> <span class="toc-text">模块1：冻结教师模型（原始预训练扩散模型）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1%E5%9D%972%EF%BC%9A%E5%8F%AF%E8%AE%AD%E7%BB%83%E5%AD%A6%E7%94%9F%E6%A8%A1%E5%9E%8B-cleandift%E7%89%B9%E5%BE%81%E6%8F%90%E5%8F%96%E5%99%A8"><span class="toc-number">1.4.2.2.</span> <span class="toc-text">模块2：可训练学生模型（CleanDIFT特征提取器）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1%E5%9D%973%EF%BC%9A%E6%97%B6%E9%97%B4%E6%AD%A5%E6%9D%A1%E4%BB%B6%E6%8A%95%E5%BD%B1%E5%A4%B4-projection-heads"><span class="toc-number">1.4.2.3.</span> <span class="toc-text">模块3：时间步条件投影头（Projection Heads）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-2-%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E8%AE%A1%E7%AE%97"><span class="toc-number">1.4.3.</span> <span class="toc-text">3.2.2 损失函数计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-3-%E5%88%86%E5%B1%82%E6%97%B6%E9%97%B4%E6%AD%A5%E9%87%87%E6%A0%B7%E7%AD%96%E7%95%A5"><span class="toc-number">1.4.4.</span> <span class="toc-text">3.2.3 分层时间步采样策略</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C%E5%88%86%E6%9E%90"><span class="toc-number">1.5.</span> <span class="toc-text">4. 实验结果分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-%E8%AF%AD%E4%B9%89%E5%AF%B9%E5%BA%94%E5%8C%B9%E9%85%8D"><span class="toc-number">1.5.1.</span> <span class="toc-text">4.1 语义对应匹配</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-%E6%B7%B1%E5%BA%A6%E4%BC%B0%E8%AE%A1"><span class="toc-number">1.5.2.</span> <span class="toc-text">4.2 深度估计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2"><span class="toc-number">1.5.3.</span> <span class="toc-text">4.3 语义分割</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-%E6%B6%88%E8%9E%8D%E5%AE%9E%E9%AA%8C"><span class="toc-number">1.5.4.</span> <span class="toc-text">4.4 消融实验</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E7%9A%84%E9%80%89%E6%8B%A9"><span class="toc-number">1.5.4.1.</span> <span class="toc-text">1. 损失函数的选择</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E6%8A%95%E5%BD%B1%E5%A4%B4%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-number">1.5.4.2.</span> <span class="toc-text">2. 投影头的作用</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E7%BB%93%E8%AE%BA%E4%B8%8E%E5%B1%80%E9%99%90"><span class="toc-number">1.6.</span> <span class="toc-text">5. 结论与局限</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-%E7%BB%93%E8%AE%BA"><span class="toc-number">1.6.1.</span> <span class="toc-text">5.1 结论</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-%E5%B1%80%E9%99%90%E6%80%A7"><span class="toc-number">1.6.2.</span> <span class="toc-text">5.2 局限性</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/07/31/From%20Events%20to%20Clarity%20The%20Event-Guided%20Diffusion%20Framework%20for%20Dehazing/" title="[论文阅读]From Events to Clarity: The Event-Guided Diffusion Framework for Dehazing"><img src="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/blog_migration/1785641714220_image.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="[论文阅读]From Events to Clarity: The Event-Guided Diffusion Framework for Dehazing"/></a><div class="content"><a class="title" href="/2026/07/31/From%20Events%20to%20Clarity%20The%20Event-Guided%20Diffusion%20Framework%20for%20Dehazing/" title="[论文阅读]From Events to Clarity: The Event-Guided Diffusion Framework for Dehazing">[论文阅读]From Events to Clarity: The Event-Guided Diffusion Framework for Dehazing</a><time datetime="2026-07-31T02:00:00.000Z" title="Created 2026-07-31 10:00:00">2026-07-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/07/23/Generative%20Image%20Layer%20Decomposition%20with%20Visual%20Effects/" title="[论文阅读]Generative Image Layer Decomposition with Visual Effects"><img src="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/blog_migration/1785640519937_image.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="[论文阅读]Generative Image Layer Decomposition with Visual Effects"/></a><div class="content"><a class="title" href="/2026/07/23/Generative%20Image%20Layer%20Decomposition%20with%20Visual%20Effects/" title="[论文阅读]Generative Image Layer Decomposition with Visual Effects">[论文阅读]Generative Image Layer Decomposition with Visual Effects</a><time datetime="2026-07-23T02:00:00.000Z" title="Created 2026-07-23 10:00:00">2026-07-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/07/16/CleanDIFT/" title="[论文阅读]CleanDIFT: Diffusion Features without Noise"><img src="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/blog_migration/1785639956268_image.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="[论文阅读]CleanDIFT: Diffusion Features without Noise"/></a><div class="content"><a class="title" href="/2026/07/16/CleanDIFT/" title="[论文阅读]CleanDIFT: Diffusion Features without Noise">[论文阅读]CleanDIFT: Diffusion Features without Noise</a><time datetime="2026-07-16T02:00:00.000Z" title="Created 2026-07-16 10:00:00">2026-07-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/07/09/FlipSketch/" title="[论文阅读]FlipSketch: Flipping Static Drawings to Text-Guided Sketch Animations"><img src="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/blog_migration/1785639900351_image.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="[论文阅读]FlipSketch: Flipping Static Drawings to Text-Guided Sketch Animations"/></a><div class="content"><a class="title" href="/2026/07/09/FlipSketch/" title="[论文阅读]FlipSketch: Flipping Static Drawings to Text-Guided Sketch Animations">[论文阅读]FlipSketch: Flipping Static Drawings to Text-Guided Sketch Animations</a><time datetime="2026-07-09T02:00:00.000Z" title="Created 2026-07-09 10:00:00">2026-07-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/06/26/AnchorFlow/" title="[论文阅读]AnchorFlow: Editable SVG Reconstruction via Sparse  Anchor Point Fields"><img src="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/blog_migration/1782649234928_image.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="[论文阅读]AnchorFlow: Editable SVG Reconstruction via Sparse  Anchor Point Fields"/></a><div class="content"><a class="title" href="/2026/06/26/AnchorFlow/" title="[论文阅读]AnchorFlow: Editable SVG Reconstruction via Sparse  Anchor Point Fields">[论文阅读]AnchorFlow: Editable SVG Reconstruction via Sparse  Anchor Point Fields</a><time datetime="2026-06-26T02:09:00.000Z" title="Created 2026-06-26 10:09:00">2026-06-26</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://blog-imgsave.oss-cn-beijing.aliyuncs.com/blog_migration/1785639956268_image.png')"><div id="footer-wrap"><div class="copyright">&copy;2024 - 2026 By Kirinofans</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="Toggle Between Traditional Chinese And Simplified Chinese">简</button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="Scroll To Comments"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="/js/tw_cn.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@5.2.0/instantpage.min.js" type="module"></script><div class="js-pjax"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/copy-tex.min.js"></script><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script><script>(() => {
+  const initValine = () => {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'ZL8DCahd3ViJJ9ZWHgge2XtW-gzGzoHsz',
+      appKey: '9gNuf0jHBKsRO9p11UZuNrGS',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  const loadValine = async () => {
+    if (typeof Valine === 'function') initValine()
+    else {
+      await getScript('https://cdn.jsdelivr.net/npm/valine@1.5.1/dist/Valine.min.js')
+      initValine()
+    }
+  }
+
+  if ('Valine' === 'Valine' || !true) {
+    if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+    else setTimeout(loadValine, 0)
+  } else {
+    window.loadOtherComment = loadValine
+  }
+})()</script></div><script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.19.0/js/md5.min.js"></script><script>window.addEventListener('load', () => {
+  const changeContent = (content) => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[image]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[link]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[code]') // replace code
+    content = content.replace(/<[^>]+>/g,"") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0,150) + '...'
+    }
+    return content
+  }
+
+  const getIcon = (icon, mail) => {
+    if (icon) return icon
+    let defaultIcon = '?d=monsterid'
+    let iconUrl = `https://gravatar.loli.net/avatar/${md5(mail.toLowerCase()) + defaultIcon}`
+    return iconUrl
+  }
+
+  const generateHtml = array => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class=\'aside-list-item\'>'
+
+        if (true) {
+          const name = 'src'
+          result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'></a>`
+        }
+
+        result += `<div class='content'>
+        <a class='comment' href='${array[i].url}' title='${array[i].content}'>${array[i].content}</a>
+        <div class='name'><span>${array[i].nick} / </span><time datetime="${array[i].date}">${btf.diffDate(array[i].date, true)}</time></div>
+        </div></div>`
+      }
+    } else {
+      result += 'No comments'
+    }
+
+    let $dom = document.querySelector('#card-newest-comments .aside-list')
+    $dom && ($dom.innerHTML= result)
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh($dom)
+  }
+
+  const getComment = () => {
+    const serverURL = 'https://ZL8DCahd.api.lncldglobal.com'
+
+    var settings = {
+      "method": "GET",
+      "headers": {
+        "X-LC-Id": 'ZL8DCahd3ViJJ9ZWHgge2XtW-gzGzoHsz',
+        "X-LC-Key": '9gNuf0jHBKsRO9p11UZuNrGS',
+        "Content-Type": "application/json"
+      },
+    }
+
+    fetch(`${serverURL}/1.1/classes/Comment?limit=6&order=-createdAt`,settings)
+      .then(response => response.json())
+      .then(data => {
+        const valineArray = data.results.map(function (e) {
+          return {
+            'avatar': getIcon(e.QQAvatar, e.mail),
+            'content': changeContent(e.comment),
+            'nick': e.nick,
+            'url': e.url + '#' + e.objectId,
+            'date': e.updatedAt,
+          }
+        })
+        saveToLocal.set('valine-newest-comments', JSON.stringify(valineArray), 10/(60*24))
+        generateHtml(valineArray)
+      }).catch(e => {
+        const $dom = document.querySelector('#card-newest-comments .aside-list')
+        $dom.textContent= "Unable to retrieve comments, please check the configuration"
+      }) 
+  }
+
+  const newestCommentInit = () => {
+    if (document.querySelector('#card-newest-comments .aside-list')) {
+      const data = saveToLocal.get('valine-newest-comments')
+      if (data) {
+        generateHtml(JSON.parse(data))
+      } else {
+        getComment()
+      }
+    }
+  }
+
+  newestCommentInit()
+  document.addEventListener('pjax:complete', newestCommentInit)
+})</script><script defer src="https://npm.elemecdn.com/jquery@latest/dist/jquery.min.js"></script><script data-pjax defer src="https://npm.elemecdn.com/tzy-blog/lib/js/theme/chocolate.js"></script><div class="aplayer no-destroy" data-id="60198" data-server="netease" data-type="playlist" data-fixed="true" data-autoplay="true"> </div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="false"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/canvas-fluttering-ribbon.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/click-show-text.min.js" data-mobile="false" data-text="桐乃,一抹多,Kirino" data-fontsize="15px" data-random="false" async="async"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener
+  btf.removeGlobalFnEvent('pjax')
+  btf.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"dialog":{"hitokoto":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/"});</script></body></html>
