@@ -1,0 +1,479 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>[论文阅读] CaricHarmony: Contrastive Diffusion Paths for Identity-Preserving Caricature  Synthesis | Kirinofans的博客</title><meta name="author" content="Kirinofans"><meta name="copyright" content="Kirinofans"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="[论文笔记] CaricHarmony：免训练的漫画肖像生成中身份-形状冲突协调 paper: CaricHarmony Subjects: Computer Vision and Pattern Recognition (cs.CV) 摘要  漫画肖像（Caricature）生成要求模型同时满足两个看似矛盾的目标：保留人物的身份特征（保真），同时按照手绘草图进行形状夸张（夸张）。本文提出 Car">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[论文阅读] CaricHarmony: Contrastive Diffusion Paths for Identity-Preserving Caricature  Synthesis">
+<meta property="og:url" content="http://example.com/2026/08/14/CaricHarmony/index.html">
+<meta property="og:site_name" content="Kirinofans的博客">
+<meta property="og:description" content="[论文笔记] CaricHarmony：免训练的漫画肖像生成中身份-形状冲突协调 paper: CaricHarmony Subjects: Computer Vision and Pattern Recognition (cs.CV) 摘要  漫画肖像（Caricature）生成要求模型同时满足两个看似矛盾的目标：保留人物的身份特征（保真），同时按照手绘草图进行形状夸张（夸张）。本文提出 Car">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/911rebuild/1789117129973_image.png">
+<meta property="article:published_time" content="2026-08-14T02:00:00.000Z">
+<meta property="article:modified_time" content="2026-09-11T09:09:11.000Z">
+<meta property="article:author" content="Kirinofans">
+<meta property="article:tag" content="论文阅读">
+<meta property="article:tag" content="Diffusion Model">
+<meta property="article:tag" content="Caricature Generation">
+<meta property="article:tag" content="Training-Free">
+<meta property="article:tag" content="Identity Preservation">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/911rebuild/1789117129973_image.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2026/08/14/CaricHarmony/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: {"defaultEncoding":1,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Error',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: 'days',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '[论文阅读] CaricHarmony: Contrastive Diffusion Paths for Identity-Preserving Caricature  Synthesis',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2026-09-11 17:09:11'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/transpancy.css"><meta name="generator" content="Hexo 7.3.0"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">Loading...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load',() => { preloader.endLoading() })
+
+  if (true) {
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+  }
+})()</script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/profile.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">43</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">94</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/chat/"><i class="fa-fw fas fa-comments"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://blog-imgsave.oss-cn-beijing.aliyuncs.com/911rebuild/1789117129973_image.png')"><nav id="nav"><span id="blog-info"><a href="/" title="Kirinofans的博客"><img class="site-icon" src="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/blog_migration/cfg_009frmRQly1ibks87f20wj306c06cjry.jpg"/><span class="site-name">Kirinofans的博客</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/chat/"><i class="fa-fw fas fa-comments"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">[论文阅读] CaricHarmony: Contrastive Diffusion Paths for Identity-Preserving Caricature  Synthesis</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2026-08-14T02:00:00.000Z" title="Created 2026-08-14 10:00:00">2026-08-14</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2026-09-11T09:09:11.000Z" title="Updated 2026-09-11 17:09:11">2026-09-11</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/paper/">paper</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word Count:</span><span class="word-count">2.5k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading Time:</span><span>7mins</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="[论文阅读] CaricHarmony: Contrastive Diffusion Paths for Identity-Preserving Caricature  Synthesis"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="论文笔记-caricharmony：免训练的漫画肖像生成中身份-形状冲突协调">[论文笔记] CaricHarmony：免训练的漫画肖像生成中身份-形状冲突协调</h1>
+<p>paper: <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2606.13964">CaricHarmony</a><br>
+Subjects: <strong>Computer Vision and Pattern Recognition (<a target="_blank" rel="noopener" href="http://cs.CV">cs.CV</a>)</strong></p>
+<h2 id="摘要">摘要</h2>
+<p><img src="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/911rebuild/1789117129973_image.png" alt="图0"><br>
+漫画肖像（Caricature）生成要求模型同时满足两个看似矛盾的目标：保留人物的身份特征（保真），同时按照手绘草图进行形状夸张（夸张）。本文提出 CaricHarmony，一种免训练的漫画肖像合成框架，通过设计作用于扩散中间特征的专用对齐机制，显式处理身份-形状冲突，实现保真与夸张的动态平衡。该方法的核心思路是构建两条对比路径——纯身份路径和融合主路径，并设计定制化的能量函数，为模型提供关于偏离身份或形状条件程度的额外信息，通过梯度引导修正去噪方向，推动模型在协调二者之间达成平衡。实验表明，CaricHarmony 不仅可以保持高身份保真度，还能保留手绘草图所定义的形状夸张效果，在多项指标上显著优于现有方法。</p>
+<hr>
+<h2 id="1-研究背景与挑战">1. 研究背景与挑战</h2>
+<h3 id="1-1-研究动机">1.1 研究动机</h3>
+<p>漫画肖像生成是计算机视觉与图形学交叉领域的一个重要研究方向，其目标是根据输入的人物照片和夸张草图，生成既保留人物身份特征、又符合草图所定义夸张形状的漫画风格肖像。这一任务在娱乐应用、数字艺术创作、个性化头像生成等场景中具有广泛需求。</p>
+<h3 id="1-2-核心难点">1.2 核心难点</h3>
+<p>漫画肖像生成面临的核心挑战在于<strong>保真与夸张之间的内在冲突</strong>。从扩散模型的概率视角来看，在去噪空间内，身份区域和形状区域的概率密度远高于中间平衡区域——也就是说，模型在去噪过程中天然倾向于要么完全偏向身份保真（忽略夸张形状），要么完全偏向形状跟随（丢失身份特征），而两者之间的平衡点极难达到。</p>
+<p><img src="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/911rebuild/1789117263729_image.png" alt="图1 去噪空间中身份区域与形状区域的概率密度分布示意"></p>
+<p>具体而言，这一冲突体现在：</p>
+<ul>
+<li>当模型过度关注身份条件时，生成的图像虽然保留了人物特征，但忽略了草图中定义的夸张变形；</li>
+<li>当模型过度关注形状条件时，生成的图像虽然符合草图轮廓，但人物身份特征严重丢失；</li>
+<li>两者之间的平衡区域在概率空间中占比极小，模型难以自发找到。</li>
+</ul>
+<h3 id="1-3-本文贡献">1.3 本文贡献</h3>
+<p>针对上述挑战，本文的核心贡献为：</p>
+<ul>
+<li><strong>设计了作用于扩散中间特征的专用对齐机制</strong>，构建一套完全免训练的方案，无需对预训练扩散模型进行任何微调或额外训练。</li>
+<li>通过双路径对比和能量函数引导，实现身份保留和形状夸张的动态可控调节。</li>
+</ul>
+<hr>
+<h2 id="2-相关工作">2. 相关工作</h2>
+<h3 id="2-1-现有漫画生成方法的不足">2.1 现有漫画生成方法的不足</h3>
+<p>现有漫画肖像生成方法存在以下局限：</p>
+<ol>
+<li><strong>早期 GAN 类方法</strong>：仅在输入条件上无格式限制，但生成质量有限，且难以同时兼顾身份保真和形状夸张。</li>
+<li><strong>DemoCaricature</strong>：每个新身份都需要约 70 秒的逐样本微调，无法实现即时生成，实用性受限。</li>
+<li><strong>CaricatureBooth</strong>：不免训练，需要针对特定数据集进行模型训练，泛化能力有限。</li>
+</ol>
+<p><img src="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/911rebuild/1789117297150_image.png" alt="图2 相关工作在免训练、可控生成、自由形式条件上的对比"></p>
+<h3 id="2-2-免训练身份注入方案">2.2 免训练身份注入方案</h3>
+<p><strong>IP-Adapter</strong> 与 <strong>PuLID</strong> 是两种典型的免训练人脸身份注入方案：</p>
+<ul>
+<li><strong>IP-Adapter</strong>：通过新增交叉注意力层，将身份特征转化为键值矩阵，和文本条件并行注入扩散模型，实现免训练的身份保持生成。</li>
+<li><strong>PuLID</strong>：在 IP-Adapter 的基础上结合对比对齐机制，进一步提升身份特征的注入精度和保真度。</li>
+</ul>
+<h3 id="2-3-空间条件控制">2.3 空间条件控制</h3>
+<p><strong>T2I Adapter</strong> 是一个即插即用的空间条件控制工具，能够将草图、边缘图、深度图这类空间条件编码成多尺度特征，直接叠加到 UNet 编码器的对应层级，实现对生成图像的精准空间控制。</p>
+<p>本文方法正是建立在上述免训练身份注入和空间条件控制的基础之上，通过创新的对齐机制将两者有机融合。</p>
+<hr>
+<h2 id="3-方法架构">3. 方法架构</h2>
+<h3 id="3-1-双路径设计">3.1 双路径设计</h3>
+<p>CaricHarmony 的核心设计是构建两条对比路径，分别代表&quot;纯身份&quot;和&quot;身份+形状融合&quot;两种生成模式：</p>
+<ul>
+<li><strong>纯身份路径 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>P</mi><mi>i</mi></msup></mrow><annotation encoding="application/x-tex">P^i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.824664em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.824664em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span></span></span></span></span></span></span></span></strong>：仅输入身份条件 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>C</mi><mrow><mi>i</mi><mi>d</mi></mrow></msub></mrow><annotation encoding="application/x-tex">C_{id}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mord mathdefault mtight">d</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> + 文本提示 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>C</mi><mrow><mi>t</mi><mi>x</mi><mi>t</mi></mrow></msub></mrow><annotation encoding="application/x-tex">C_{txt}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">t</span><span class="mord mathdefault mtight">x</span><span class="mord mathdefault mtight">t</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>，不输入形状条件。该路径代表&quot;完全保真、不做夸张&quot;的生成方向。</li>
+<li><strong>融合主路径 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>P</mi><mrow><mi>i</mi><mo>+</mo><mi>s</mi></mrow></msup></mrow><annotation encoding="application/x-tex">P^{i+s}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.824664em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.824664em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mbin mtight">+</span><span class="mord mathdefault mtight">s</span></span></span></span></span></span></span></span></span></span></span></span></strong>：同时输入 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>C</mi><mrow><mi>i</mi><mi>d</mi></mrow></msub><mo>+</mo><msub><mi>C</mi><mi>s</mi></msub><mo>+</mo><msub><mi>C</mi><mrow><mi>t</mi><mi>x</mi><mi>t</mi></mrow></msub></mrow><annotation encoding="application/x-tex">C_{id} + C_s + C_{txt}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mord mathdefault mtight">d</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">s</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">t</span><span class="mord mathdefault mtight">x</span><span class="mord mathdefault mtight">t</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 三类条件（身份条件、形状条件、文本条件）。该路径是实际生成图像的主路径，需要同时兼顾身份和形状。</li>
+</ul>
+<p><img src="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/911rebuild/1789117321070_image.png" alt="图3 双路径设计整体架构"></p>
+<h3 id="3-2-激活区间设计">3.2 激活区间设计</h3>
+<p>为了在去噪过程的不同阶段分别侧重形状和身份的引导，论文设计了时间步相关的激活区间：</p>
+<ul>
+<li><strong>形状引导激活区间</strong>：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>∈</mo><mo stretchy="false">[</mo><mn>1000</mn><mo separator="true">,</mo><mn>700</mn><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">t \in [1000, 700]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65418em;vertical-align:-0.0391em;"></span><span class="mord mathdefault">t</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord">1</span><span class="mord">0</span><span class="mord">0</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">7</span><span class="mord">0</span><span class="mord">0</span><span class="mclose">]</span></span></span></span>，即在去噪早期（噪声较大时）侧重形状对齐，因为此阶段主要决定图像的全局结构和布局。</li>
+<li><strong>身份引导激活区间</strong>：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>∈</mo><mo stretchy="false">[</mo><mn>900</mn><mo separator="true">,</mo><mn>400</mn><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">t \in [900, 400]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65418em;vertical-align:-0.0391em;"></span><span class="mord mathdefault">t</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord">9</span><span class="mord">0</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">4</span><span class="mord">0</span><span class="mord">0</span><span class="mclose">]</span></span></span></span>，即在去噪中后期侧重身份对齐，因为此阶段主要决定图像的细节纹理和身份特征。</li>
+</ul>
+<p><strong>关键规则</strong>：不在激活区间时，对应能量项为 0，不提供梯度引导。这确保了每种引导只在最合适的时间步发挥作用，避免相互干扰。</p>
+<h3 id="3-3-融合主路径前向过程">3.3 融合主路径前向过程</h3>
+<p>融合主路径的执行流程如下：</p>
+<ol>
+<li>用 UNet 去噪网络分别计算<strong>带条件的噪声预测</strong>和<strong>不带条件的噪声预测</strong>（用于 CFG）。</li>
+<li><strong>缓存</strong>这一步 UNet 内部的查询 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Q</mi></mrow><annotation encoding="application/x-tex">Q</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">Q</span></span></span></span>、文本键 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi></mrow><annotation encoding="application/x-tex">K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">K</span></span></span></span>、身份注意力输出 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi></mrow><annotation encoding="application/x-tex">O</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span></span></span></span>，供后续能量计算使用。</li>
+<li>第二步输入形状 + 文本条件，执行一步 DDIM 采样；输出形状路径下一步隐变量和形状路径的查询矩阵 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Q</mi></mrow><annotation encoding="application/x-tex">Q</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">Q</span></span></span></span>。</li>
+</ol>
+<h3 id="3-4-形状能量计算">3.4 形状能量计算</h3>
+<p>形状能量 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>E</mi><mtext>layout</mtext></msub></mrow><annotation encoding="application/x-tex">E_{\text{layout}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05764em;">E</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361079999999999em;"><span style="top:-2.5500000000000003em;margin-left:-0.05764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">layout</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span> 的计算方式为：按形状和主路径网格位置计算加权 L2 距离，其中<strong>笔画区域权重更高</strong>。这意味着模型在草图笔画经过的区域会受到更强的形状约束，确保夸张轮廓被准确遵循。</p>
+<p>此外，还引入<strong>语义一致性</strong>约束：对比两条路径下查询特征对文本键的注意力分布差异，确保形状引导不会破坏文本语义的一致性。</p>
+<h3 id="3-5-纯身份路径前向采样">3.5 纯身份路径前向采样</h3>
+<p>纯身份路径的执行流程为：</p>
+<ol>
+<li>身份经 PuLID 编码器提取身份条件，结合文本条件，执行一步带 CFG 的 DDIM 采样，完成一次去噪更新。</li>
+<li>得到身份路径的交叉注意力查询矩阵 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>Q</mi><mi>i</mi></msup></mrow><annotation encoding="application/x-tex">Q^i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.019104em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">Q</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.824664em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span></span></span></span></span></span></span></span>、身份注意力输出 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>O</mi><mi>i</mi></msup></mrow><annotation encoding="application/x-tex">O^i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.824664em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.824664em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span></span></span></span></span></span></span></span>。</li>
+</ol>
+<h3 id="3-6-身份能量计算">3.6 身份能量计算</h3>
+<p>身份能量的计算采用<strong>语义匹配 + 特征对齐</strong>的策略：</p>
+<ol>
+<li>对主路径每个查询 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>q</mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">q_j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.716668em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">q</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>，在 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>Q</mi><mi>i</mi></msup></mrow><annotation encoding="application/x-tex">Q^i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.019104em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">Q</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.824664em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span></span></span></span></span></span></span></span> 中通过<strong>余弦相似度</strong>检索出语义最匹配的 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>q</mi><mi>k</mi><mi>i</mi></msubsup></mrow><annotation encoding="application/x-tex">q_k^i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1077719999999998em;vertical-align:-0.2831079999999999em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">q</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.824664em;"><span style="top:-2.4168920000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2831079999999999em;"><span></span></span></span></span></span></span></span></span></span>。</li>
+<li>计算主路径输出 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>o</mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">o_j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.716668em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault">o</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span> 与对应身份输出 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>o</mi><mi>k</mi><mi>i</mi></msubsup></mrow><annotation encoding="application/x-tex">o_k^i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1077719999999998em;vertical-align:-0.2831079999999999em;"></span><span class="mord"><span class="mord mathdefault">o</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.824664em;"><span style="top:-2.4168920000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2831079999999999em;"><span></span></span></span></span></span></span></span></span></span> 的加权 L2 距离，作为身份能量。</li>
+</ol>
+<p>这一设计确保了主路径在语义对应的位置上尽可能保留身份特征，而非简单地进行全局对齐。</p>
+<h3 id="3-7-梯度引导与迭代修正">3.7 梯度引导与迭代修正</h3>
+<p>将身份能量和形状能量的梯度乘以引导强度 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>η</mi></mrow><annotation encoding="application/x-tex">\eta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">η</span></span></span></span>，叠加到基础噪声预测上，修正去噪方向：</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover accent="true"><mi>ϵ</mi><mo>^</mo></mover><mo>=</mo><msub><mi>ϵ</mi><mtext>base</mtext></msub><mo>+</mo><msub><mi>η</mi><mi>s</mi></msub><mi mathvariant="normal">∇</mi><msub><mi>E</mi><mtext>layout</mtext></msub><mo>+</mo><msub><mi>η</mi><mi>i</mi></msub><mi mathvariant="normal">∇</mi><msub><mi>E</mi><mtext>identity</mtext></msub></mrow><annotation encoding="application/x-tex">\hat{\epsilon} = \epsilon_{\text{base}} + \eta_s \nabla E_{\text{layout}} + \eta_i \nabla E_{\text{identity}}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.69444em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">ϵ</span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.19444em;"><span class="mord">^</span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.73333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">ϵ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">base</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">η</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">s</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord">∇</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05764em;">E</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361079999999999em;"><span style="top:-2.5500000000000003em;margin-left:-0.05764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">layout</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">η</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord">∇</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05764em;">E</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361079999999999em;"><span style="top:-2.5500000000000003em;margin-left:-0.05764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">identity</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span></span></p>
+<p>整个对齐过程遵循&quot;<strong>对齐 → 算能量 → 修正 → 更新</strong>&quot;的循环，在每个时间步迭代 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span></span></span></span> 次，逐步将生成结果拉向身份与形状的平衡点。</p>
+<p><img src="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/911rebuild/1789117377719_image.png" alt="图5 梯度引导与迭代修正流程"></p>
+<hr>
+<h2 id="4-实验结果分析">4. 实验结果分析</h2>
+<h3 id="4-0-部分结果展示">4.0 部分结果展示</h3>
+<p><img src="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/911rebuild/1789117472407_image.png" alt=""></p>
+<h3 id="4-1-能量权重调节">4.1 能量权重调节</h3>
+<p>论文通过调整两类能量（身份能量和形状能量）的权重系数，验证了模型对保真-夸张平衡的可控性。增大身份能量权重时，生成结果更偏向保真；增大形状能量权重时，生成结果更偏向夸张。用户可根据需求灵活调节。</p>
+<p><img src="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/911rebuild/1789117437526_image.png" alt="图6 不同能量权重系数下的生成效果对比"></p>
+<h3 id="4-2-不同夸张程度的草图">4.2 不同夸张程度的草图</h3>
+<p>论文还测试了使用不同夸张程度的草图作为形状条件时的生成效果。结果表明，无论草图的夸张程度如何，CaricHarmony 都能在保持身份可识别性的前提下，准确跟随草图定义的形状变形。</p>
+<p><img src="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/911rebuild/1789117420694_image.png" alt="图7 不同夸张程度草图下的生成效果"></p>
+<hr>
+<h2 id="5-结论">5. 结论</h2>
+<p>我们提出了一种 caricature 合成模型，通过显式处理身份-形状冲突实现了显著的性能提升。该方法的核心是一个<strong>无需训练的框架</strong>，它将交叉注意力机制中的隐藏特征与两条对比路径的特征进行对齐，从而实现对身份保留和形状夸张的动态控制。我们设计了定制化的能量函数，为模型提供关于偏离身份或形状条件程度的额外信息，推动模型在协调二者之间达成平衡。该方法不仅可以保持高身份保真度，还能保留手绘草图所定义的形状夸张效果，为漫画肖像生成提供了一种高效、灵活、免训练的全新解决方案。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="http://example.com">Kirinofans</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a target="_blank" rel="noopener" href="https://kirinofans.github.io">https://kirinofans.github.io</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">本部落格所有文章除特别声明外，均採用 CC BY-NC-SA 4.0 许可协议。转载请注明来自 Kirinofans！本文引用图表仅用于个人学习与学术总结，版权归原作者及出版机构所有，非商业使用。</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">论文阅读</a><a class="post-meta__tags" href="/tags/Diffusion-Model/">Diffusion Model</a><a class="post-meta__tags" href="/tags/Caricature-Generation/">Caricature Generation</a><a class="post-meta__tags" href="/tags/Training-Free/">Training-Free</a><a class="post-meta__tags" href="/tags/Identity-Preservation/">Identity Preservation</a></div><div class="post_share"><div class="social-share" data-image="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/911rebuild/1789117129973_image.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2026/08/21/ImageRAGTurbo/" title="[论文阅读] ImageRAGTurbo: Towards One-step Text-to-Image Generation with Retrieval-Augmented Diffusion Models"><img class="cover" src="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/911rebuild/1789117909438_image.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous</div><div class="prev_info">[论文阅读] ImageRAGTurbo: Towards One-step Text-to-Image Generation with Retrieval-Augmented Diffusion Models</div></div></a></div><div class="next-post pull-right"><a href="/2026/08/07/NeuralOS/" title="[论文阅读] NeuralOS: Towards Simulating Operating Systems via Neural Generative Models"><img class="cover" src="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/911rebuild/1789116325642_image.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next</div><div class="next_info">[论文阅读] NeuralOS: Towards Simulating Operating Systems via Neural Generative Models</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2026/06/26/AnchorFlow/" title="[论文阅读]AnchorFlow: Editable SVG Reconstruction via Sparse  Anchor Point Fields"><img class="cover" src="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/blog_migration/1782649234928_image.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-06-26</div><div class="title">[论文阅读]AnchorFlow: Editable SVG Reconstruction via Sparse  Anchor Point Fields</div></div></a></div><div><a href="/2026/03/18/Chat2SVG/" title="[论文阅读]Chat2SVG:Vector Graphics Generation with Large Language Models and Image Diffusion Models"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-03-18</div><div class="title">[论文阅读]Chat2SVG:Vector Graphics Generation with Large Language Models and Image Diffusion Models</div></div></a></div><div><a href="/2026/07/16/CleanDIFT/" title="[论文阅读]CleanDIFT: Diffusion Features without Noise"><img class="cover" src="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/blog_migration/1785639956268_image.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-07-16</div><div class="title">[论文阅读]CleanDIFT: Diffusion Features without Noise</div></div></a></div><div><a href="/2026/07/09/FlipSketch/" title="[论文阅读]FlipSketch: Flipping Static Drawings to Text-Guided Sketch Animations"><img class="cover" src="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/blog_migration/1785639900351_image.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-07-09</div><div class="title">[论文阅读]FlipSketch: Flipping Static Drawings to Text-Guided Sketch Animations</div></div></a></div><div><a href="/2026/04/23/DirectInversion/" title="[论文阅读]Direct Inversion: Boosting Diffusion-based Editing with 3 Lines of Code"><img class="cover" src="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/blog_migration/e5ec42e8e46cd9941383aab361c50f0c.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-04-23</div><div class="title">[论文阅读]Direct Inversion: Boosting Diffusion-based Editing with 3 Lines of Code</div></div></a></div><div><a href="/2025/12/14/IP-Composer/" title="[论文阅读]IP-Composer: Semantic Composition of Visual Concepts"><img class="cover" src="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/blog_migration/1776936271_009frmRQly1iblnfhowiaj30ok0d1n75.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-12-14</div><div class="title">[论文阅读]IP-Composer: Semantic Composition of Visual Concepts</div></div></a></div></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> Comment</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/profile.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Kirinofans</div><div class="author-info__description">献给喜欢桐乃的朋友们</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">43</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">94</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/kirinofans"><i class="fab fa-github"></i><span>别点我！kimo</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/kirinofans" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:2867105717@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #000000;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">高坂桐乃天下第一可爱</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-caricharmony%EF%BC%9A%E5%85%8D%E8%AE%AD%E7%BB%83%E7%9A%84%E6%BC%AB%E7%94%BB%E8%82%96%E5%83%8F%E7%94%9F%E6%88%90%E4%B8%AD%E8%BA%AB%E4%BB%BD-%E5%BD%A2%E7%8A%B6%E5%86%B2%E7%AA%81%E5%8D%8F%E8%B0%83"><span class="toc-number">1.</span> <span class="toc-text">[论文笔记] CaricHarmony：免训练的漫画肖像生成中身份-形状冲突协调</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%91%98%E8%A6%81"><span class="toc-number">1.1.</span> <span class="toc-text">摘要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E7%A0%94%E7%A9%B6%E8%83%8C%E6%99%AF%E4%B8%8E%E6%8C%91%E6%88%98"><span class="toc-number">1.2.</span> <span class="toc-text">1. 研究背景与挑战</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E7%A0%94%E7%A9%B6%E5%8A%A8%E6%9C%BA"><span class="toc-number">1.2.1.</span> <span class="toc-text">1.1 研究动机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E6%A0%B8%E5%BF%83%E9%9A%BE%E7%82%B9"><span class="toc-number">1.2.2.</span> <span class="toc-text">1.2 核心难点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-%E6%9C%AC%E6%96%87%E8%B4%A1%E7%8C%AE"><span class="toc-number">1.2.3.</span> <span class="toc-text">1.3 本文贡献</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E7%9B%B8%E5%85%B3%E5%B7%A5%E4%BD%9C"><span class="toc-number">1.3.</span> <span class="toc-text">2. 相关工作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E7%8E%B0%E6%9C%89%E6%BC%AB%E7%94%BB%E7%94%9F%E6%88%90%E6%96%B9%E6%B3%95%E7%9A%84%E4%B8%8D%E8%B6%B3"><span class="toc-number">1.3.1.</span> <span class="toc-text">2.1 现有漫画生成方法的不足</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E5%85%8D%E8%AE%AD%E7%BB%83%E8%BA%AB%E4%BB%BD%E6%B3%A8%E5%85%A5%E6%96%B9%E6%A1%88"><span class="toc-number">1.3.2.</span> <span class="toc-text">2.2 免训练身份注入方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E7%A9%BA%E9%97%B4%E6%9D%A1%E4%BB%B6%E6%8E%A7%E5%88%B6"><span class="toc-number">1.3.3.</span> <span class="toc-text">2.3 空间条件控制</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%96%B9%E6%B3%95%E6%9E%B6%E6%9E%84"><span class="toc-number">1.4.</span> <span class="toc-text">3. 方法架构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E5%8F%8C%E8%B7%AF%E5%BE%84%E8%AE%BE%E8%AE%A1"><span class="toc-number">1.4.1.</span> <span class="toc-text">3.1 双路径设计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E6%BF%80%E6%B4%BB%E5%8C%BA%E9%97%B4%E8%AE%BE%E8%AE%A1"><span class="toc-number">1.4.2.</span> <span class="toc-text">3.2 激活区间设计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-%E8%9E%8D%E5%90%88%E4%B8%BB%E8%B7%AF%E5%BE%84%E5%89%8D%E5%90%91%E8%BF%87%E7%A8%8B"><span class="toc-number">1.4.3.</span> <span class="toc-text">3.3 融合主路径前向过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-%E5%BD%A2%E7%8A%B6%E8%83%BD%E9%87%8F%E8%AE%A1%E7%AE%97"><span class="toc-number">1.4.4.</span> <span class="toc-text">3.4 形状能量计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-%E7%BA%AF%E8%BA%AB%E4%BB%BD%E8%B7%AF%E5%BE%84%E5%89%8D%E5%90%91%E9%87%87%E6%A0%B7"><span class="toc-number">1.4.5.</span> <span class="toc-text">3.5 纯身份路径前向采样</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-6-%E8%BA%AB%E4%BB%BD%E8%83%BD%E9%87%8F%E8%AE%A1%E7%AE%97"><span class="toc-number">1.4.6.</span> <span class="toc-text">3.6 身份能量计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-7-%E6%A2%AF%E5%BA%A6%E5%BC%95%E5%AF%BC%E4%B8%8E%E8%BF%AD%E4%BB%A3%E4%BF%AE%E6%AD%A3"><span class="toc-number">1.4.7.</span> <span class="toc-text">3.7 梯度引导与迭代修正</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C%E5%88%86%E6%9E%90"><span class="toc-number">1.5.</span> <span class="toc-text">4. 实验结果分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-0-%E9%83%A8%E5%88%86%E7%BB%93%E6%9E%9C%E5%B1%95%E7%A4%BA"><span class="toc-number">1.5.1.</span> <span class="toc-text">4.0 部分结果展示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-%E8%83%BD%E9%87%8F%E6%9D%83%E9%87%8D%E8%B0%83%E8%8A%82"><span class="toc-number">1.5.2.</span> <span class="toc-text">4.1 能量权重调节</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-%E4%B8%8D%E5%90%8C%E5%A4%B8%E5%BC%A0%E7%A8%8B%E5%BA%A6%E7%9A%84%E8%8D%89%E5%9B%BE"><span class="toc-number">1.5.3.</span> <span class="toc-text">4.2 不同夸张程度的草图</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E7%BB%93%E8%AE%BA"><span class="toc-number">1.6.</span> <span class="toc-text">5. 结论</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/09/18/CoTyle%20Code-to-Style%20Image%20Generation/" title="[Paper Reading] A Style is Worth One Code: Unlocking Code-to-Style Image Generation with  Discrete Style Space"><img src="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/911rebuild/1789119414035_image.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="[Paper Reading] A Style is Worth One Code: Unlocking Code-to-Style Image Generation with  Discrete Style Space"/></a><div class="content"><a class="title" href="/2026/09/18/CoTyle%20Code-to-Style%20Image%20Generation/" title="[Paper Reading] A Style is Worth One Code: Unlocking Code-to-Style Image Generation with  Discrete Style Space">[Paper Reading] A Style is Worth One Code: Unlocking Code-to-Style Image Generation with  Discrete Style Space</a><time datetime="2026-09-18T02:00:00.000Z" title="Created 2026-09-18 10:00:00">2026-09-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/11/Universal_Normal_Embedding/" title="[论文阅读] The Universal Normal Embedding"><img src="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/911rebuild/1789118469860_image.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="[论文阅读] The Universal Normal Embedding"/></a><div class="content"><a class="title" href="/2026/09/11/Universal_Normal_Embedding/" title="[论文阅读] The Universal Normal Embedding">[论文阅读] The Universal Normal Embedding</a><time datetime="2026-09-11T02:00:00.000Z" title="Created 2026-09-11 10:00:00">2026-09-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/08/21/ImageRAGTurbo/" title="[论文阅读] ImageRAGTurbo: Towards One-step Text-to-Image Generation with Retrieval-Augmented Diffusion Models"><img src="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/911rebuild/1789117909438_image.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="[论文阅读] ImageRAGTurbo: Towards One-step Text-to-Image Generation with Retrieval-Augmented Diffusion Models"/></a><div class="content"><a class="title" href="/2026/08/21/ImageRAGTurbo/" title="[论文阅读] ImageRAGTurbo: Towards One-step Text-to-Image Generation with Retrieval-Augmented Diffusion Models">[论文阅读] ImageRAGTurbo: Towards One-step Text-to-Image Generation with Retrieval-Augmented Diffusion Models</a><time datetime="2026-08-21T02:00:00.000Z" title="Created 2026-08-21 10:00:00">2026-08-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/08/14/CaricHarmony/" title="[论文阅读] CaricHarmony: Contrastive Diffusion Paths for Identity-Preserving Caricature  Synthesis"><img src="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/911rebuild/1789117129973_image.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="[论文阅读] CaricHarmony: Contrastive Diffusion Paths for Identity-Preserving Caricature  Synthesis"/></a><div class="content"><a class="title" href="/2026/08/14/CaricHarmony/" title="[论文阅读] CaricHarmony: Contrastive Diffusion Paths for Identity-Preserving Caricature  Synthesis">[论文阅读] CaricHarmony: Contrastive Diffusion Paths for Identity-Preserving Caricature  Synthesis</a><time datetime="2026-08-14T02:00:00.000Z" title="Created 2026-08-14 10:00:00">2026-08-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/08/07/NeuralOS/" title="[论文阅读] NeuralOS: Towards Simulating Operating Systems via Neural Generative Models"><img src="https://blog-imgsave.oss-cn-beijing.aliyuncs.com/911rebuild/1789116325642_image.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="[论文阅读] NeuralOS: Towards Simulating Operating Systems via Neural Generative Models"/></a><div class="content"><a class="title" href="/2026/08/07/NeuralOS/" title="[论文阅读] NeuralOS: Towards Simulating Operating Systems via Neural Generative Models">[论文阅读] NeuralOS: Towards Simulating Operating Systems via Neural Generative Models</a><time datetime="2026-08-07T02:00:00.000Z" title="Created 2026-08-07 10:00:00">2026-08-07</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://blog-imgsave.oss-cn-beijing.aliyuncs.com/911rebuild/1789117129973_image.png')"><div id="footer-wrap"><div class="copyright">&copy;2024 - 2026 By Kirinofans</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="Toggle Between Traditional Chinese And Simplified Chinese">简</button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="Scroll To Comments"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="/js/tw_cn.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@5.2.0/instantpage.min.js" type="module"></script><div class="js-pjax"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/copy-tex.min.js"></script><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script><script>(() => {
+  const initValine = () => {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'ZL8DCahd3ViJJ9ZWHgge2XtW-gzGzoHsz',
+      appKey: '9gNuf0jHBKsRO9p11UZuNrGS',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  const loadValine = async () => {
+    if (typeof Valine === 'function') initValine()
+    else {
+      await getScript('https://cdn.jsdelivr.net/npm/valine@1.5.1/dist/Valine.min.js')
+      initValine()
+    }
+  }
+
+  if ('Valine' === 'Valine' || !true) {
+    if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+    else setTimeout(loadValine, 0)
+  } else {
+    window.loadOtherComment = loadValine
+  }
+})()</script></div><script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.19.0/js/md5.min.js"></script><script>window.addEventListener('load', () => {
+  const changeContent = (content) => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[image]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[link]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[code]') // replace code
+    content = content.replace(/<[^>]+>/g,"") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0,150) + '...'
+    }
+    return content
+  }
+
+  const getIcon = (icon, mail) => {
+    if (icon) return icon
+    let defaultIcon = '?d=monsterid'
+    let iconUrl = `https://gravatar.loli.net/avatar/${md5(mail.toLowerCase()) + defaultIcon}`
+    return iconUrl
+  }
+
+  const generateHtml = array => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class=\'aside-list-item\'>'
+
+        if (true) {
+          const name = 'src'
+          result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'></a>`
+        }
+
+        result += `<div class='content'>
+        <a class='comment' href='${array[i].url}' title='${array[i].content}'>${array[i].content}</a>
+        <div class='name'><span>${array[i].nick} / </span><time datetime="${array[i].date}">${btf.diffDate(array[i].date, true)}</time></div>
+        </div></div>`
+      }
+    } else {
+      result += 'No comments'
+    }
+
+    let $dom = document.querySelector('#card-newest-comments .aside-list')
+    $dom && ($dom.innerHTML= result)
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh($dom)
+  }
+
+  const getComment = () => {
+    const serverURL = 'https://ZL8DCahd.api.lncldglobal.com'
+
+    var settings = {
+      "method": "GET",
+      "headers": {
+        "X-LC-Id": 'ZL8DCahd3ViJJ9ZWHgge2XtW-gzGzoHsz',
+        "X-LC-Key": '9gNuf0jHBKsRO9p11UZuNrGS',
+        "Content-Type": "application/json"
+      },
+    }
+
+    fetch(`${serverURL}/1.1/classes/Comment?limit=6&order=-createdAt`,settings)
+      .then(response => response.json())
+      .then(data => {
+        const valineArray = data.results.map(function (e) {
+          return {
+            'avatar': getIcon(e.QQAvatar, e.mail),
+            'content': changeContent(e.comment),
+            'nick': e.nick,
+            'url': e.url + '#' + e.objectId,
+            'date': e.updatedAt,
+          }
+        })
+        saveToLocal.set('valine-newest-comments', JSON.stringify(valineArray), 10/(60*24))
+        generateHtml(valineArray)
+      }).catch(e => {
+        const $dom = document.querySelector('#card-newest-comments .aside-list')
+        $dom.textContent= "Unable to retrieve comments, please check the configuration"
+      }) 
+  }
+
+  const newestCommentInit = () => {
+    if (document.querySelector('#card-newest-comments .aside-list')) {
+      const data = saveToLocal.get('valine-newest-comments')
+      if (data) {
+        generateHtml(JSON.parse(data))
+      } else {
+        getComment()
+      }
+    }
+  }
+
+  newestCommentInit()
+  document.addEventListener('pjax:complete', newestCommentInit)
+})</script><script defer src="https://npm.elemecdn.com/jquery@latest/dist/jquery.min.js"></script><script data-pjax defer src="https://npm.elemecdn.com/tzy-blog/lib/js/theme/chocolate.js"></script><div class="aplayer no-destroy" data-id="60198" data-server="netease" data-type="playlist" data-fixed="true" data-autoplay="true"> </div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="false"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/canvas-fluttering-ribbon.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/click-show-text.min.js" data-mobile="false" data-text="桐乃,一抹多,Kirino" data-fontsize="15px" data-random="false" async="async"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener
+  btf.removeGlobalFnEvent('pjax')
+  btf.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"dialog":{"hitokoto":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/"});</script></body></html>
